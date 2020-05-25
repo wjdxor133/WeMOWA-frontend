@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap");
+
+/* common colors */
+$white: #fff;
+$beige: #f7f5f4;
+$darkGray: #424242;
+
+body {
+  font-family: "Work Sans", sans-serif;
+  font-size: 0.875rem;
+  color: $darkGray;
+  line-height: 1.5rem;
+}
