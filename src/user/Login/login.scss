@@ -1,0 +1,101 @@
+@import "../../styles/common.scss";
+
+body {
+  background: $beigeBg;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  background-color: $black;
+  color: $white;
+  text-transform: uppercase;
+  width: 100%;
+  border-radius: 0.375em;
+  padding: 1em;
+}
+
+/********* typography *********/
+h3 {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+/********* typography *********/
+
+.mainRow {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.login {
+  width: 50%;
+  background: rgb(230, 230, 230);
+}
+
+.loginBox,
+.signupBox {
+  text-align: center;
+  padding: 6em;
+}
+
+.signInForm {
+  width: 100%;
+}
+
+input {
+  width: 100%;
+  padding: 0.75em;
+}
+
+.signup {
+  width: 50%;
+  background: rgb(237, 238, 212);
+}
+
+.pitchLine {
+  color: $beigeTxt;
+  margin-bottom: 2em;
+}
+
+.showError {
+  color: $error;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  margin-top: 0.125em;
+}
+
+.hideError {
+  display: none;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+  margin: 1em 0;
+
+  .left {
+    width: 20%;
+    background: yellow;
+  }
+
+  .right {
+    width: 80%;
+  }
+
+  .togglePW {
+    position: absolute;
+    right: 0.75em;
+    top: 0.6em;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #b2ada6;
+  }
+}
