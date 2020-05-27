@@ -1,0 +1,142 @@
+{
+    "products": [
+      {
+        "product_number": 92585004,
+        "collection": "original",
+        "name": "Truck XL",
+        "size": "80 x 44 x 46",
+        "weight": "4.3 kg",
+        "volume": "35 L",
+        "price": "2.900,00",
+        "img":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw2c1df555/images/medium/92590026_1.png",
+        "secondImg": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw78f254ac/images/medium/92590026_2.png",
+        "materials": {
+          "outside": "aluminium",
+          "inside": "polyester",
+          "handles": "leather",
+          "wheels": "hard plastic",
+          "dividers": "polyester"
+        },
+        "amount": 1530,
+        "currency": "euro",
+        "colors": [
+           {
+            "name": "black",
+            "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwe5d4dd3f/images/medium/92590027_1.png"
+          },
+           {
+            "name": "silver",
+            "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw2c1df555/images/medium/92590026_1.png"
+          },
+           {
+            "name": "blue",
+            "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwa5e6de46/images/medium/92590029_1.png"
+          }
+        ]
+      },
+      {
+        "product_number": 92590041,
+        "collection": "original",
+        "name": "Cabin Twist",
+        "size": "55 x 40 x 23",
+        "weight": "4.3 kg",
+        "volume": "35 L",
+        "price": "3.200,00",
+        "img":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwa5e6de46/images/medium/92590029_1.png",
+        "secondImg": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwd17aa80d/images/medium/92590029_2.png",
+        "materials": {
+          "outside": "aluminium",
+          "inside": "polyester",
+          "handles": "leather",
+          "wheels": "hard plastic",
+          "dividers": "polyester"
+        },
+        "amount": 1000,
+        "currency": "euro",
+        "colors": [
+          {
+           "name": "black",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwe5d4dd3f/images/medium/92590027_1.png"
+         },
+          {
+           "name": "silver",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw2c1df555/images/medium/92590026_1.png"
+         },
+          {
+           "name": "blue",
+
+           
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwa5e6de46/images/medium/92590029_1.png"
+         }
+       ]
+      },
+      {
+        "product_number": 92552014,
+        "collection": "original",
+        "name": "Cabin S",
+        "size": "55 x 40 x 20",
+        "weight": "4.2 kg",
+        "volume": "31 L",
+        "price": "3.600,00",
+        "img":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwe5d4dd3f/images/medium/92590027_1.png",
+        "secondImg": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw201e5fd3/images/medium/92590027_2.png",
+        "materials": {
+          "outside": "aluminium",
+          "inside": "polyester",
+          "handles": "leather",
+          "wheels": "hard plastic",
+          "dividers": "polyester"
+        },
+        "amount": 820,
+        "currency": "euro",
+        "colors": [
+          {
+           "name": "black",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwe5d4dd3f/images/medium/92590027_1.png"
+         },
+          {
+           "name": "silver",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw2c1df555/images/medium/92590026_1.png"
+         },
+          {
+           "name": "blue",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwa5e6de46/images/medium/92590029_1.png"
+         }
+       ]
+      },
+      {
+        "product_number": 92552014,
+        "collection": "original",
+        "name": "Cabin S",
+        "size": "55 x 40 x 20",
+        "weight": "4.2 kg",
+        "volume": "31 L",
+        "price": "2.800,00",
+        "img" : "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwf809a28a/images/medium/92590032_1.png",
+        "secondImg": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwfcb21f70/images/medium/92590032_2.png",
+        "materials": {
+          "outside": "aluminium",
+          "inside": "polyester",
+          "handles": "leather",
+          "wheels": "hard plastic",
+          "dividers": "polyester"
+        },
+        "amount": 820,
+        "currency": "euro",
+        "colors": [
+          {
+           "name": "black",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwe5d4dd3f/images/medium/92590027_1.png"
+         },
+          {
+           "name": "silver",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw2c1df555/images/medium/92590026_1.png"
+         },
+          {
+           "name": "blue",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwa5e6de46/images/medium/92590029_1.png"
+         }
+       ]
+      }
+    ]
+}
