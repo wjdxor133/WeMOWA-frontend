@@ -8,9 +8,7 @@ class NavNew extends Component {
   };
 
   ckeck = () => {
-    this.setState({ checked: !this.state.checked }, () =>
-      console.log(this.state.checked)
-    );
+    this.setState({ checked: true }, () => console.log(this.state.checked));
   };
 
   render() {
