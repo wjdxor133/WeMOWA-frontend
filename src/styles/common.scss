@@ -11,6 +11,10 @@ $gray: #6f6f6f;
 $faintGray: #eeeeee;
 $error: #c81f1f;
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Work Sans", sans-serif;
   font-size: 0.875rem;
@@ -38,4 +42,9 @@ body {
 .flexEnd {
   display: flex;
   justify-content: flex-end;
+}
+
+/* font */
+.txtUpper {
+  text-transform: uppercase;
 }
