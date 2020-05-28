@@ -1,0 +1,126 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.headerWrapper {
+  display: flex;
+  background: lavender;
+  text-align: left;
+  width: 100%;
+  border-radius: 0.25em;
+  padding: 0.5em;
+  cursor: pointer;
+
+  .left {
+    width: 90%;
+
+    .top {
+      font-size: 0.75rem;
+    }
+
+    .bottom {
+      .bleft {
+        font-size: 1.125rem;
+        margin-right: 0.8em;
+      }
+
+      .bright {
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+  .right {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.chHeaderWrapper {
+  display: flex;
+  align-items: center;
+  background: #eee;
+  text-align: left;
+  width: 100%;
+  height: 44px;
+  border-radius: 0.25em;
+  padding: 0.5em;
+  cursor: pointer;
+
+  .chLeft {
+    width: 10%;
+    zoom: 70%;
+    padding-left: 0.85em;
+
+    i {
+      color: green;
+    }
+  }
+
+  .chCenter {
+    text-align: center;
+    font-size: 0.875rem;
+    width: 80%;
+  }
+
+  .chRight {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      zoom: 80%;
+    }
+  }
+}
+
+.show {
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+}
+
+.hide {
+  display: none;
+}
+
+.selected {
+  background: white;
+  height: 40px;
+  font-size: 0.875rem;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.875em;
+}
+
+li:hover {
+  cursor: pointer;
+  background: #eee;
+}
+
+.li {
+  background: white;
+  height: 40px;
+  font-size: 0.875rem;
+}
+
+.selectedItem {
+  display: inline-block;
+}
+
+.optionSize {
+  font-size: 0.875rem;
+}

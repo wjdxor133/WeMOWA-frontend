@@ -62,8 +62,8 @@ h5 {
   margin: 1em 0;
 
   .left {
-    width: 20%;
-    background: yellow;
+    width: 18%;
+    margin-right: 2%;
   }
 
   .right {
@@ -78,6 +78,10 @@ h5 {
     cursor: pointer;
     color: #b2ada6;
   }
+}
+
+.countryDD {
+  width: 100%;
 }
 
 .showError {
@@ -102,7 +106,6 @@ h5 {
 
   .left {
     width: 5%;
-    background: yellow;
   }
 
   .right {

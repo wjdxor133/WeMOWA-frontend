@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import TitleDD from "./TitleDD";
+import CountryDD from "./CountryDD";
 
 import "./signup.scss";
 
@@ -134,7 +136,9 @@ class Signup extends Component {
               onSubmit={this.handleSubmit}
             >
               <div className="inputWrapper flex">
-                <div className="left"></div>
+                <div className="left">
+                  <TitleDD />
+                </div>
                 <div className="right">
                   <input
                     type="text"
@@ -155,6 +159,9 @@ class Signup extends Component {
                   onChange={this.handleInput}
                 />
                 <p className="showError center">{this.state.lnameError}</p>
+              </div>
+              <div className="countryDD">
+                <CountryDD />
               </div>
               <div className="inputWrapper">
                 <input
