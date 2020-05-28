@@ -10,6 +10,10 @@ class Main extends Component {
         <Header />
         <Nav />
         {/* 슬라이더 */}
+        <div
+          className="slider"
+          style={{ width: "100%", height: "620px", backgroundColor: "green" }}
+        ></div>
         <div className="main-slider">
           <div className="main-slider-title">
             <p className="title1">EXPLORE COLLECTIONS</p>

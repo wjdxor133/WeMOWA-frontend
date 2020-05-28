@@ -2,10 +2,21 @@ import React, { Component } from "react";
 import "./NavAccessories.scss";
 
 class NavAccessories extends Component {
-  state = {};
+  state = {
+    checked: false,
+  };
+
+  leaveckeck = () => {
+    this.setState({ checked: true }, () => console.log(this.state.checked));
+  };
+
   render() {
     return (
-      <div className="NavAccessories">
+      <div
+        style={this.state.checked ? { display: "none" } : { display: "block" }}
+        className="NavAccessories"
+        onMouseLeave={this.leaveckeck}
+      >
         <ul>
           <li className="iphone-cases">
             <span>IPHONE CASES</span>
