@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ProductList from './shop/ProductList/ProductList';
+import AccList from './pages/Accessories/AccList';
+import ProductList from './pages/Luggage/ProductList';
 
 
 class Routes extends Component{
@@ -9,6 +10,7 @@ class Routes extends Component{
           <Router>
               <Switch>
                   <Route exact path="/" component={ProductList}/>
+                  <Route exact path="/accList" component={AccList}/>
               </Switch>
           </Router>
       )

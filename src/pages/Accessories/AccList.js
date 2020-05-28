@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import {withRouter} from 'react-router-dom';
-import EditionProduct from '../../components/LugProduct/EditionProduct';
-import CabinProduct from '../../components/LugProduct/CabinProduct';
-import './ProductList.scss';
+import Accessories from '../../components/LugProduct/Accessories';
+import './AccList.scss';
 
 
 
-
-class ProductList extends Component {
+class AccList extends Component {
   constructor(){
     super();
     this.state={
@@ -37,15 +35,12 @@ class ProductList extends Component {
           <div className="banner">
           <nav className="navigation">
             <div className="menu">
-
             </div>
           </nav>
           </div>
         </header>
         
-
         <main className="ListMain">
-
           <div className="ListTop">
             <div className="ListFilter">
               <div className="FilterToggle">
@@ -55,36 +50,23 @@ class ProductList extends Component {
                 <div className="Seller">
                   <span className="SortBy">SORT BY</span>
                 </div>
-
               </div>
             </div>
-            
           </div>
           <div className="ListContainer">
             <ul className="ListCabin">
-                <CabinProduct/> 
-
                 {this.state.data.map( product =>{
-                return (<EditionProduct name={product.name} price={product.price} img={product.img} secondImg={product.secondImg}
-                  color={product.colors}
+                return (<Accessories name={product.name} price={product.price} img={product.img} secondImg={product.secondImg}
+                  color={product.colors} accImg={product.accImg} accSecond={product.accSecond} accPrice={product.accPrice}
+                  accName={product.accName}
                 />);})}
-
-                {this.state.data.map( product =>{
-                return (<EditionProduct name={product.name} price={product.price} img={product.img} secondImg={product.secondImg}
-                  color={product.colors}
-                />);})}
-                {this.state.data.map( product =>{
-                return (<EditionProduct name={product.name} price={product.price} img={product.img} secondImg={product.secondImg}
-                  color={product.colors}
-                />);})}
-                <CabinProduct/>
+                
             </ul>
           </div>
         </main>
       </div>
-
     )
   };
 };
 
-export default withRouter(ProductList);
+export default withRouter(AccList);

@@ -31,8 +31,8 @@
     border-bottom: 1px solid gray;
     display: flex;
     justify-content: center;
-    font-size: 11px;
-    letter-spacing: 3px;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
     z-index: 1;
     .ListFilter{
         display: flex;
@@ -108,25 +108,25 @@
                 color: #0d0901;
                 
                 .ThumbTitle{
-                    margin: 30px 0 0 0;
+                    margin: 2em 0 0 0;
                     font-weight: 600; 
-                    font-size: 11px; 
+                    font-size: 0.7rem; 
                     color: #6f6f6f; 
                     text-transform: uppercase;
                     letter-spacing: 0.24em;
                 }
                 .ThumbName{
-                    margin: 1px 0 10px 0;
+                    margin: 0.16em 0 0.6em 0;
                     font-weight: 500;
-                    font-size: 22px;
+                    font-size: 1.5rem;
                     line-height: 1.8rem;
-                    padding: 10px 0;
+                    padding: 0.6em 0;
                 }
                 .Cta{
                     font-weight: 600;
-                    font-size: 11px;
+                    font-size: 0.7rem;
                     text-transform: uppercase;
-                    letter-spacing: 3px;
+                    letter-spacing: 0.2em;
                 }
                 .ThumbProduct{
                     position: relative;
@@ -158,7 +158,7 @@
                 position: relative;
                 display: flex;
                 text-align: center;
-                padding: 42px 0 35px;
+                padding: 3em 0 2em;
                 .LimitedBody{
                     
                     .ProductLink{
@@ -166,11 +166,11 @@
                         overflow: hidden;
                         text-decoration: none;
                         .ProductImage{
-                            padding-top: 15px;
+                            padding-top: 1em;
                             height: auto;
                             position: relative;
                             .LimitedImage{
-                                padding-top: 15px;
+                                padding-top: 1em;
                                 border-style: none;
                                 max-width: 100%;
                                 display: inline;
@@ -180,25 +180,25 @@
                             }
                         }
                         .ProductCat{
-                            font-size: 11px;
+                            font-size: 0.7rem;
                             text-transform: uppercase;
-                            letter-spacing: 3px;
-                            padding: 0 20px;
+                            letter-spacing: 0.2em;
+                            padding: 0 1.5em;
                         }
                         .ProductRyme{
                             color: #0d0901;
-                            font-size: 1.3rem;
-                            font-weight: 300;
+                            font-size: 1rem;
+                            font-weight: 500;
                             line-height: 1.8rem;
-                            padding: 10px 0;
+                            padding: 0.6em 0;
                         }
                     }
                     .ProductPrice{
-                        font-size: 1.3rem;
+                        font-size: 1rem;
                         color: #b2ada6;
-                        margin-top: 8px;
+                        margin-top: 0.5em;
                         font-weight: 300;
-                        letter-spacing: 1px;
+                        letter-spacing: 0.16em;
                         line-height: 1rem;
                     }
                     .ProductPromo{
@@ -213,7 +213,7 @@
                     position: absolute;
                     top: 1em;
                     right: 1em;
-                    font-size: 16px;
+                    font-size: 1rem;
                     
                     cursor: pointer;
                     i{
@@ -238,7 +238,7 @@
                                 cursor: default;
                                 display: inline-block;
                                 margin: 0;
-                                padding: 9px 4px;
+                                padding: 0.6em 0.3em;
                                 line-height: 0;
                                 color: #000;
                                 overflow: hidden;
@@ -269,20 +269,20 @@
                         width: 11.5px;
                         border: 1px solid #1D1D1B;
                         border-radius: 2px;
-                        margin-top: 3px;
-                        margin-right: 5px;
+                        margin-top: 0.2em;
+                        margin-right: 0.3em;
                     }
                     .TagName{
-                        margin-left: 5px;
+                        margin-left: 0.4em;
                         display: inline-block;
                         height: 24px;
                         width: 175px;
                         color: #1D1D1B;
                         font-family: "Favorit Light",Arial,sans-serif;
-                        font-size: 11px;
+                        font-size: 0.7rem;
                         font-weight: 300;
                         letter-spacing: .4px;
-                        line-height: 14px;
+                        line-height: 0.9em;
                         text-align: left;
                     }
                 }

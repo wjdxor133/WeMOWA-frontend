@@ -17,9 +17,7 @@ class CabinProduct extends Component {
                       className="Cabin" alt=""/>
                     </div>
                   </a>
-                
             </li>
-
          );
     }
 }

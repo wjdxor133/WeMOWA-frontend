@@ -8,8 +8,12 @@
         "weight": "4.3 kg",
         "volume": "35 L",
         "price": "2.900,00",
+        "accName": "Iridescent Groove Case for iPhone XS",
+        "accPrice": "70,00",
         "img":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw2c1df555/images/medium/92590026_1.png",
         "secondImg": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw78f254ac/images/medium/92590026_2.png",
+        "accImg":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwa43ae24d/images/medium/50500005_1.png",
+        "accSecond":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw3a5abe6a/images/medium/50500005_2.png",
         "materials": {
           "outside": "aluminium",
           "inside": "polyester",
@@ -19,6 +23,12 @@
         },
         "amount": 1530,
         "currency": "euro",
+        "colorName":
+          "Green"
+        ,
+        "lugColor":
+            "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw09a30f7e/images/16/megamenu/green_cat_menu.png"
+        ,
         "colors": [
            {
             "name": "black",
@@ -42,8 +52,12 @@
         "weight": "4.3 kg",
         "volume": "35 L",
         "price": "3.200,00",
+        "accName": "Iridescent Groove Case for iPhone XS Max",
+        "accPrice": "70,00",
         "img":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwa5e6de46/images/medium/92590029_1.png",
         "secondImg": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwd17aa80d/images/medium/92590029_2.png",
+        "accImg":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwe1e87a99/images/medium/50500011_1.png",
+        "accSecond":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwcf79f2e3/images/medium/50500011_2.png",
         "materials": {
           "outside": "aluminium",
           "inside": "polyester",
@@ -53,6 +67,13 @@
         },
         "amount": 1000,
         "currency": "euro",
+        "colorName":[
+          "Red"
+        ],
+        "lugColor":
+           
+            "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw09a30f7e/images/16/megamenu/red_cat_menu.png"
+        ,
         "colors": [
           {
            "name": "black",
@@ -78,8 +99,12 @@
         "weight": "4.2 kg",
         "volume": "31 L",
         "price": "3.600,00",
+        "accName": "Iridescent Groove Case for iPhone 11 Pro",
+        "accPrice": "70,00",
         "img":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwe5d4dd3f/images/medium/92590027_1.png",
         "secondImg": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw201e5fd3/images/medium/92590027_2.png",
+        "accImg":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwc52c56ae/images/medium/50500026_1.png",
+        "accSecond":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwc436a89d/images/medium/50500026_2.png",
         "materials": {
           "outside": "aluminium",
           "inside": "polyester",
@@ -89,6 +114,12 @@
         },
         "amount": 820,
         "currency": "euro",
+        "colorName":[
+          "TITANIUM"
+        ],
+        "lugColor":
+            "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwa63c5831/images/swatch/titanium.png"
+        ,
         "colors": [
           {
            "name": "black",
@@ -112,8 +143,12 @@
         "weight": "4.2 kg",
         "volume": "31 L",
         "price": "2.800,00",
+        "accName": "Iridescent Groove Case for iPhone 11",
+        "accPrice": "70,00",
         "img" : "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwf809a28a/images/medium/92590032_1.png",
         "secondImg": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwfcb21f70/images/medium/92590032_2.png",
+        "accImg":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwb812b29c/images/medium/50500025_1.png",
+        "accSecond":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw4fb844ba/images/medium/50500025_2.png",
         "materials": {
           "outside": "aluminium",
           "inside": "polyester",
@@ -123,6 +158,193 @@
         },
         "amount": 820,
         "currency": "euro",
+        "colorName":[
+          "SILVER"
+        ],
+        "lugColor":
+            "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw09a30f7e/images/16/megamenu/silver_cat_menu.png"
+
+        ,
+        "colors": [
+          {
+           "name": "black",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwe5d4dd3f/images/medium/92590027_1.png"
+         },
+          {
+           "name": "silver",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw2c1df555/images/medium/92590026_1.png"
+         },
+          {
+           "name": "blue",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwa5e6de46/images/medium/92590029_1.png"
+         }
+       ]
+      },
+      {
+        "product_number": 92552014,
+        "collection": "original",
+        "name": "Hand Case",
+        "size": "55 x 40 x 20",
+        "weight": "4.2 kg",
+        "volume": "31 L",
+        "price": "2.400,00",
+        "accName": "Iridescent Groove Case for iPhone 11",
+        "accPrice": "70,00",
+        "img" : "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw81ca3915/images/medium/92590037_1.png",
+        "secondImg": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw7f680215/images/medium/92590037_2.png",
+        "accImg":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwb812b29c/images/medium/50500025_1.png",
+        "accSecond":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw4fb844ba/images/medium/50500025_2.png",
+        "materials": {
+          "outside": "aluminium",
+          "inside": "polyester",
+          "handles": "leather",
+          "wheels": "hard plastic",
+          "dividers": "polyester"
+        },
+        "amount": 820,
+        "currency": "euro",
+        "colorName":[
+          "CORAL"
+        ],
+        "lugColor":
+            "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw24587791/images/swatch/scarlet_gloss.png"
+
+        ,
+        "colors": [
+          {
+           "name": "black",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwe5d4dd3f/images/medium/92590027_1.png"
+         },
+          {
+           "name": "silver",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw2c1df555/images/medium/92590026_1.png"
+         },
+          {
+           "name": "blue",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwa5e6de46/images/medium/92590029_1.png"
+         }
+       ]
+      },
+      {
+        "product_number": 92552014,
+        "collection": "original",
+        "name": "Hand Case",
+        "size": "55 x 40 x 20",
+        "weight": "4.2 kg",
+        "volume": "31 L",
+        "price": "2.400,00",
+        "accName": "Iridescent Groove Case for iPhone 11",
+        "accPrice": "70,00",
+        "img" : "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwf59b2afc/images/medium/99090002_1.png",
+        "secondImg": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw4d8d95ba/images/medium/99090002_2.png",
+        "accImg":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwb812b29c/images/medium/50500025_1.png",
+        "accSecond":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw4fb844ba/images/medium/50500025_2.png",
+        "materials": {
+          "outside": "aluminium",
+          "inside": "polyester",
+          "handles": "leather",
+          "wheels": "hard plastic",
+          "dividers": "polyester"
+        },
+        "amount": 820,
+        "currency": "euro",
+        "colorName":
+          "SAFFRON"
+        ,
+        "lugColor":
+            "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw58bf9758/images/swatch/saffron_gloss.png"
+
+        ,
+        "colors": [
+          {
+           "name": "black",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwe5d4dd3f/images/medium/92590027_1.png"
+         },
+          {
+           "name": "silver",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw2c1df555/images/medium/92590026_1.png"
+         },
+          {
+           "name": "blue",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwa5e6de46/images/medium/92590029_1.png"
+         }
+       ]
+      },
+      {
+        "product_number": 92552014,
+        "collection": "original",
+        "name": "Personal",
+        "size": "55 x 40 x 20",
+        "weight": "4.2 kg",
+        "volume": "31 L",
+        "price": "2.800,00",
+        "accName": "Iridescent Groove Case for iPhone 11",
+        "accPrice": "70,00",
+        "img" : "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw2f206c44/images/medium/99090001_1.png",
+        "secondImg": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwa93145a4/images/medium/99090001_2.png",
+        "accImg":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwb812b29c/images/medium/50500025_1.png",
+        "accSecond":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw4fb844ba/images/medium/50500025_2.png",
+        "materials": {
+          "outside": "aluminium",
+          "inside": "polyester",
+          "handles": "leather",
+          "wheels": "hard plastic",
+          "dividers": "polyester"
+        },
+        "amount": 820,
+        "currency": "euro",
+        "colorName":
+          "DIORSILVER"
+        ,
+        "lugColor":
+           "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw34e11479/images/swatch/dior_silver.png"
+
+        ,
+        "colors": [
+          {
+           "name": "black",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwe5d4dd3f/images/medium/92590027_1.png"
+         },
+          {
+           "name": "silver",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw2c1df555/images/medium/92590026_1.png"
+         },
+          {
+           "name": "blue",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwa5e6de46/images/medium/92590029_1.png"
+         }
+       ]
+      },
+      {
+        "product_number": 92552014,
+        "collection": "original",
+        "name": "Personal",
+        "size": "55 x 40 x 20",
+        "weight": "4.2 kg",
+        "volume": "31 L",
+        "price": "1.700,00",
+        "accName": "Iridescent Groove Case for iPhone 11",
+        "accPrice": "70,00",
+        "img" : "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwf6ec4b1e/images/medium/99090004_1.png",
+        "secondImg": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwad8221aa/images/medium/99090004_2.png",
+        "accImg":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwb812b29c/images/medium/50500025_1.png",
+        "accSecond":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw4fb844ba/images/medium/50500025_2.png",
+        "materials": {
+          "outside": "aluminium",
+          "inside": "polyester",
+          "handles": "leather",
+          "wheels": "hard plastic",
+          "dividers": "polyester"
+        },
+        "amount": 820,
+        "currency": "euro",
+        "colorName":
+            "MARINE"
+        ,
+        "lugColor":[
+            "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw63c14d15/images/swatch/marine_gloss.png"
+
+        ],
         "colors": [
           {
            "name": "black",

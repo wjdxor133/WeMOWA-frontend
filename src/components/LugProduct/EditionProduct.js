@@ -20,18 +20,7 @@ class EditionProduct extends Component {
       })
     }
 
-    handleColor = (props) => {
-      //if(isMOuseOver ===false){
-     //   return this.props.colors.img_url;
-     // }
-     // this.setState({
-        
 
-      //})
-
-    }
-
-    
     render() { 
       console.log(this.props.color[0].img_url);
         return ( 
@@ -47,7 +36,6 @@ class EditionProduct extends Component {
                                 </div>
                                 <div className="ProductCat">DIOR AND RIMOWA</div>
                                 <div className="ProductRyme">{this.props.name}</div>
-
                             </a>
                             <div className="ProductPrice">
                               <span >{this.props.price} €</span>
@@ -78,7 +66,6 @@ class EditionProduct extends Component {
                                 </a>
                               </li>
                           </ul>
-
                         </div>
                         <div className="ProductBadge">
                           <div className="IconTag"></div>
@@ -86,8 +73,6 @@ class EditionProduct extends Component {
                         </div>
                     </div>  
                 </li>
-              
-
          );
     }
 }
