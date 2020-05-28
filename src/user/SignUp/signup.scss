@@ -1,0 +1,120 @@
+@import "../../styles/common.scss";
+
+body {
+  background: $beigeBg;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  background-color: $black;
+  color: $white;
+  text-transform: uppercase;
+  width: 100%;
+  border-radius: 0.375em;
+  padding: 1em;
+}
+
+input {
+  padding: 1em;
+  border-radius: 0.3em;
+  border: 0;
+}
+
+/********* typography *********/
+h3 {
+  font-size: 1.15rem;
+  font-weight: 300;
+  letter-spacing: 0.125rem;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.center {
+  text-align: center;
+}
+
+/********* typography *********/
+
+.mainRow {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.signInForm {
+  width: 100%;
+  padding-top: 1em;
+}
+
+.signup {
+  width: 50%;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+  margin: 1em 0;
+
+  .left {
+    width: 20%;
+    background: yellow;
+  }
+
+  .right {
+    width: 80%;
+  }
+
+  .togglePW {
+    position: absolute;
+    right: 0.75em;
+    top: 0.6em;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #b2ada6;
+  }
+}
+
+.showError {
+  color: $error;
+  font-size: 0.75rem;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+  margin-top: 0.125em;
+}
+
+.passwordreq {
+  color: $beigeTxt;
+}
+
+.hideError {
+  display: none;
+}
+
+.checkWrapper {
+  width: 100%;
+  margin: 1em 0;
+
+  .left {
+    width: 5%;
+    background: yellow;
+  }
+
+  .right {
+    width: 95%;
+  }
+}
+
+.caption,
+.signin {
+  margin-top: 2em;
+}
+
+.red {
+  color: red;
+}
