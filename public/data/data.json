@@ -16,20 +16,7 @@
       },
       "amount": 1530,
       "currency": "euro",
-      "colors": {
-        "red": {
-          "name": "red",
-          "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw10d5f1a0/images/swatch/red_twist.png"
-        },
-        "blue": {
-          "name": "blue",
-          "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw5b775a9d/images/swatch/blue_twist.png"
-        },
-        "brown": {
-          "name": "brown",
-          "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw36b7c7fd/images/swatch/cognac_twist.png"
-        }
-      }
+      "color": ["red", "blue", "black", "silver"]
     },
     {
       "product_number": 92590041,
@@ -47,20 +34,7 @@
       },
       "amount": 1000,
       "currency": "euro",
-      "colors": {
-        "red": {
-          "name": "red",
-          "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw10d5f1a0/images/swatch/red_twist.png"
-        },
-        "blue": {
-          "name": "blue",
-          "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw5b775a9d/images/swatch/blue_twist.png"
-        },
-        "brown": {
-          "name": "brown",
-          "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw36b7c7fd/images/swatch/cognac_twist.png"
-        }
-      }
+      "color": ["red", "blue", "black", "silver"]
     },
     {
       "product_number": 92552014,
@@ -78,20 +52,7 @@
       },
       "amount": 820,
       "currency": "euro",
-      "colors": {
-        "red": {
-          "name": "red",
-          "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw10d5f1a0/images/swatch/red_twist.png"
-        },
-        "blue": {
-          "name": "blue",
-          "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw5b775a9d/images/swatch/blue_twist.png"
-        },
-        "brown": {
-          "name": "brown",
-          "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw36b7c7fd/images/swatch/cognac_twist.png"
-        }
-      }
+      "color": ["red", "blue", "black", "silver"]
     },
     {
       "product_number": 92552014,
@@ -109,20 +70,7 @@
       },
       "amount": 820,
       "currency": "euro",
-      "colors": {
-        "red": {
-          "name": "red",
-          "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw10d5f1a0/images/swatch/red_twist.png"
-        },
-        "blue": {
-          "name": "blue",
-          "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw5b775a9d/images/swatch/blue_twist.png"
-        },
-        "brown": {
-          "name": "brown",
-          "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw36b7c7fd/images/swatch/cognac_twist.png"
-        }
-      }
+      "color": ["red", "blue", "black", "silver"]
     },
     {
       "product_number": 92552014,
@@ -140,20 +88,7 @@
       },
       "amount": 820,
       "currency": "euro",
-      "colors": {
-        "red": {
-          "name": "red",
-          "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw10d5f1a0/images/swatch/red_twist.png"
-        },
-        "blue": {
-          "name": "blue",
-          "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw5b775a9d/images/swatch/blue_twist.png"
-        },
-        "brown": {
-          "name": "brown",
-          "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw36b7c7fd/images/swatch/cognac_twist.png"
-        }
-      }
+      "color": ["red", "blue", "black", "silver"]
     }
   ]
 }

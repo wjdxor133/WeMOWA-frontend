@@ -24,7 +24,9 @@ export class AccordionSpec extends Component {
         <div
           className={this.state.showInfo ? "showContent content" : "content"}
         >
-          <p>{this.state.text}</p>
+          <ul>
+            <li>{this.state.text}</li>
+          </ul>
         </div>
       </div>
     );

@@ -1,19 +1,53 @@
 @import "../../styles/common.scss";
 * {
-  background: $white;
 }
 
 /***** TYPOGRAPHY *****/
-h1 {
-  font-weight: 300;
+.pdHeader {
+  .subHeader {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 0.1875rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 0.35em 0 1em;
+  }
 }
 
-.upper {
+.sectionHeader {
+  .subHeader {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 0.1875rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 0.75em 0 1em;
+  }
+}
+
+.pdTxtUpper {
   text-transform: uppercase;
   letter-spacing: 0.125rem;
   color: $gray;
 }
-/***** TYPOGRAPHY *****/
+
+.pdUnderline {
+  border-bottom: 1px solid rgb(160, 160, 160);
+}
+
+/***** SPACING *****/
+.pdML3 {
+  margin-left: 0.875em;
+}
+/***** SPACING *****/
 
 .ProductDetail {
   width: 100vw;
@@ -28,7 +62,6 @@ h1 {
 }
 
 .productImg {
-  background: coral;
   width: 45%;
   margin-right: 5em;
 }
@@ -40,6 +73,16 @@ h1 {
 .productLabel {
   position: absolute;
   top: 3em;
+  font-size: 0.75rem;
+}
+
+.pdDiamond {
+  height: 0.75em;
+  width: 0.75em;
+  border: 1px solid;
+  transform: rotate(45deg);
+  transform-origin: -45% 100%;
+  margin-right: 1em;
 }
 
 .productSliderBtn {
@@ -53,27 +96,26 @@ h1 {
   width: 50%;
 }
 
-.pdHeader {
-  h1 {
-    margin-top: 0.5em;
-  }
+.pdInfo {
+  margin-bottom: 2em;
 }
 
 .pdPrice {
   font-size: 1.325rem;
   font-weight: 300;
-  margin-top: 0.5em;
 }
 
-.pdSize {
-  background: khaki;
+/***** SELECT SIZE *****/
+.pdSelectSize {
+  max-width: 320px;
   height: 10%;
-  margin-top: 2em;
+  margin: 1.25em auto;
 }
 
+/***** ADD TO CART *****/
 .pdAddToCart {
   max-width: 320px;
-  margin: 1em auto 0;
+  margin: 1.25em auto;
 
   button {
     background: #0c67e7;
@@ -90,19 +132,16 @@ h1 {
   }
 }
 
-.pdAvail {
-  margin-top: 0.25em;
-}
-
 .pdOptions {
-  margin-top: 1em;
+  margin: 1.25em 0;
 
-  .pdWisilist {
-    border-right: 1px solid $gray;
+  .pdWishlist {
+    border-right: 1px solid $faintGray;
     padding-right: 1em;
+    cursor: pointer;
   }
 
-  .pdFindStore {
+  .pdStore {
     padding-left: 1em;
   }
 }
@@ -111,12 +150,13 @@ h1 {
   margin-top: 1em;
 }
 
-.pdAirline {
+.pdColors {
   margin-top: 1em;
 }
 
-.pdColors {
-  margin-top: 1em;
+.colorPalette {
+  width: 2em;
+  height: 2em;
 }
 
 .divider {
@@ -132,14 +172,6 @@ h1 {
 }
 
 .pdpSpecs {
-}
-
-.specHeader {
-  margin-bottom: 5em;
-
-  h3 {
-    font-size: 1.75rem;
-  }
 }
 
 .specDetails {
@@ -211,7 +243,16 @@ h1 {
 }
 
 .pdpKey {
-  background: darkseagreen;
+  width: 100%;
+  margin: 4em auto;
+
+  .keyImg {
+    width: 50%;
+  }
+
+  .keyAccor {
+    width: 50%;
+  }
 }
 
 .pdpRecommend {
