@@ -3,21 +3,9 @@ import Nav from "../Nav";
 import "./NavNew.scss";
 
 class NavNew extends Component {
-  state = {
-    checked: false,
-  };
-
-  leaveckeck = () => {
-    this.setState({ checked: true }, () => console.log(this.state.checked));
-  };
-
   render() {
     return (
-      <div
-        // style={this.state.checked ? { display: "none" } : { display: "block" }}
-        className="NavNew"
-        // onMouseLeave={this.leaveckeck}
-      >
+      <div className="NavNew">
         <ul>
           <li className="LATEST">
             <span className="LATEST-title">LATEST</span>

@@ -2,21 +2,9 @@ import React, { Component } from "react";
 import "./NavLuggage.scss";
 
 class NavLuggage extends Component {
-  state = {
-    checked: false,
-  };
-
-  leaveckeck = () => {
-    this.setState({ checked: true }, () => console.log(this.state.checked));
-  };
-
   render() {
     return (
-      <div
-        style={this.state.checked ? { display: "none" } : { display: "block" }}
-        className="NavLuggage"
-        onMouseLeave={this.leaveckeck}
-      >
+      <div className="NavLuggage">
         <ul>
           <li className="li1">
             <span>COLLECTION</span>
