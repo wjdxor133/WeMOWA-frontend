@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./styles/reset.scss";
+import Main from "./pages/Main/Main";
 import Login from "./user/Login/Login";
 import Signup from "./user/SignUp/SignUp";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
@@ -9,6 +11,7 @@ class Routes extends React.Component {
     return (
       <Router>
         <Switch>
+          <Route exact path="/" component={Main}></Route>
           <Route exact path="/login" component={Login}></Route>
           <Route exact path="/signup" component={Signup}></Route>
           <Route exact path="/pdp" component={ProductDetail}></Route>

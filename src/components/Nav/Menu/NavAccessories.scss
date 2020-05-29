@@ -1,0 +1,172 @@
+.NavAccessories {
+  border-top: 1px solid #f2f2f2;
+  box-shadow: 3px 3px 4px rgba($color: #000000, $alpha: 0.4);
+  position: absolute;
+  width: 100%;
+  top: 4em;
+  left: 0;
+  z-index: 100;
+  background-color: white;
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 2em 5.3em;
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
+
+    .iphone-cases {
+      color: #454545;
+      span {
+        letter-spacing: 0.2rem;
+        font-size: 0.77rem;
+      }
+      a {
+        text-decoration: none;
+        color: #0d0900;
+      }
+      .iphone-case1 {
+        display: flex;
+        align-items: center;
+        margin-top: 1em;
+
+        p {
+          margin-left: 1em;
+        }
+      }
+
+      .iphone-case2 {
+        display: flex;
+        align-items: center;
+        margin-top: 1em;
+        p {
+          margin-left: 1em;
+        }
+      }
+
+      .iphone-case3 {
+        display: flex;
+        align-items: center;
+        margin-top: 1em;
+        p {
+          margin-left: 1em;
+        }
+      }
+
+      .iphone-case4 {
+        display: flex;
+        align-items: center;
+        margin: 1em 0;
+        p {
+          margin-left: 1em;
+        }
+      }
+      .allCases {
+        text-decoration: underline;
+      }
+    }
+
+    .stickers {
+      span {
+        letter-spacing: 0.2rem;
+        font-size: 0.77rem;
+      }
+      a {
+        text-decoration: none;
+        color: #424242;
+      }
+      .stickers-items {
+        .sticker-1 {
+          display: flex;
+          margin-top: 1em;
+          p {
+            margin-left: 1em;
+          }
+        }
+        .sticker-2 {
+          display: flex;
+          margin-top: 1em;
+          p {
+            margin-left: 1em;
+          }
+        }
+        .sticker-3 {
+          display: flex;
+          margin: 1em 0;
+          p {
+            margin-left: 1em;
+          }
+        }
+        .allStickers {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .extras {
+      span {
+        letter-spacing: 0.2rem;
+        font-size: 0.77rem;
+      }
+      a {
+        text-decoration: none;
+        color: #424242;
+      }
+      .extras-items {
+        .extra-1 {
+          display: flex;
+          margin-top: 1em;
+          p {
+            margin-left: 1em;
+          }
+        }
+
+        .extra-2 {
+          display: flex;
+          margin-top: 1em;
+          p {
+            margin-left: 1em;
+          }
+        }
+
+        .extra-3 {
+          display: flex;
+          margin-top: 1em;
+          p {
+            margin-left: 1em;
+          }
+        }
+
+        .extra-4 {
+          display: flex;
+          margin: 1em 0;
+          p {
+            margin-left: 1em;
+          }
+        }
+
+        .allExtras {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .Limied-edition {
+      display: flex;
+      flex-direction: column;
+      span {
+        letter-spacing: 0.2rem;
+        font-size: 0.77rem;
+      }
+
+      img {
+        margin: 1em 0;
+      }
+
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+}
