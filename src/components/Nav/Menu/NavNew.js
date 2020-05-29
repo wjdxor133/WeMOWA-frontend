@@ -14,9 +14,9 @@ class NavNew extends Component {
   render() {
     return (
       <div
-        style={this.state.checked ? { display: "none" } : { display: "block" }}
+        // style={this.state.checked ? { display: "none" } : { display: "block" }}
         className="NavNew"
-        onMouseLeave={this.leaveckeck}
+        // onMouseLeave={this.leaveckeck}
       >
         <ul>
           <li className="LATEST">

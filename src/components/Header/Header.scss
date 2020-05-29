@@ -25,13 +25,16 @@
       margin-left: 2em;
 
       .header-signIn {
-        span {
+        a {
           font-size: 0.7rem;
           letter-spacing: 0.2rem;
+          text-decoration: none;
         }
       }
       .header-icons {
+        color: #424242;
         font-size: 0.9rem;
+
         .icon1 {
           margin-left: 3.5em;
         }
