@@ -17,6 +17,11 @@ button {
   padding: 1em;
 }
 
+button:hover {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+}
+
 input {
   padding: 1em;
   border-radius: 0.3em;
@@ -39,21 +44,21 @@ h5 {
   text-align: center;
 }
 
-/********* typography *********/
+/********* end typography *********/
 
 .mainRow {
-  max-width: 1200px;
+  max-width: 1360px;
   width: 100%;
   margin: 0 auto;
+}
+
+.signupWrapper {
+  width: 50%;
 }
 
 .signInForm {
   width: 100%;
   padding-top: 1em;
-}
-
-.signup {
-  width: 50%;
 }
 
 .inputWrapper {
@@ -62,8 +67,8 @@ h5 {
   margin: 1em 0;
 
   .left {
-    width: 20%;
-    background: yellow;
+    width: 18%;
+    margin-right: 2%;
   }
 
   .right {
@@ -80,6 +85,10 @@ h5 {
   }
 }
 
+.countryDD {
+  width: 100%;
+}
+
 .showError {
   color: $error;
   font-size: 0.75rem;
@@ -88,7 +97,7 @@ h5 {
   margin-top: 0.125em;
 }
 
-.passwordreq {
+.passwordReq {
   color: $beigeTxt;
 }
 
@@ -102,7 +111,6 @@ h5 {
 
   .left {
     width: 5%;
-    background: yellow;
   }
 
   .right {
@@ -115,6 +123,16 @@ h5 {
   margin-top: 2em;
 }
 
-.red {
-  color: red;
+.terms {
+  margin-right: 0.75em;
+  text-decoration: none;
+}
+
+.privacy {
+  margin-left: 0.75em;
+  text-decoration: none;
+}
+
+.linktoLogin {
+  text-decoration: none;
 }
