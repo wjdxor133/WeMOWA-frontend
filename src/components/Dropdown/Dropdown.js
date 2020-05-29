@@ -26,7 +26,7 @@ export class DropdownCheck extends Component {
 
   render() {
     return (
-      <div className="wrapper">
+      <div className="Dropdown">
         <div className="chHeaderWrapper" onClick={this.handleToggle}>
           <div className="chLeft">
             <i class="fas fa-check"></i>

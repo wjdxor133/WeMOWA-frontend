@@ -8,6 +8,7 @@ const initialState = {
   emailError: "",
   pwError: "",
   validateError: "",
+  visibility: "Show",
 };
 
 class Login extends Component {
@@ -47,6 +48,16 @@ class Login extends Component {
     return true;
   };
 
+  handlePW = () => {
+    //show-hide password
+    const { pwtype } = this.state;
+    if (pwtype === "password") {
+      this.setState({ pwtype: "text", visibility: "hide" });
+    } else {
+      this.setState({ pwtype: "password", visibility: "show" });
+    }
+  };
+
   //2. form onSubmit 에
   handleSubmit = (event) => {
     event.preventDefault();
@@ -84,9 +95,9 @@ class Login extends Component {
     return (
       <div className="Login">
         <div className="mainRow flexJustifyCenter">
-          <div className="login">
+          <div className="loginWrapper">
             <div className="loginBox">
-              <h3 className="txtUpper">Sign in to your acocunt</h3>
+              <h3 className="loginHeader txtUpper">Sign in to your acocunt</h3>
               <h5>
                 If you already have a Rimowa account, please sign in. We'll use
                 your existing details for a speedier checkout.
@@ -108,24 +119,31 @@ class Login extends Component {
                 </div>
                 <div className="inputWrapper">
                   <input
-                    type="text"
+                    type={this.state.pwtype}
                     name="pw"
                     placeholder="Password*"
                     value={this.state.pw}
                     onChange={this.handleInput}
                   />
+                  <span className="togglePW" onClick={this.handlePW}>
+                    {this.state.visibility}
+                  </span>
                   <p className="showError">{this.state.pwError}</p>
                 </div>
-                <button onClick={this.handleClick}>Sign In</button>
+                <button className="signinBtn" onClick={this.handleClick}>
+                  Sign In
+                </button>
               </form>
               <p className="txtUpper">
-                <Link to="">Forgotten your password?</Link>
+                <Link to="" className="forgotPW">
+                  Forgotten your password?
+                </Link>
               </p>
             </div>
           </div>
           <div className="signup">
             <div className="signupBox">
-              <h3 className="txtUpper">Don't have an account?</h3>
+              <h3 className="signupHeader txtUpper">Don't have an account?</h3>
               <h5>Creating a RIMOWA account lets you:</h5>
               <ul className="pitchLine">
                 <li>ADD ITEMS TO YOUR WISHLIST</li>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Carousel from "nuka-carousel";
 import { Link } from "react-router-dom";
+import { AccordionSpec } from "../../components/Accordion/Accordion";
 import OrigTrunkPF from "../../images/Orig_Trunk_PF.jpg";
 import OrigTrunkPS from "../../images/Orig_Trunk_PS.jpg";
 import "./ProductDetail.scss";
@@ -14,6 +15,22 @@ class ProductDetail extends Component {
         { id: 1, name: "one", size: "55x40x23 cm" },
         { id: 2, name: "two", size: "25x40x23 cm" },
         { id: 3, name: "three", size: "45x40x23 cm" },
+      ],
+      accordion: [
+        {
+          id: 0,
+          title: "Specifications",
+          specs: {
+            weight: "Weight: 6.8 KG",
+            volume: "130 L",
+          },
+        },
+        {
+          id: 1,
+          title: "Materials",
+          text:
+            "Packed items are kept in perfect order during transit with the height adjustable Flex Divider, which can be adapted to suit your belongings.",
+        },
       ],
     };
   }
@@ -149,7 +166,13 @@ class ProductDetail extends Component {
                   </div>
                 </div>
               </div>
-              <div className="specDetails"></div>
+              <div className="specDetails">
+                {this.state.accordion.map((m) => {
+                  return (
+                    <AccordionSpec key={m.id} title={m.title} specs={m.text} />
+                  );
+                })}
+              </div>
             </div>
             <div className="specPN upper center">Product Number : 92585004</div>
           </div>

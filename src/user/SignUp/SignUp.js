@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import TitleDD from "./TitleDD";
 import CountryDD from "./CountryDD";
-
-import "./signup.scss";
+import "./Signup.scss";
 
 const initialState = {
   fname: "",
@@ -127,9 +126,9 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className="Login">
+      <div className="Signup">
         <div className="mainRow flexJustifyCenter">
-          <div className="signup">
+          <div className="signupWrapper">
             <h3 className="txtUpper center">Create a Rimowa Account</h3>
             <form
               className="signInForm flexColumnCenter"
@@ -185,7 +184,7 @@ class Signup extends Component {
                   {this.state.visibility}
                 </span>
                 <p className="showError center">{this.state.pw1Error}</p>
-                <p className="passwordreq center">
+                <p className="passwordReq center">
                   The password must contain at least 8 characters including 1
                   number, 1 upper and 1 lower case letter
                 </p>
@@ -211,8 +210,8 @@ class Signup extends Component {
                 <div className="right">
                   <p>
                     I consent to RIMOWA processing my personal data in order to
-                    send personalised marketing material in accordance with the
-                    consent form and the privacy policy.
+                    send personalised marketing material in accordance with the{" "}
+                    <a href="">consent form</a> and the privacy policy.
                   </p>
                 </div>
               </div>
@@ -225,7 +224,8 @@ class Signup extends Component {
                   />
                 </div>
                 <div className="right">
-                  By clicking "create account", I consent to the privacy policy.
+                  By clicking "create account", I consent to the{" "}
+                  <a href="">privacy policy</a>.
                 </div>
               </div>
               <button onClick={this.handleClick}>Create Account</button>
@@ -233,13 +233,20 @@ class Signup extends Component {
             <div className="caption center">
               <p>By creating an account, you agree to our:</p>{" "}
               <p>
-                <Link to="">TERMS OF CONDITIONS</Link> |
-                <Link to="">PRIVACY POLICY</Link>
+                <a href="" className="terms">
+                  TERMS OF CONDITIONS
+                </a>
+                |
+                <a href="" className="privacy">
+                  PRIVACY POLICY
+                </a>
               </p>
             </div>
             <div className="signin center">
               <p>
-                <Link to="">ALREADY HAVE AN ACCOUNT?</Link>
+                <Link to="" className="linktoLogin">
+                  ALREADY HAVE AN ACCOUNT?
+                </Link>
               </p>
             </div>
           </div>
