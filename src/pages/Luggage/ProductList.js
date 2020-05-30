@@ -3,6 +3,8 @@ import {withRouter} from 'react-router-dom';
 import EditionProduct from '../../components/LugProduct/EditionProduct';
 import CabinProduct from '../../components/LugProduct/CabinProduct';
 import DropdownLugg from '../../components/LugProduct/DropdownLugg';
+import CheckPrice from '../../components/LugProduct/CheckPrice';
+import CheckCollect from '../../components/LugProduct/CheckCollect';
 import './ProductList.scss';
 
 
@@ -68,79 +70,11 @@ class ProductList extends Component {
                             </div>
                             <div className="PriceFilter">
                                 <span>PRICE</span>
-                                <ul className="PriceCheck">
-                                    <li className="OnePrice">
-                                        <span className="PointCheck"></span>
-                                        <a href=" " className="PointPrice">
-                                            €200 - €400
-                                        </a>
-                                    </li>
-                                    <li className="OnePrice">
-                                        <span className="PointCheck"></span>
-                                        <a href=" " className="PointPrice">
-                                            €400 - €600
-                                        </a>
-                                    </li>
-                                    <li className="OnePrice">
-                                        <span className="PointCheck"></span>
-                                        <a href=" " className="PointPrice">
-                                            €600 - €800
-                                        </a>
-                                    </li>
-                                    <li className="OnePrice">
-                                        <span className="PointCheck"></span>
-                                        <a href=" " className="PointPrice">
-                                            €1000+
-                                        </a>
-                                    </li>
-                                    <li className="OnePrice">
-                                        <span className="PointCheck"></span>
-                                        <a href=" " className="PointPrice">
-                                            €200 - €400
-                                        </a>
-                                    </li>
-                                </ul>
+                                <CheckPrice/>
                             </div>
                             <div className="CollectionFilter">
                                 <span>PRODUCT COLLENTION</span>
-                                <ul className="CollectionCheck">
-                                    <li className="OneCollection">
-                                        <span className="PointCheck"></span>
-                                        <a href=" " className="PointCollection">
-                                            CLASSIC
-                                        </a>
-                                    </li>
-                                    <li className="OneCollection">
-                                        <span className="PointCheck"></span>
-                                        <a href=" " className="PointCollection">
-                                            DIOR AND RIMOWA
-                                        </a>
-                                    </li>
-                                    <li className="OneCollection">
-                                        <span className="PointCheck"></span>
-                                        <a href=" " className="PointCollection">
-                                            ESSENTIAL
-                                        </a>
-                                    </li>
-                                    <li className="OneCollection">
-                                        <span className="PointCheck"></span>
-                                        <a href=" " className="PointCollection">
-                                            ESSENTIAL LITE
-                                        </a>
-                                    </li>
-                                    <li className="OneCollection">
-                                        <span className="PointCheck"></span>
-                                        <a href=" " className="PointCollection">
-                                            ESSENTIAL SLEEVE
-                                        </a>
-                                    </li>
-                                    <li className="OneCollection">
-                                        <span className="PointCheck"></span>
-                                        <a href=" " className="PointCollection">
-                                            HYBRID
-                                        </a>
-                                    </li>
-                                </ul>
+                                <CheckCollect/>
                             </div>
                         </div>
                         <div className="DropdownSub">
