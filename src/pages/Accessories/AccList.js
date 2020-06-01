@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import {withRouter} from 'react-router-dom';
 import Accessories from '../../components/LugProduct/Accessories';
+import DropdownLugg from '../../components/LugProduct/DropdownLugg';
+import CheckPrice from '../../components/LugProduct/CheckPrice';
+import CheckCollect from '../../components/LugProduct/CheckCollect';
 import './AccList.scss';
 
 
@@ -10,13 +13,22 @@ class AccList extends Component {
     super();
     this.state={
       selectValue: "",
-      data: []
+      data: [],
+      isToggleOn: false
     };
     this.filterDropdownChange = this.filterDropdownChange.bind(this);
+    this.handleDropdown = this.handleDropdown.bind(this);
   }
 
   filterDropdownChange(e){
     this.setState({ selectValue: e.target.value });
+  }
+
+  handleDropdown(){
+    this.setState(state => ({
+      isToggleOn: !state.isToggleOn
+    }));
+
   }
   
   componentDidMount(){
@@ -44,7 +56,31 @@ class AccList extends Component {
           <div className="ListTop">
             <div className="ListFilter">
               <div className="FilterToggle">
-                  <button onChange={this.filterDropdownChange} className="ToggleButton">FILTER</button>
+                  <button onClick={this.handleDropdown} className="ToggleButton">FILTER</button>
+                  {this.state.isToggleOn ?(
+                    <div className="FilterDropdown">
+                        <div className="DropdownBox">
+                            <div className="PriceFilter">
+                                <span>PRICE</span>
+                                <CheckPrice/>
+                            </div>
+                            <div className="CollectionFilter">
+                                <span>PRODUCT COLLENTION</span>
+                                <CheckCollect/>
+                            </div>
+                        </div>
+                        <div className="DropdownSub">
+                                <div className="CancleBox">
+                                <button className="CancelBtn">CANCEL</button>
+                                </div>
+                                <div className="ApplyBox">
+                                <button className="RESETBtn">RESET</button>
+                                <button className="APPLYBtn">APPLY</button>
+                                </div>    
+                        </div>
+                    </div>
+                  ) : (null)
+                  }
               </div>
               <div className="TopSeller">
                 <div className="Seller">

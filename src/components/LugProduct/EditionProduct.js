@@ -24,9 +24,6 @@ class EditionProduct extends Component {
       })
     }
 
-    handleFirst = () => {
-
-    }
 
     handleMouseOut = () =>{
       this.setState({

@@ -38,10 +38,10 @@
         display: flex;
         justify-content: space-between;
         position: relative;
-        width: calc(100% - 80px);
+        width: 100%;
         padding: 0 2em;
         .FilterToggle{
-            margin-right: 3em;
+            margin: 3em;
             text-transform: uppercase;
             display: flex;
             align-items: center;
@@ -57,7 +57,7 @@
         }
         .TopSeller{
             cursor: pointer;
-            margin-right: .5em;
+            margin: 3em;
             text-transform: uppercase;
             display: flex;
             align-items: center;

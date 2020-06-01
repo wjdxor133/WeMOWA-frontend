@@ -56,7 +56,7 @@ class ProductList extends Component {
         
         <main className="ListMain">
           <div className="ListTop">
-            <div className="ListFilter">
+            <div className="TopFilter">
               <div className="FilterToggle">
                   <button onClick={this.handleDropdown} className="ToggleButton">FILTER</button>
                   {this.state.isToggleOn ?(

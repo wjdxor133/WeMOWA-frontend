@@ -36,7 +36,7 @@ class  CheckPrice extends Component {
                 <input type="checkbox" name="radioGroup" value='a' 
                 checked={this.state.radioGroup['a']} 
                 onChange={this.handleRadio} className="PointCheck"/>
-                <a href=" " className="PointPrice">
+                <a href=" " className="PointPrice" >
                     
                     €200 - €400
                 </a>

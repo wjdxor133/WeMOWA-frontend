@@ -8,6 +8,7 @@
         display: flex;
         align-items: center;
         padding: 0.5em 0;
+       
         .PointCheck{
             width: 14px;
             height: 14px;
@@ -16,7 +17,9 @@
             border: 3px solid #fff;
             box-shadow: 0 0 0 1px #b2ada6;
             border-radius: 1px;
+            
         }
+        
         .PointPrice{
             margin-left: 0.7em;
             background-color: transparent;
