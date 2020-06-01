@@ -1,13 +1,13 @@
 import React, { Component } from "react";
+import Nav from "../Nav";
 import "./NavNew.scss";
 
 class NavNew extends Component {
   state = {
     checked: false,
-    displayValue: "",
   };
 
-  ckeck = () => {
+  leaveckeck = () => {
     this.setState({ checked: true }, () => console.log(this.state.checked));
   };
 
@@ -16,7 +16,7 @@ class NavNew extends Component {
       <div
         style={this.state.checked ? { display: "none" } : { display: "block" }}
         className="NavNew"
-        onMouseLeave={this.ckeck}
+        onMouseLeave={this.leaveckeck}
       >
         <ul>
           <li className="LATEST">

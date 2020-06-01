@@ -18,63 +18,33 @@ class Nav extends Component {
   state = {
     menu: [0, 1, 2, 3, 4],
     component: "",
-    checked: false,
+    menuChacked: false,
   };
 
   showMenu = (e) => {
     let num = this.state.menu.indexOf(Number(e.target.id));
-    this.setState({ component: navMenu[num], checked: true }, () =>
-      console.log("checked", this.state.checked, "num", num)
-    );
-  };
-
-  outMenu = () => {
-    this.setState({ checked: this.props.checked });
+    this.setState({ component: navMenu[num], menuChacked: this.props.checked });
   };
 
   render() {
+    console.log(this.props);
     return (
       <div className="Nav">
         <div className="Nav-box">
           <ul>
-            <li
-              id="0"
-              className="NEW-btn"
-              onMouseEnter={this.showMenu}
-              onMouseOut={this.outMenu}
-            >
+            <li id="0" className="NEW-btn" onMouseEnter={this.showMenu}>
               NEW
             </li>
-            <li
-              id="1"
-              className="LUGGAGE-btn"
-              onMouseEnter={this.showMenu}
-              // onMouseOut={this.outMenu}
-            >
+            <li id="1" className="LUGGAGE-btn" onMouseEnter={this.showMenu}>
               LUGGAGE
             </li>
-            <li
-              id="2"
-              className="ACCESSORIES-btn"
-              onMouseOver={this.showMenu}
-              onMouseOut={this.outMenu}
-            >
+            <li id="2" className="ACCESSORIES-btn" onMouseOver={this.showMenu}>
               ACCESSORIES
             </li>
-            <li
-              id="3"
-              className="GIFTS-btn"
-              onMouseOver={this.showMenu}
-              onMouseOut={this.outMenu}
-            >
+            <li id="3" className="GIFTS-btn" onMouseOver={this.showMenu}>
               GIFTS
             </li>
-            <li
-              id="4"
-              className="SERVICES-btn"
-              onMouseOver={this.showMenu}
-              onMouseOut={this.outMenu}
-            >
+            <li id="4" className="SERVICES-btn" onMouseOver={this.showMenu}>
               SERVICES
             </li>
             <li className="CUSTOMISE-btn">CUSTOMISE</li>

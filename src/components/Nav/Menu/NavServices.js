@@ -2,10 +2,21 @@ import React, { Component } from "react";
 import "./NavServices.scss";
 
 class NavServices extends Component {
-  state = {};
+  state = {
+    checked: false,
+  };
+
+  leaveckeck = () => {
+    this.setState({ checked: true }, () => console.log(this.state.checked));
+  };
+
   render() {
     return (
-      <div className="NavServices">
+      <div
+        style={this.state.checked ? { display: "none" } : { display: "block" }}
+        className="NavServices"
+        onMouseLeave={this.leaveckeck}
+      >
         <ul>
           <li className="services-list1">
             <span>STORE LOCATOR</span>
