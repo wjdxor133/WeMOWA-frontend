@@ -1,0 +1,95 @@
+.NavGifts {
+  border-top: 1px solid #f2f2f2;
+  box-shadow: 3px 3px 4px rgba($color: #000000, $alpha: 0.4);
+  position: absolute;
+  width: 100%;
+  top: 4em;
+  left: 0;
+  z-index: 100;
+  background-color: white;
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    padding: 2em 6em;
+    font-size: 0.9rem;
+
+    .gift-list1 {
+      .GiftGuides-title {
+        display: block;
+        letter-spacing: 0.2rem;
+        font-size: 0.77rem;
+        margin-top: -2.8em;
+        margin-bottom: 2em;
+      }
+
+      p {
+        margin: 1em 0;
+        font-size: 0.9rem;
+      }
+      a {
+        text-decoration: underline;
+        letter-spacing: 0.1rem;
+      }
+    }
+
+    .gift-list2 {
+      display: flex;
+      flex-direction: column;
+      span {
+        letter-spacing: 0.2rem;
+        font-size: 0.77rem;
+        margin-bottom: 1em;
+      }
+
+      img {
+        margin: 1em 0;
+      }
+
+      a {
+        text-decoration: underline;
+        letter-spacing: 0.1rem;
+      }
+    }
+
+    .gift-list3 {
+      display: flex;
+      flex-direction: column;
+      span {
+        letter-spacing: 0.2rem;
+        font-size: 0.77rem;
+        margin-bottom: 1em;
+      }
+
+      img {
+        margin: 1em 0;
+      }
+
+      a {
+        text-decoration: underline;
+        letter-spacing: 0.1rem;
+      }
+    }
+
+    .gift-list4 {
+      display: flex;
+      flex-direction: column;
+      span {
+        letter-spacing: 0.2rem;
+        font-size: 0.77rem;
+        margin-bottom: 1em;
+      }
+
+      img {
+        margin: 1em 0;
+      }
+
+      a {
+        text-decoration: underline;
+        letter-spacing: 0.1rem;
+      }
+    }
+  }
+}

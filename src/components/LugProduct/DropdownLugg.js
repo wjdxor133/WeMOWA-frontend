@@ -7,12 +7,12 @@ class DropdownLugg extends Component {
     constructor(){
       super();
       this.state={
-        isMouseOver: false,
-        heartOver: false
+        isMouseOver: false
+      
       }
     }
 
-    handleMouseOver = (props) => {
+    handleMouseOver = () => {
       this.setState({
         isMouseOver: true
       })
