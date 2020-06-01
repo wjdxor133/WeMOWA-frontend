@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./NavServices.scss";
 
 class NavServices extends Component {
-  state = {};
   render() {
     return (
       <div className="NavServices">

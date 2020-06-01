@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import "./Header.scss";
-import {
-  faSearch,
-  faHeart,
-  faShoppingBag,
-} from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Header extends Component {
@@ -24,7 +21,7 @@ class Header extends Component {
           </div>
           <div className="header-items">
             <div className="header-signIn">
-              <span>SIGN IN</span>
+              <a href="#">SIGN IN</a>
             </div>
             <div className="header-icons">
               <FontAwesomeIcon className="icon1" icon={faSearch} />

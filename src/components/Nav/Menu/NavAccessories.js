@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./NavAccessories.scss";
 
 class NavAccessories extends Component {
-  state = {};
   render() {
     return (
       <div className="NavAccessories">

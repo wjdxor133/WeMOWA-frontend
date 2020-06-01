@@ -1,23 +1,11 @@
 import React, { Component } from "react";
+import Nav from "../Nav";
 import "./NavNew.scss";
 
 class NavNew extends Component {
-  state = {
-    checked: false,
-    displayValue: "",
-  };
-
-  ckeck = () => {
-    this.setState({ checked: true }, () => console.log(this.state.checked));
-  };
-
   render() {
     return (
-      <div
-        style={this.state.checked ? { display: "none" } : { display: "block" }}
-        className="NavNew"
-        onMouseLeave={this.ckeck}
-      >
+      <div className="NavNew">
         <ul>
           <li className="LATEST">
             <span className="LATEST-title">LATEST</span>
