@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import CheckOutDlivery from "./CheckOutMenu/CheckOutDelivery";
 import CheckOutAddr from "./CheckOutMenu/CheckOutAddr";
+import CheckoutPayment from "./CheckOutMenu/CheckoutPayment";
 import "./CheckOut.scss";
 
 class CheckOut extends Component {
@@ -26,14 +27,14 @@ class CheckOut extends Component {
                   <span className="title-number">2.</span>
                   <h2>Shipping and billing details</h2>
                 </div>
-                <CheckOutAddr />
+                {/* <CheckOutAddr /> */}
               </div>
               <div className="CheckOutMenu-item">
                 <div className="CheckOutMenu-title">
                   <span className="title-number">3.</span>
                   <h2>Payment method</h2>
                 </div>
-                {/* <CheckOutDlivery /> */}
+                <CheckoutPayment />
               </div>
               <div className="CheckOutMenu-item">
                 <div className="CheckOutMenu-title">

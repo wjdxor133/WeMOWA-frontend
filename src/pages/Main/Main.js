@@ -10,7 +10,7 @@ class Main extends Component {
   };
 
   componentDidMount() {
-    fetch("./data/data.json")
+    fetch("./data/taek2data.json")
       .then((res) => res.json())
       .then((res) => this.setState({ data: res.products }));
   }
