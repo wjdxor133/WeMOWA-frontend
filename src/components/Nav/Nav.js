@@ -43,13 +43,13 @@ class Nav extends Component {
               className="LUGGAGE-btn"
               onMouseEnter={() => this.dropMenucheck(1)}
             >
-              LUGGAGE
+              <a className="BtnLug" href="http://localhost:3000/productList">LUGGAGE</a>
             </li>
             <li
               className="ACCESSORIES-btn"
               onMouseEnter={() => this.dropMenucheck(2)}
             >
-              ACCESSORIES
+              <a href="http://localhost:3000/accList">ACCESSORIES</a>
             </li>
             <li
               className="GIFTS-btn"

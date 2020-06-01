@@ -5,6 +5,9 @@ import DropdownLugg from '../../components/LugProduct/DropdownLugg';
 import CheckPrice from '../../components/LugProduct/CheckPrice';
 import CheckCollect from '../../components/LugProduct/CheckCollect';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import Nav from '../../components/Nav/Nav';
 import './StoreLocator.scss';
 
 
@@ -63,14 +66,8 @@ class StoreLocator extends Component {
 
     return(
       <div className="List">
-        <header className="header">
-          <div className="banner">
-          <nav className="navigation">
-            <div className="menu">
-            </div>
-          </nav>
-          </div>
-        </header>
+         <Header/>
+          <Nav/>
         
         <main className="ListMain">
           <div className="ListTop">
@@ -188,6 +185,7 @@ class StoreLocator extends Component {
 
             </ul>
           </div>
+          <Footer/>
         </main>
       </div>
     )
