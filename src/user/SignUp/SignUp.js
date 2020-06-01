@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import TitleDD from "./TitleDD";
 import CountryDD from "./CountryDD";
-import "./Signup.scss";
+import "./signup.scss";
 
 const initialState = {
   fname: "",

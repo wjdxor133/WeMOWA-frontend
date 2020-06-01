@@ -16,19 +16,6 @@ class ProductList extends Component {
       data: [],
       isToggleOn: false
     };
-    this.filterDropdownChange = this.filterDropdownChange.bind(this);
-    this.handleDropdown = this.handleDropdown.bind(this);
-  }
-
-  filterDropdownChange(e){
-    this.setState({ selectValue: e.target.value });
-  }
-  
-  handleDropdown(){
-      this.setState(state => ({
-        isToggleOn: !state.isToggleOn
-      }));
-
   }
 
   componentDidMount(){
@@ -38,9 +25,16 @@ class ProductList extends Component {
   }
 
 
+  
+  handleDropdown = () => {
+      this.setState(state => ({
+        isToggleOn: !state.isToggleOn
+      }));
+
+  }
+
   render() {
-    console.log(this.state.data);
-    
+   
     return(
       <div className="List">
         <header className="header">
