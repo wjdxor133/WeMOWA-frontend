@@ -32,7 +32,7 @@ class AccList extends Component {
   }
   
   componentDidMount(){
-    fetch("/data/data.json")
+    fetch("/data/JHdata.json")
     .then((response) => response.json())
     .then((response) => this.setState({data: response.products}));
   }
