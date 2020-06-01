@@ -1,0 +1,113 @@
+@import "../../styles/common.scss";
+
+body {
+  background: $beigeBg;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  background-color: $black;
+  color: $white;
+  text-transform: uppercase;
+  width: 100%;
+  border-radius: 0.375em;
+  padding: 1em;
+}
+
+/********* typography *********/
+h3 {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+/********* typography *********/
+
+.mainRow {
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.loginWrapper {
+  width: 50%;
+  border-right: 1px solid $faintGray;
+}
+
+.loginHeader,
+.signupHeader {
+  font-size: 1rem;
+  margin-bottom: 1em;
+}
+
+.loginBox,
+.signupBox {
+  text-align: center;
+  padding: 6em;
+}
+
+.signInForm {
+  width: 100%;
+}
+
+.signinBtn {
+  margin: 0.75em auto 1em;
+}
+
+.forgotPW {
+  text-decoration: none;
+}
+
+input {
+  width: 100%;
+  padding: 0.75em;
+}
+
+.signup {
+  width: 50%;
+}
+
+.pitchLine {
+  color: $beigeTxt;
+  margin: 2em 0;
+}
+
+.showError {
+  color: $error;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  margin-top: 0.125em;
+}
+
+.hideError {
+  display: none;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+  margin: 1em 0;
+
+  .left {
+    width: 20%;
+  }
+
+  .right {
+    width: 80%;
+  }
+
+  .togglePW {
+    position: absolute;
+    right: 0.75em;
+    top: 0.6em;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #b2ada6;
+  }
+}
