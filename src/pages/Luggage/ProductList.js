@@ -9,14 +9,12 @@ import './ProductList.scss';
 
 
 class ProductList extends Component {
-  constructor(){
-    super();
-    this.state={
+
+    state={
       selectValue: "",
       data: [],
       isToggleOn: false
-    };
-  }
+    }
 
   componentDidMount(){
     fetch("/data/data.json")
@@ -24,8 +22,6 @@ class ProductList extends Component {
     .then((response) => this.setState({data: response.products}));
   }
 
-
-  
   handleDropdown = () => {
       this.setState(state => ({
         isToggleOn: !state.isToggleOn
@@ -34,7 +30,8 @@ class ProductList extends Component {
   }
 
   render() {
-   
+    const { data , isToggleOn} = this.state;
+
     return(
       <div className="List">
         <header className="header">
@@ -51,12 +48,12 @@ class ProductList extends Component {
             <div className="ListFilter">
               <div className="FilterToggle">
                   <button onClick={this.handleDropdown} className="ToggleButton">FILTER</button>
-                  {this.state.isToggleOn ?(
+                  {isToggleOn ?(
                     <div className="FilterDropdown">
                         <div className="DropdownBox">
                             <div className="ColorFilter">
                                 <span>Color</span>
-                                {this.state.data.map( product =>{
+                                {data.map( product =>{
                                 return (<DropdownLugg colorName={product.colorName} lugColor={product.lugColor}
                                 />);})} 
                             </div>
@@ -161,7 +158,7 @@ class ProductList extends Component {
             <ul className="ListCabin">
                 <CabinProduct/> 
 
-                {this.state.data.map( product =>{
+                {data.map( product =>{
                 return (<EditionProduct name={product.name} price={product.price} img={product.img} secondImg={product.secondImg}
                   color={product.colors}
                 />);})}

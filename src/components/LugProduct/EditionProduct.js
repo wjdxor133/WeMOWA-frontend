@@ -6,13 +6,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 class EditionProduct extends Component {
     
-    constructor(){
-      super();
-      this.state={
-        isMouseOver: false,
-        heartOver: false
+      state={
+        isMouseOver: false
       }
-    }
+    
 
     handleMouseOver = (props) => {
       this.setState({
@@ -22,14 +19,14 @@ class EditionProduct extends Component {
 
 
     render() { 
-      console.log(this.props.color[0].img_url);
+      const { isMouseOver} =this.state;
         return ( 
             <li className="CabinLimited">
                     <div className="LimitedThumb">
                         <div className="LimitedBody">
                             <a href=" "className="ProductLink">
                                 <div className="ProductImage">
-                                <img src={this.state.isMouseOver ? this.props.secondImg : this.props.img}
+                                <img src={isMouseOver ? this.props.secondImg : this.props.img}
                                   className="LimitedImage" 
                                   onMouseEnter={this.handleMouseOver}
                                   onMouseOut={() => {this.setState({isMouseOver : false})}} alt=""/>

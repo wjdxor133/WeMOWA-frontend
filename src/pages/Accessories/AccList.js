@@ -6,28 +6,25 @@ import './AccList.scss';
 
 
 class AccList extends Component {
-  constructor(){
-    super();
-    this.state={
+
+    state={
       selectValue: "",
       data: []
     };
-    this.filterDropdownChange = this.filterDropdownChange.bind(this);
+   
+  componentDidMount(){
+      fetch("/data/data.json")
+      .then((response) => response.json())
+      .then((response) => this.setState({data: response.products}));
   }
 
-  filterDropdownChange(e){
+  filterDropdownChange= (e) => {
     this.setState({ selectValue: e.target.value });
   }
   
-  componentDidMount(){
-    fetch("/data/data.json")
-    .then((response) => response.json())
-    .then((response) => this.setState({data: response.products}));
-  }
-
 
   render() {
-    console.log(this.state.data);
+    const { data } = this.state;
     
     return(
       <div className="List">
@@ -55,7 +52,7 @@ class AccList extends Component {
           </div>
           <div className="ListContainer">
             <ul className="ListCabin">
-                {this.state.data.map( product =>{
+                {data.map( product =>{
                 return (<Accessories name={product.name} price={product.price} img={product.img} secondImg={product.secondImg}
                   color={product.colors} accImg={product.accImg} accSecond={product.accSecond} accPrice={product.accPrice}
                   accName={product.accName}

@@ -5,16 +5,15 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 class Accessories extends Component {
-    
-    constructor(){
-      super();
-      this.state={
-        isMouseOver: false,
-        heartOver: false
-      }
-    }
+  
+  
+      state={
+        isMouseOver: false
 
-    handleMouseOver = (props) => {
+      }
+    
+
+    handleMouseOver = () => {
       this.setState({
         isMouseOver: true
       })
@@ -22,14 +21,14 @@ class Accessories extends Component {
 
 
     render() { 
-      console.log(this.props.color[0].img_url);
+      const { isMouseOver} =this.state;
         return ( 
             <li className="CabinLimited">
                     <div className="LimitedThumb">
                         <div className="LimitedBody">
                             <a href=" "className="ProductLink">
                                 <div className="ProductImage">
-                                <img src={this.state.isMouseOver ? this.props.accSecond : this.props.accImg}
+                                <img src={isMouseOver ? this.props.accSecond : this.props.accImg}
                                   className="LimitedImage" 
                                   onMouseEnter={this.handleMouseOver}
                                   onMouseOut={() => {this.setState({isMouseOver : false})}} alt=""/>

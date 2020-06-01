@@ -4,13 +4,11 @@ import './DropdownLugg.scss';
 
 class DropdownLugg extends Component {
     
-    constructor(){
-      super();
-      this.state={
-        isMouseOver: false,
-        heartOver: false
+   state={
+        
+
       }
-    }
+    
 
     handleMouseOver = (props) => {
       this.setState({
@@ -20,6 +18,7 @@ class DropdownLugg extends Component {
 
     
     render() { 
+     
         return ( 
             <ul className="ColorSwatches">
               <li className="OneColor">
