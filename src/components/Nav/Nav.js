@@ -6,81 +6,69 @@ import NavGifts from "./Menu/NavGifts";
 import NavServices from "./Menu/NavServices";
 import "./Nav.scss";
 
-const navMenu = [
-  <NavNew />,
-  <NavLuggage />,
-  <NavAccessories />,
-  <NavGifts />,
-  <NavServices />,
-];
+const navMenu = {
+  0: <NavNew />,
+  1: <NavLuggage />,
+  2: <NavAccessories />,
+  3: <NavGifts />,
+  4: <NavServices />,
+};
 
 class Nav extends Component {
   state = {
-    menu: [0, 1, 2, 3, 4],
-    component: "",
-    checked: false,
+    menuChacked: undefined,
+    id: undefined,
+    component: undefined,
   };
 
-  showMenu = (e) => {
-    let num = this.state.menu.indexOf(Number(e.target.id));
-    this.setState({ component: navMenu[num], checked: true }, () =>
-      console.log("checked", this.state.checked, "num", num)
+  dropMenucheck = (num) => {
+    this.setState({ menuChacked: true, id: num, component: navMenu[num] }, () =>
+      console.log(this.state.menuChacked, this.state.id)
     );
   };
 
-  outMenu = () => {
-    this.setState({ checked: this.props.checked });
+  leaveckeck = () => {
+    this.setState({ menuChacked: false, component: "" });
   };
 
   render() {
     return (
-      <div className="Nav">
+      <div className="Nav" onMouseLeave={this.leaveckeck}>
         <div className="Nav-box">
           <ul>
-            <li
-              id="0"
-              className="NEW-btn"
-              onMouseEnter={this.showMenu}
-              onMouseOut={this.outMenu}
-            >
+            <li className="NEW-btn" onMouseEnter={() => this.dropMenucheck(0)}>
               NEW
             </li>
             <li
-              id="1"
               className="LUGGAGE-btn"
-              onMouseEnter={this.showMenu}
-              // onMouseOut={this.outMenu}
+              onMouseEnter={() => this.dropMenucheck(1)}
             >
               LUGGAGE
             </li>
             <li
-              id="2"
               className="ACCESSORIES-btn"
-              onMouseOver={this.showMenu}
-              onMouseOut={this.outMenu}
+              onMouseEnter={() => this.dropMenucheck(2)}
             >
               ACCESSORIES
             </li>
             <li
-              id="3"
               className="GIFTS-btn"
-              onMouseOver={this.showMenu}
-              onMouseOut={this.outMenu}
+              onMouseEnter={() => this.dropMenucheck(3)}
             >
               GIFTS
             </li>
             <li
-              id="4"
               className="SERVICES-btn"
-              onMouseOver={this.showMenu}
-              onMouseOut={this.outMenu}
+              onMouseEnter={() => this.dropMenucheck(4)}
             >
               SERVICES
             </li>
             <li className="CUSTOMISE-btn">CUSTOMISE</li>
           </ul>
         </div>
-        {this.state.component}
+        <div onMouseLeave={this.leaveckeck}>
+          {this.state.menuChacked ? this.state.component : this.state.component}
+        </div>
       </div>
     );
   }
