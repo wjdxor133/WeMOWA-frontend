@@ -1,28 +1,38 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import TitleDD from "./TitleDD";
-import CountryDD from "./CountryDD";
+import { DropdownCheck } from "../../components/Dropdown/Dropdown";
+import Country from "./CountryDD";
 import "./signup.scss";
 
 const initialState = {
-  fname: "",
-  lname: "",
+  title: [],
+  prefix: "Ms",
+  country: "France",
+  first_name: "",
+  last_name: "",
   email: "",
-  pw1: "",
+  password: "",
   pw2: "",
   pwtype: "password",
   visibility: "Show",
   personalData: false,
   privacy: false,
-  fnameError: "",
-  lnameError: "",
+  first_nameError: "",
+  last_nameError: "",
   emailError: "",
-  pw1Error: "",
+  passwordError: "",
   pw2Error: "",
+  listOpen: false,
 };
 
 class Signup extends Component {
   state = initialState;
+
+  componentDidMount() {
+    fetch("/data/signup.json")
+      .then((res) => res.json())
+      .then((res) => this.setState({ title: res.title }));
+  }
 
   //input 값을 state 에 넣어주기
   handleInput = (event) => {
@@ -43,20 +53,20 @@ class Signup extends Component {
 
   //form validation 조건
   validate = () => {
-    let fnameError = "";
-    let lnameError = "";
+    let first_nameError = "";
+    let last_nameError = "";
     let emailError = "";
-    let pw1Error = "";
+    let passwordError = "";
     let pw2Error = "";
 
-    if (!this.state.fname) {
+    if (!this.state.first_name) {
       //first name 이 비었을경우
-      fnameError = "First name is required";
+      first_nameError = "First name is required";
     }
 
-    if (!this.state.lname) {
+    if (!this.state.last_name) {
       //last name 이 비었을경우
-      lnameError = "Last name is required";
+      last_nameError = "Last name is required";
     }
 
     if (!this.state.email.includes("@")) {
@@ -64,19 +74,31 @@ class Signup extends Component {
       emailError = "Please enter valid email address";
     }
 
-    if (!this.state.pw1.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/)) {
+    if (!this.state.password.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/)) {
       //pw 가 8글자 이상, 숫자 포함, uppercase, lower case 포함이 되지 않았을때
-      pw1Error = "Please enter valid password";
+      passwordError = "Please enter valid password";
     }
 
-    if (this.state.pw2 !== this.state.pw1) {
+    if (this.state.pw2 !== this.state.password) {
       //confirm password
       pw2Error = "Password doesn't match";
     }
 
-    if (fnameError || lnameError || emailError || pw1Error || pw2Error) {
+    if (
+      first_nameError ||
+      last_nameError ||
+      emailError ||
+      passwordError ||
+      pw2Error
+    ) {
       //if they contain error message
-      this.setState({ fnameError, lnameError, emailError, pw1Error, pw2Error }); //setState to error message
+      this.setState({
+        first_nameError,
+        last_nameError,
+        emailError,
+        passwordError,
+        pw2Error,
+      }); //setState to error message
       return false; //validate() is false, !isValid, show errormsg
     }
 
@@ -93,6 +115,17 @@ class Signup extends Component {
     }
   };
 
+  handleToggle = () => {
+    this.setState((prev) => ({
+      listOpen: !prev.listOpen,
+    }));
+  };
+
+  selectedItem = (t) => {
+    console.log(t.name);
+    this.setState({ prefix: t.name, listOpen: false });
+  };
+
   handleSubmit = (event) => {
     event.preventDefault();
     const isValid = this.validate();
@@ -101,27 +134,33 @@ class Signup extends Component {
       this.setState(initialState);
     }
     /*
-    fetch('address', {
+    const token = localStorage.getItem("access_token");
+
+    fetch("http://10.58.1.249:8000/account/signup", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
-        fname: this.state.fname,
-        lname: this.state.lname,
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
         email: this.state.email,
-        password: this.state.pw,
-        privacy: this.state.privacy
-      })
+        password: this.state.password,
+        prefix: this.state.prefix,
+        country: this.state.country,
+      }),
     })
-    .then(response => response.json())
-    .then(response => {
-      if (response.message === "SUCCESS"){
-        alert ("Signup Success!");
-        thisprops.history.push("/accountpage")
-      }
-    })
-    */
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        if (response.message === "SUCCESS") {
+          alert("Signup Success!");
+          this.props.history.push("/");
+        } else if (response.message !== "SUCCESS") {
+          alert("Something Wrong");
+          this.props.history.push("/signup");
+        }
+      });*/
   };
 
   render() {
@@ -136,31 +175,39 @@ class Signup extends Component {
             >
               <div className="inputWrapper flex">
                 <div className="left">
-                  <TitleDD />
+                  <DropdownCheck
+                    list={this.state.title}
+                    listOpen={this.state.listOpen}
+                    handleToggle={this.handleToggle}
+                    selectedItem={this.state.prefix}
+                    handleSelection={this.selectedItem}
+                  />
                 </div>
                 <div className="right">
                   <input
                     type="text"
-                    name="fname"
+                    name="first_name"
                     placeholder="First Name*"
-                    value={this.state.fname}
+                    value={this.state.first_name}
                     onChange={this.handleInput}
                   />
-                  <p className="showError center">{this.state.fnameError}</p>
+                  <p className="showError center">
+                    {this.state.first_nameError}
+                  </p>
                 </div>
               </div>
               <div className="inputWrapper">
                 <input
                   type="text"
-                  name="lname"
+                  name="last_name"
                   placeholder="Last Name"
-                  value={this.state.lname}
+                  value={this.state.last_name}
                   onChange={this.handleInput}
                 />
-                <p className="showError center">{this.state.lnameError}</p>
+                <p className="showError center">{this.state.last_nameError}</p>
               </div>
               <div className="countryDD">
-                <CountryDD />
+                <Country />
               </div>
               <div className="inputWrapper">
                 <input
@@ -175,15 +222,15 @@ class Signup extends Component {
               <div className="inputWrapper">
                 <input
                   type={this.state.pwtype}
-                  name="pw1"
+                  name="password"
                   placeholder="Password*"
-                  value={this.state.pw1}
+                  value={this.state.password}
                   onChange={this.handleInput}
                 />
                 <span className="togglePW" onClick={this.handlePW}>
                   {this.state.visibility}
                 </span>
-                <p className="showError center">{this.state.pw1Error}</p>
+                <p className="showError center">{this.state.passwordError}</p>
                 <p className="passwordReq center">
                   The password must contain at least 8 characters including 1
                   number, 1 upper and 1 lower case letter
@@ -211,7 +258,7 @@ class Signup extends Component {
                   <p>
                     I consent to RIMOWA processing my personal data in order to
                     send personalised marketing material in accordance with the{" "}
-                    <a href="">consent form</a> and the privacy policy.
+                    <a href=" ">consent form</a> and the privacy policy.
                   </p>
                 </div>
               </div>
@@ -225,19 +272,19 @@ class Signup extends Component {
                 </div>
                 <div className="right">
                   By clicking "create account", I consent to the{" "}
-                  <a href="">privacy policy</a>.
+                  <a href=" ">privacy policy</a>.
                 </div>
               </div>
-              <button onClick={this.handleClick}>Create Account</button>
+              <button>Create Account</button>
             </form>
             <div className="caption center">
               <p>By creating an account, you agree to our:</p>{" "}
               <p>
-                <a href="" className="terms">
+                <a href=" " className="terms">
                   TERMS OF CONDITIONS
                 </a>
                 |
-                <a href="" className="privacy">
+                <a href=" " className="privacy">
                   PRIVACY POLICY
                 </a>
               </p>

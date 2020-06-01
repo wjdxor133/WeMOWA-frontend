@@ -4,10 +4,11 @@ import "./Login.scss";
 
 const initialState = {
   email: "",
-  pw: "",
+  password: "",
   emailError: "",
   pwError: "",
   validateError: "",
+  pwtype: "password",
   visibility: "Show",
 };
 
@@ -29,16 +30,16 @@ class Login extends Component {
       emailError = "This field is required"; //emailError에 error 메시지를 넣어준다.
     }
 
-    if (!this.state.pw) {
+    if (!this.state.password) {
       //state 에 pw가 없으면, 즉 빈 string 이면
       pwError = "This field is required"; //pwError에 error 메시지를 넣어준다.
     }
 
-    if (!this.state.validateError) {
+    /*if (!this.state.validateError) {
       //state 에 pw가 없으면, 즉 빈 string 이면
       validateError =
         "Sorry, this does not match our records. Check your spelling and try again."; //pwError에 error 메시지를 넣어준다.
-    }
+    }*/
 
     if (emailError || pwError || validateError) {
       this.setState({ emailError, pwError, validateError });
@@ -67,28 +68,31 @@ class Login extends Component {
       this.setState(initialState);
     }
 
-    /*const token = localStorage.getItem("access_token");
-    fetch('address', {
-      method: "POST"
-      headers : {
+    const token = localStorage.getItem("access_token");
+    fetch("http://10.58.1.249:8000/account/signin", {
+      method: "POST",
+      headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         email: this.state.email,
-        password:this.state.pw,
-      })
+        password: this.state.password,
+      }),
     })
-    .then(response => response.json())
-    .then(response => {
-      if(response.token) {
-        localStorage.setItem("token", response.token);
-        this.props.history.push("/accountpage");
-      } else if (!response.token){
-        this.setState({validateError: "Sorry, this does not match our records. Check your spelling
-        and try again."})
-      }
-    })
-    */
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        if (response.token) {
+          localStorage.setItem("token", response.token);
+          this.props.history.push("/");
+        } else if (!response.token) {
+          //this.setState({
+          //validateError:
+          //"Sorry, this does not match our records. Check your spelling and try again.",
+          //});
+          alert("Invalid User");
+        }
+      });
   };
 
   render() {
@@ -120,9 +124,9 @@ class Login extends Component {
                 <div className="inputWrapper">
                   <input
                     type={this.state.pwtype}
-                    name="pw"
+                    name="password"
                     placeholder="Password*"
-                    value={this.state.pw}
+                    value={this.state.password}
                     onChange={this.handleInput}
                   />
                   <span className="togglePW" onClick={this.handlePW}>
@@ -135,7 +139,7 @@ class Login extends Component {
                 </button>
               </form>
               <p className="txtUpper">
-                <Link to="" className="forgotPW">
+                <Link to="/" className="forgotPW">
                   Forgotten your password?
                 </Link>
               </p>

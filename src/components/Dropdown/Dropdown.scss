@@ -61,16 +61,20 @@
   height: 40px;
   font-size: 0.875rem;
 }
+.chFlyout {
+  width: 100%;
+  background: white;
+}
 
-li {
+.unselected {
   list-style: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0.875em;
+  padding: 0.25em 0.875em;
 }
 
-li:hover {
+.unselected:hover {
   cursor: pointer;
   background: #eee;
 }
@@ -90,6 +94,10 @@ li:hover {
 }
 
 /******DROPDOWN CATEGORY******/
+
+.DropdownCat {
+  position: relative;
+}
 
 .CatHeaderWrapper {
   display: flex;
