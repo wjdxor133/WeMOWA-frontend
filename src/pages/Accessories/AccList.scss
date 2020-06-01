@@ -23,7 +23,7 @@
 
 }
 .ListMain{
-    border: 2px solid black;
+    border-top: 1px solid #f7f5f4;
     min-height: 100vh;
 
 .ListTop{
@@ -48,7 +48,7 @@
             .ToggleButton{
                 cursor: pointer;
                 color: #0d0901;
-                background-color: #fff;
+                background-color: transparent;
                 font-size: 0.7rem;
                 letter-spacing: 0.2rem;
                 border-color: transparent;
