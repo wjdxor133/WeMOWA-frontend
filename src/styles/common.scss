@@ -2,12 +2,65 @@
 
 /* common colors */
 $white: #fff;
+$black: #000;
 $beige: #f7f5f4;
+$beigeTxt: #b2ada6;
+$beigeBg: #fbfaf9;
 $darkGray: #424242;
+$gray: #6f6f6f;
+$faintGray: #eeeeee;
+$error: #c81f1f;
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   font-family: "Work Sans", sans-serif;
   font-size: 0.875rem;
   color: $darkGray;
   line-height: 1.5rem;
+}
+
+/* layout */
+.flex {
+  display: flex;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexAlignCenter {
+  display: flex;
+  align-items: center;
+}
+
+.flexJustifyCenter {
+  display: flex;
+  justify-content: center;
+}
+
+.flexSpaceBetween {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flexColumnCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexEnd {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* font */
+.txtUpper {
+  text-transform: uppercase;
 }

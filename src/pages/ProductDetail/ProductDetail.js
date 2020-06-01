@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Carousel from "nuka-carousel";
-import { Link } from "react-router-dom";
+import SizesDD from "./SizesDD";
+import { AccordionSpec } from "../../components/Accordion/Accordion";
 import OrigTrunkPF from "../../images/Orig_Trunk_PF.jpg";
 import OrigTrunkPS from "../../images/Orig_Trunk_PS.jpg";
 import "./ProductDetail.scss";
@@ -10,19 +11,37 @@ class ProductDetail extends Component {
     super();
     this.state = {
       products: [],
-      test: [
-        { id: 1, name: "one", size: "55x40x23 cm" },
-        { id: 2, name: "two", size: "25x40x23 cm" },
-        { id: 3, name: "three", size: "45x40x23 cm" },
+      accordion: [
+        {
+          id: 0,
+          title: "Specifications",
+          specs: {
+            weight: "Weight: 6.8 KG",
+            volume: "130 L",
+          },
+        },
+        {
+          id: 1,
+          title: "Materials",
+          text:
+            "Packed items are kept in perfect order during transit with the height adjustable Flex Divider, which can be adapted to suit your belongings.",
+        },
       ],
+      wishlist: false,
     };
   }
 
   componentDidMount() {
-    fetch("/data/data.json")
+    fetch("/data/pd_data.json")
       .then((res) => res.json())
       .then((res) => this.setState({ products: res.products }));
   }
+
+  handleWishlist = () => {
+    this.setState((prev) => ({ wishlist: !prev.wishlist }));
+  };
+
+  handleColor = () => {};
 
   render() {
     return (
@@ -58,30 +77,48 @@ class ProductDetail extends Component {
                 alt=""
               />
             </Carousel>
-            <div className="productLabel">New</div>
+            <div className="productLabel flex">
+              <div className="pdDiamond"></div>
+              <div className="pdTxtUpper">New</div>
+            </div>
           </div>
           <div className="productDetail center">
-            <div className="pdHeader">
-              <span className="upper">Original</span>
-              <h1>Trunk XL</h1>
+            <div className="pdInfo">
+              <div className="pdHeader">
+                <span className="subHeader">Original</span>
+                <h1>Trunk XL</h1>
+              </div>
+              <div className="pdPrice">
+                <span>1.530,00 €</span>
+              </div>
             </div>
-            <div className="pdPrice">
-              <span>1.530,00 €</span>
+
+            <div className="pdSelectSize">
+              <SizesDD products={this.state.products} />
             </div>
-            {/* <div className="pdSize">Size Dropdown</div> */}
             <div className="pdAddToCart">
               <button>Purchase</button>
             </div>
             <div className="pdAvail">
-              <span className="upper">Limited Stock</span>
+              <span className="pdTxtUpper">Limited Stock</span>
             </div>
             <div className="pdOptions flexJustifyCenter">
-              <Link to="">
-                <div className="pdWisilist">Add to Wishlist</div>
-              </Link>
-              <Link to="">
-                <div className="pdFindStore">Find in store</div>
-              </Link>
+              <div
+                className="pdWishlist flexCenter"
+                onClick={this.handleWishlist}
+              >
+                <i
+                  className={`${
+                    this.state.wishlist ? "fas fa-heart" : "far fa-heart"
+                  }`}
+                ></i>
+                <div className="pdML3 pdUnderline">Add to Wishlist</div>
+              </div>
+
+              <div className="pdStore flexCenter">
+                <i className="fas fa-store"></i>
+                <div className="pdML3 pdUnderline">Find in store</div>
+              </div>
             </div>
             <div className="pdText">
               <p>
@@ -97,26 +134,27 @@ class ProductDetail extends Component {
                 tag and sticker set.
               </p>
             </div>
-            <Link to="">
-              <div className="pdAirline">See airline compatibility</div>
-            </Link>
             <div className="pdColors flexJustifyCenter">
-              {this.state.products.map((c) => (
-                <div>{c.name}</div>
-              ))}
+              {this.state.products[0] &&
+                this.state.products[0].color.map((color) => (
+                  <div
+                    className="pdML3 colorPalette"
+                    style={{ backgroundColor: color }}
+                  ></div>
+                ))}
             </div>
           </div>
         </div>
         <div className="divider"></div>
         <div className="pdpBottom">
           <div className="pdpSpecs">
-            <div className="specHeader center">
-              <span className="upper">Specifications</span>
-              <h3>Refined to the very last detail</h3>
+            <div className="sectionHeader center">
+              <span className="subHeader">Specifications</span>
+              <h1>Refined to the very last detail</h1>
             </div>
             <div className="specDetail flex">
               <div className="specImg">
-                <div className="specUnit upper">
+                <div className="specUnit pdTxtUpper">
                   <span className="metric">Metric</span>
                   <span className="imperial">Imperial</span>
                 </div>
@@ -149,13 +187,46 @@ class ProductDetail extends Component {
                   </div>
                 </div>
               </div>
-              <div className="specDetails"></div>
+              <div className="specDetails">
+                {this.state.accordion.map((m) => {
+                  return (
+                    <AccordionSpec
+                      key={m.id}
+                      title={m.title}
+                      specs={m.text}
+                      list={m}
+                    />
+                  );
+                })}
+              </div>
             </div>
-            <div className="specPN upper center">Product Number : 92585004</div>
+            <div className="specPN pdTxtUpper center">
+              Product Number : 92585004
+            </div>
           </div>
           <div className="pdpKey flex">
-            <div className="keyImg">img</div>
-            <div className="keyDetails">details</div>
+            <div className="keyImg flexJustifyCenter">
+              <img
+                src="https://www.rimowa.com/on/demandware.static/-/Library-Sites-RimowaSharedLibrary/default/dw76fdeeb1/images/PDP-features/Detail-TSA--Original-Trunk-XL-Silver.png"
+                alt=""
+              />
+            </div>
+            <div className="keyAccor">
+              <div className="sectionHeader center">
+                <span className="subHeader">Specifications</span>
+                <h1>Engineered for travel</h1>
+              </div>
+              {this.state.accordion.map((m) => {
+                return (
+                  <AccordionSpec
+                    key={m.id}
+                    title={m.title}
+                    specs={m.text}
+                    list={m}
+                  />
+                );
+              })}
+            </div>
           </div>
           <div className="pdpRecommend">pdpRecommend</div>
         </div>
