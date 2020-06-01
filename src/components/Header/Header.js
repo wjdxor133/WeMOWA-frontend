@@ -17,7 +17,7 @@ class Header extends Component {
             </span>
           </div>
           <div className="header-logoTitle">
-            <p>RIMOWA</p>
+            <p><a href="http://localhost:3000/">RIMOWA</a></p>
           </div>
           <div className="header-items">
             <div className="header-signIn">
