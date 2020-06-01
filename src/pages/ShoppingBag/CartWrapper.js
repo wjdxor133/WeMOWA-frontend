@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Header from "../../components/Header/Header";
+import Nav from "../../components/Nav/Nav";
 import CartHeader from "./CartHeader";
 import ShoppingBag from "./ShoppingBag";
 import EmptyCart from "./EmptyCart";
@@ -97,6 +99,8 @@ class CartWrapper extends Component {
   render() {
     return (
       <div className="CartWrapper">
+        <Header />
+        <Nav />
         <CartHeader totalNumber={this.state.testProducts.length} />
         <main className="ShoppingBag">
           {this.state.testProducts.length === 0 ? (
