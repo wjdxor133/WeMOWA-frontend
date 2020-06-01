@@ -2,21 +2,9 @@ import React, { Component } from "react";
 import "./NavLuggage.scss";
 
 class NavLuggage extends Component {
-  state = {
-    checked: false,
-  };
-
-  leaveckeck = () => {
-    this.setState({ checked: true }, () => console.log(this.state.checked));
-  };
-
   render() {
     return (
-      <div
-        style={this.state.checked ? { display: "none" } : { display: "block" }}
-        className="NavLuggage"
-        onMouseLeave={this.leaveckeck}
-      >
+      <div className="NavLuggage">
         <ul>
           <li className="li1">
             <span>COLLECTION</span>
@@ -215,27 +203,27 @@ class NavLuggage extends Component {
           <li className="li3">
             <span>SIZE</span>
             <div className="size-top">
-              <div className="size-cabin">
+              <a className="size-cabin" href="#">
                 <img
                   src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dwed0b1d76/images/category_megamenu/Orig_Cabin_PF-FINAL.png"
                   alt="Cabin"
                 ></img>
                 <p>Cabin</p>
-              </div>
-              <div className="size-checkIn">
+              </a>
+              <a className="size-checkIn" href="#">
                 <img
                   src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw0df46682/images/category_megamenu/Orig_CheckinM_PF-FINAL.png"
                   alt="Check-In"
                 ></img>
                 <p>Check-In</p>
-              </div>
-              <div className="size-trunk">
+              </a>
+              <a className="size-trunk" href="#">
                 <img
                   src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dwd3368939/Orig_Trunk_PF-FINAL (002).png"
                   alt="Trunk"
                 ></img>
                 <p>Trunk</p>
-              </div>
+              </a>
             </div>
             <div className="material-bottom">
               <p>MATERIAL</p>
