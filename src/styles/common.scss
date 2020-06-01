@@ -33,9 +33,19 @@ body {
   align-items: center;
 }
 
+.flexAlignCenter {
+  display: flex;
+  align-items: center;
+}
+
 .flexJustifyCenter {
   display: flex;
   justify-content: center;
+}
+
+.flexSpaceBetween {
+  display: flex;
+  justify-content: space-between;
 }
 
 .flexColumnCenter {
