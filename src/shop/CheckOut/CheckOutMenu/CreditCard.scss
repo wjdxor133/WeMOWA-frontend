@@ -1,0 +1,49 @@
+.CreditCard {
+  .credit-back {
+    display: flex;
+    align-items: center;
+    color: #6f6f6f;
+
+    span {
+      font-size: 0.9rem;
+      text-decoration: underline;
+      margin-left: 0.8rem;
+    }
+  }
+  .CreditCard-items {
+    h4 {
+      padding: 2em 0 1em;
+    }
+    .card-img {
+      display: flex;
+      align-items: center;
+      img {
+        width: 5%;
+        border: 0.05rem solid #dadada;
+        margin-right: 0.5rem;
+      }
+      span {
+        font-size: 0.8rem;
+        color: #6f6f6f;
+      }
+    }
+    .card-input {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      input {
+        width: 70%;
+        padding: 1.5em 1em;
+        border: 0.05rem solid #dadada;
+        border-radius: 0.3rem;
+        margin-top: 1em;
+      }
+
+      input::placeholder {
+        color: #6f6f6f;
+        font-size: 1rem;
+      }
+    }
+  }
+}
