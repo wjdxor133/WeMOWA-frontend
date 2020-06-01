@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import Carousel from "nuka-carousel";
-import { Link } from "react-router-dom";
-import { AccordionSpec } from "../../components/Accordion/Accordion";
 import SizesDD from "./SizesDD";
+import { AccordionSpec } from "../../components/Accordion/Accordion";
 import OrigTrunkPF from "../../images/Orig_Trunk_PF.jpg";
 import OrigTrunkPS from "../../images/Orig_Trunk_PS.jpg";
 import "./ProductDetail.scss";
@@ -12,11 +11,6 @@ class ProductDetail extends Component {
     super();
     this.state = {
       products: [],
-      test: [
-        { id: 1, name: "one", size: "55x40x23 cm" },
-        { id: 2, name: "two", size: "25x40x23 cm" },
-        { id: 3, name: "three", size: "45x40x23 cm" },
-      ],
       accordion: [
         {
           id: 0,
@@ -38,7 +32,7 @@ class ProductDetail extends Component {
   }
 
   componentDidMount() {
-    fetch("/data/data.json")
+    fetch("/data/pd_data.json")
       .then((res) => res.json())
       .then((res) => this.setState({ products: res.products }));
   }
@@ -100,7 +94,7 @@ class ProductDetail extends Component {
             </div>
 
             <div className="pdSelectSize">
-              <SizesDD />
+              <SizesDD products={this.state.products} />
             </div>
             <div className="pdAddToCart">
               <button>Purchase</button>

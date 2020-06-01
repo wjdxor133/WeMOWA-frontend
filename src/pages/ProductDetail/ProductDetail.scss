@@ -155,8 +155,9 @@
 }
 
 .colorPalette {
-  width: 2em;
-  height: 2em;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50px;
 }
 
 .divider {
@@ -261,9 +262,15 @@
 
 @media screen and (max-width: 1023px) {
   .pdpTop {
+    display: block;
+  }
+
+  .productImg {
     width: 100%;
-    max-width: 1000px;
-    padding: 2.5rem 2.5rem 0; /*top rightleft bottom*/
-    margin: 0 auto;
+    padding: 5em;
+  }
+
+  .productDetail {
+    width: 100%;
   }
 }

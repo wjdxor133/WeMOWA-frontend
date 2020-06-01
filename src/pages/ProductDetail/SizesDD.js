@@ -3,7 +3,7 @@ import { DropdownCat } from "../../components/Dropdown/Dropdown";
 
 class SizesDD extends Component {
   state = {
-    location: [
+    sizes: [
       {
         id: 0,
         name: "Trunk XL",
@@ -27,10 +27,28 @@ class SizesDD extends Component {
     ],
   };
 
+  handleToggle = () => {
+    this.setState((prev) => ({
+      listOpen: !prev.listOpen,
+    }));
+  };
+
+  selectedItem = (t) => {
+    console.log(t.name);
+    this.setState({ default: t.name, listOpen: false });
+  };
+
   render() {
     return (
       <div>
-        <DropdownCat category="Size" list={this.state.location} />
+        <DropdownCat
+          category="Size"
+          list={this.state.sizes}
+          selectedItem={this.state.selectedItem}
+          listOpen={this.state.listOpen}
+          handleToggle={this.handleToggle}
+          handleSelection={this.selectedItem}
+        />
       </div>
     );
   }
