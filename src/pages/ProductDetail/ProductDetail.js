@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Carousel from "nuka-carousel";
+import Header from "../../components/Header/Header";
+import Nav from "../../components/Nav/Nav";
 import SizesDD from "./SizesDD";
 import { AccordionSpec } from "../../components/Accordion/Accordion";
 import OrigTrunkPF from "../../images/Orig_Trunk_PF.jpg";
@@ -7,34 +9,31 @@ import OrigTrunkPS from "../../images/Orig_Trunk_PS.jpg";
 import "./ProductDetail.scss";
 
 class ProductDetail extends Component {
-  constructor() {
-    super();
-    this.state = {
-      products: [],
-      accordion: [
-        {
-          id: 0,
-          title: "Specifications",
-          specs: {
-            weight: "Weight: 6.8 KG",
-            volume: "130 L",
-          },
+  state = {
+    product: {},
+    accordion: [
+      {
+        id: 0,
+        title: "Specifications",
+        specs: {
+          weight: "Weight: 6.8 KG",
+          volume: "130 L",
         },
-        {
-          id: 1,
-          title: "Materials",
-          text:
-            "Packed items are kept in perfect order during transit with the height adjustable Flex Divider, which can be adapted to suit your belongings.",
-        },
-      ],
-      wishlist: false,
-    };
-  }
+      },
+      {
+        id: 1,
+        title: "Materials",
+        text:
+          "Packed items are kept in perfect order during transit with the height adjustable Flex Divider, which can be adapted to suit your belongings.",
+      },
+    ],
+    wishlist: false,
+  };
 
   componentDidMount() {
     fetch("/data/pd_data.json")
       .then((res) => res.json())
-      .then((res) => this.setState({ products: res.products }));
+      .then((res) => this.setState({ product: res.product }));
   }
 
   handleWishlist = () => {
@@ -44,8 +43,15 @@ class ProductDetail extends Component {
   handleColor = () => {};
 
   render() {
+    const { product_number } = this.state.product;
+    const { collection } = this.state.product;
+    const { name } = this.state.product;
+    const { amount } = this.state.product;
+    const { description } = this.state.product;
     return (
       <div className="ProductDetail">
+        <Header />
+        <Nav />
         <div className="pdpTop">
           <div className="productImg">
             <Carousel
@@ -85,16 +91,16 @@ class ProductDetail extends Component {
           <div className="productDetail center">
             <div className="pdInfo">
               <div className="pdHeader">
-                <span className="subHeader">Original</span>
-                <h1>Trunk XL</h1>
+                <span className="subHeader">{collection && collection}</span>
+                <h1>{name && name}</h1>
               </div>
               <div className="pdPrice">
-                <span>1.530,00 €</span>
+                <span>{`${amount && amount} €`}</span>
               </div>
             </div>
 
             <div className="pdSelectSize">
-              <SizesDD products={this.state.products} />
+              <SizesDD products={this.state.product} />
             </div>
             <div className="pdAddToCart">
               <button>Purchase</button>
@@ -121,22 +127,11 @@ class ProductDetail extends Component {
               </div>
             </div>
             <div className="pdText">
-              <p>
-                The unmistakable RIMOWA Original aluminium suitcase with its
-                distinctive grooves is regarded as one of the most iconic
-                luggage designs of all time. Made from high-end anodised
-                aluminium, the RIMOWA Original Trunk XL in silver is our largest
-                suitcase yet. An oversized edition inspired by our original
-                trunks, this extra large four wheel suitcase is the same height
-                as the RIMOWA Original Trunk Plus and offers 25% more space for
-                less than 6% of additional weight. Suited to open-ended voyages
-                of four weeks or more. Includes a complimentary leather luggage
-                tag and sticker set.
-              </p>
+              <p>{description && description}</p>
             </div>
             <div className="pdColors flexJustifyCenter">
-              {this.state.products[0] &&
-                this.state.products[0].color.map((color) => (
+              {this.state.product[0] &&
+                this.state.product[0].color.map((color) => (
                   <div
                     className="pdML3 colorPalette"
                     style={{ backgroundColor: color }}
@@ -201,7 +196,7 @@ class ProductDetail extends Component {
               </div>
             </div>
             <div className="specPN pdTxtUpper center">
-              Product Number : 92585004
+              Product Number : {product_number && product_number}
             </div>
           </div>
           <div className="pdpKey flex">
