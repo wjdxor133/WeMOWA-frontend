@@ -1,3 +1,4 @@
+
 .NavServices {
   border-top: 1px solid #f2f2f2;
   box-shadow: 3px 3px 4px rgba($color: #000000, $alpha: 0.4);
@@ -23,6 +24,10 @@
         letter-spacing: 0.2rem;
         font-size: 0.77rem;
         margin-bottom: 1em;
+        a{
+          text-decoration: none;
+          color: black;
+        }
       }
 
       img {
