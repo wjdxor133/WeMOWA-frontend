@@ -8,7 +8,7 @@ class NavLuggage extends Component {
         <ul>
           <li className="li1">
             <span>COLLECTION</span>
-            <div className="listItem1 ">
+            <div className="listItem1">
               <div className="COLLECTION-left-list">
                 <a className="COLLECTION-item1" href="#">
                   <img
@@ -16,7 +16,7 @@ class NavLuggage extends Component {
                     alt="ORIGINAL-img"
                   ></img>
                   <div className="COLLECTION-name">
-                    <p>ORIGINAL</p>
+                    <span>ORIGINAL</span>
                     <p>A travel icon</p>
                   </div>
                 </a>
@@ -26,7 +26,7 @@ class NavLuggage extends Component {
                     alt="CLASSIC-img"
                   ></img>
                   <div className="COLLECTION-name">
-                    <p>CLASSIC</p>
+                    <span>CLASSIC</span>
                     <p>Heritage</p>
                     <p>inspired</p>
                   </div>
@@ -37,7 +37,7 @@ class NavLuggage extends Component {
                     alt="HYBRID-img"
                   ></img>
                   <div className="COLLECTION-name">
-                    <p>HYBRID</p>
+                    <span>HYBRID</span>
                     <p>Best of both</p>
                     <p>worids</p>
                   </div>
@@ -50,7 +50,7 @@ class NavLuggage extends Component {
                     alt="ESSENTIAL-img"
                   ></img>
                   <div className="COLLECTION-name">
-                    <p>ESSENTIAL</p>
+                    <span>ESSENTIAL</span>
                     <p>Fiexible by</p>
                     <p>design</p>
                   </div>
@@ -61,7 +61,7 @@ class NavLuggage extends Component {
                     alt=">ESSENTIALLITE-img"
                   ></img>
                   <div className="COLLECTION-name">
-                    <p>ESSENTIAL LITE</p>
+                    <span>ESSENTIAL LITE</span>
                     <p>Our lightest</p>
                     <p>suitcase</p>
                   </div>
@@ -72,7 +72,7 @@ class NavLuggage extends Component {
                     alt="ESSENTIAL-img"
                   ></img>
                   <div className="COLLECTION-name">
-                    <p>ESSENTIAL</p>
+                    <span>ESSENTIAL</span>
                     <p>SLEEVE</p>
                     <p>Business trip ready</p>
                   </div>

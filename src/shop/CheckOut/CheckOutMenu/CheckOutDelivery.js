@@ -3,7 +3,9 @@ import "./CheckOutDelivery.scss";
 
 class CheckOutDelivery extends Component {
   state = {};
+
   render() {
+    const { stepTwoChecked } = this.props;
     return (
       <div className="CheckOutDelivery">
         <div className="deliveryOptions">
@@ -26,7 +28,7 @@ class CheckOutDelivery extends Component {
             </div>
           </div>
         </div>
-        <div className="deliveryBtn">
+        <div className="deliveryBtn" onClick={stepTwoChecked}>
           <button>
             <span>NEXT STEP</span>
           </button>

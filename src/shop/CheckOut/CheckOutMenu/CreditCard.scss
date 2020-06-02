@@ -28,7 +28,6 @@
       }
     }
     .card-input {
-      width: 100%;
       display: flex;
       flex-direction: column;
 
@@ -44,6 +43,27 @@
         color: #6f6f6f;
         font-size: 1rem;
       }
+
+      .card-Validity {
+        display: flex;
+      }
+    }
+  }
+
+  .CreditCard-btn {
+    border-top: 1px solid #ececec;
+    button {
+      width: 70%;
+      background-color: #0c67e7;
+      border-radius: 0.2rem;
+      border-style: none;
+      margin: 2rem 0 4rem;
+    }
+
+    span {
+      font-size: 0.6rem;
+      letter-spacing: 0.15rem;
+      color: white;
     }
   }
 }

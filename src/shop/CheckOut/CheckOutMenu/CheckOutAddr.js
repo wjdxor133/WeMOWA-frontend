@@ -16,7 +16,7 @@ class CheckOutAddr extends Component {
   valueChecked = (e) => {
     this.setState({ [e.target.name]: e.target.value });
 
-    // 우편번호 / 주소 / 핸드폰 번호 알림 체크
+    // 우편번호 / 주소 / 핸드폰 번호 값 체크
     if (e.target.name === "zipCode" && e.target.value.length < 5) {
       this.setState({ zipCodeChecked: true });
     } else {
@@ -32,6 +32,22 @@ class CheckOutAddr extends Component {
     if (e.target.name === "phone" && e.target.value.length < 6) {
       this.setState({ phoneChecked: true });
     } else {
+      this.setState({ phoneChecked: false });
+    }
+    if (e.target.name === "phone" && e.target.value.length === 0) {
+      this.setState({ zipCodeChecked: false });
+    }
+
+    // 비어있을 때 체크
+    if (e.target.name === "zipCode" || e.target.value.length === 0) {
+      this.setState({ zipCodeChecked: false });
+    }
+
+    if (e.target.name === "city" && e.target.value.length === 0) {
+      this.setState({ cityChecked: false });
+    }
+
+    if (e.target.name === "phone" && e.target.value.length === 0) {
       this.setState({ phoneChecked: false });
     }
   };
@@ -111,22 +127,33 @@ class CheckOutAddr extends Component {
     }
     // 3개 값이 비었을 때
     else if (
-      this.state.cityChecked === false &&
-      this.state.zipCodeChecked === false &&
-      this.state.phoneChecked === false
+      this.state.cityChecked !== undefined &&
+      this.state.zipCodeChecked !== undefined &&
+      this.state.phoneChecked !== undefined
     ) {
+      const { stepThreeChecked } = this.props;
       this.setState({
+        zipCodeChecked: false,
+        cityChecked: false,
+        phoneChecked: false,
         btnState: true,
       });
-      alert("보내기 성공");
+      stepThreeChecked();
     }
   };
 
   render() {
+    console.log("postCode", this.props);
+    const { zipCodeChecked, cityChecked, phoneChecked } = this.state;
+    const { postChecked, postNumber, postAdress } = this.props;
     return (
       <div className="CheckOutAddr">
         <form
-          onSubmit={this.state.btnState ? this.emptyChecked : this.emptyChecked}
+          onSubmit={
+            this.state.btnState
+              ? this.props.stepThreeChecked
+              : this.emptyChecked
+          }
         >
           <div className="AddrOptions">
             <h4>Enter your delivery address:</h4>
@@ -149,22 +176,21 @@ class CheckOutAddr extends Component {
               <input type="text" placeholder="Lim" />
               <div className="address-serch">
                 <input
-                  className={
-                    this.state.zipCodeChecked ? "inputChecked" : "adress-detail"
-                  }
+                  className={zipCodeChecked ? "inputChecked" : "adress-detail"}
                   type="text"
                   placeholder="Zip code*"
                   name="zipCode"
                   onChange={this.valueChecked}
+                  value={postNumber}
                 />
 
-                <div className="serchBtn">
+                <div className="serchBtn" onClick={postChecked}>
                   <p>Search</p>
                 </div>
               </div>
               <span
                 style={
-                  this.state.zipCodeChecked
+                  zipCodeChecked
                     ? { display: "block", color: "#C81F1F", fontSize: "0.7rem" }
                     : { display: "none" }
                 }
@@ -174,9 +200,10 @@ class CheckOutAddr extends Component {
               <input
                 type="text"
                 placeholder="Apt, Suite, Building (optional)"
+                value={postAdress}
               />
               <input
-                className={this.state.cityChecked ? "inputChecked" : null}
+                className={cityChecked ? "inputChecked" : null}
                 type="text"
                 placeholder="City*(상세주소 입력)"
                 name="city"
@@ -184,7 +211,7 @@ class CheckOutAddr extends Component {
               />
               <span
                 style={
-                  this.state.cityChecked
+                  cityChecked
                     ? { display: "block", color: "#C81F1F", fontSize: "0.7rem" }
                     : { display: "none" }
                 }
@@ -196,7 +223,7 @@ class CheckOutAddr extends Component {
                 France
               </div>
               <input
-                className={this.state.phoneChecked ? "inputChecked" : null}
+                className={phoneChecked ? "inputChecked" : null}
                 type="text"
                 placeholder="Phone*"
                 name="phone"
@@ -204,7 +231,7 @@ class CheckOutAddr extends Component {
               />
               <span
                 style={
-                  this.state.phoneChecked
+                  phoneChecked
                     ? { display: "block", color: "#C81F1F", fontSize: "0.7rem" }
                     : { display: "none" }
                 }
