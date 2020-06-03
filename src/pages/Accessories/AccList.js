@@ -17,7 +17,8 @@ class AccList extends Component {
     this.state={
       selectValue: "",
       data: [],
-      isToggleOn: false
+      isToggleOn: false,
+      isSortOn: false
     };
     this.filterDropdownChange = this.filterDropdownChange.bind(this);
     this.handleDropdown = this.handleDropdown.bind(this);
@@ -34,6 +35,13 @@ class AccList extends Component {
 
   }
   
+  SortDropdown = () => {
+    this.setState(state => ({
+      isSortOn: !state.isSortOn
+    }));
+
+  }
+
   componentDidMount(){
     fetch("/data/JHdata.json")
     .then((response) => response.json())
@@ -50,13 +58,14 @@ class AccList extends Component {
           <Nav/>
         
         <main className="ListMain">
-          <div className="ListTop">
-            <div className="ListFilter">
+        <div className="ListTop">
+            <div className="TopFilter">
               <div className="FilterToggle">
                   <button onClick={this.handleDropdown} className="ToggleButton">FILTER</button>
                   {this.state.isToggleOn ?(
                     <div className="FilterDropdown">
                         <div className="DropdownBox">
+                           
                             <div className="PriceFilter">
                                 <span>PRICE</span>
                                 <CheckPrice/>
@@ -81,7 +90,18 @@ class AccList extends Component {
               </div>
               <div className="TopSeller">
                 <div className="Seller">
-                  <span className="SortBy">SORT BY</span>
+                <p onClick={this.SortDropdown} className="SortBy">SORT BY</p>
+                {this.state.isSortOn ?(
+                    <div className="FilterDropdown">
+                        <div className="DropdownBox">
+                            <div className="CollectionFilter">
+                                <span>PRODUCT COLLENTION</span>
+                                <CheckCollect/>
+                            </div>
+                        </div>
+                    </div>
+                  ) : (null)
+                  }
                 </div>
               </div>
             </div>

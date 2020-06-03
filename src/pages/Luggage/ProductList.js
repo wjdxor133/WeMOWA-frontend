@@ -19,33 +19,51 @@ class ProductList extends Component {
     this.state={
       selectValue: "",
       data: [],
-      isToggleOn: false
-    };
-    this.filterDropdownChange = this.filterDropdownChange.bind(this);
-    this.handleDropdown = this.handleDropdown.bind(this);
-  }
-
-  filterDropdownChange(e){
-    this.setState({ selectValue: e.target.value });
-  }
-  
-  handleDropdown(){
-      this.setState(state => ({
-        isToggleOn: !state.isToggleOn
-      }));
-
+      isToggleOn: false,
+      isSortOn: false,
+      hwan: "",
+      ata: []
+    }
   }
 
   componentDidMount(){
-    fetch("/data/JHdata.json")
+    fetch("http://10.58.3.60:8000/product/1")
     .then((response) => response.json())
-    .then((response) => this.setState({data: response.products}));
+    .then((response) => this.setState({data: response.data}));
+   
   }
 
+  componentDidUpdate(){
+    fetch("/data/JHdata.json")
+    .then((response) => response.json())
+    .then((response) => this.setState({ata: response.products}));
+  }
+
+  filterDropdownChange = (e) => {
+    this.setState({ selectValue: e.target.value });
+  }
+  
+  handleDropdown = () => {
+      this.setState(state => ({
+        isToggleOn: !state.isToggleOn
+      }))
+  }
+
+  SortDropdown = () => {
+      this.setState(state => ({
+        isSortOn: !state.isSortOn
+      }));
+  }
+
+  addHanlder = (zino) => {
+    this.setState({
+      hwan: zino
+    }, () => {
+      console.log(this.state.hwan);  
+    })}
 
   render() {
-    console.log(this.state.data);
-    
+   console.log("slice data : ", this.state.data);
     return(
       <div className="List">
         <Header/>
@@ -55,13 +73,13 @@ class ProductList extends Component {
             <div className="TopFilter">
               <div className="FilterToggle">
                   <button onClick={this.handleDropdown} className="ToggleButton">FILTER</button>
-                  {this.state.isToggleOn ?(
+                  {this.state.isToggleOn ? (
                     <div className="FilterDropdown">
                         <div className="DropdownBox">
                             <div className="ColorFilter">
                                 <span>Color</span>
-                                {this.state.data.map( product =>{
-                                return (<DropdownLugg colorName={product.colorName} lugColor={product.lugColor}
+                                {this.state.ata.map( luc =>{
+                                return (<DropdownLugg lugColor={luc.lugColor} colorName={luc.colorName}
                                 />);})} 
                             </div>
                             <div className="PriceFilter">
@@ -88,20 +106,36 @@ class ProductList extends Component {
               </div>
               <div className="TopSeller">
                 <div className="Seller">
-                  <span className="SortBy">SORT BY</span>
+                <p onClick={this.SortDropdown} className="SortBy">SORT BY</p>
+                {this.state.isSortOn ? (
+                    <div className="FilterDropdown">
+                        <div className="DropdownBox">
+                            <div className="CollectionFilter">
+                                <span>PRODUCT COLLENTION</span>
+                                <CheckCollect/>
+                            </div>
+                        </div>
+                    </div>
+                  ) : (null)
+                  }
                 </div>
               </div>
             </div>
           </div>
           <div className="ListContainer">
             <ul className="ListCabin">
-                <CabinProduct/> 
-
-                {this.state.data.map( product =>{
-                return (<EditionProduct name={product.name} price={product.price} img={product.img} secondImg={product.secondImg}
-                  color={product.colors}
-                />);})}
-
+                <CabinProduct/>
+                {this.state.data.map( (product, index) => {
+                  return (
+                    <EditionProduct 
+                      name={product.name}
+                      price={product.price}
+                      img={product.series_color[0]}
+                      // secondImg={product.series_color}
+                      color={product.series_color}
+                    />
+                  )}
+                )}
                 <CabinProduct/>
             </ul>
           </div>

@@ -15,7 +15,7 @@ class CabinProduct extends Component {
                     <div className="ThumbProduct">
                       <img src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwb295d7a3/images/large/92553004_1.png"
                       className="Cabin" alt=""/>
-                    </div>
+                    </div>s
                   </a>
             </li>
          );

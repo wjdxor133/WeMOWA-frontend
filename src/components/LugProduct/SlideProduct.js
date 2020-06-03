@@ -5,9 +5,9 @@ import { AccordionSpec } from "../../components/Accordion/Accordion";
 import OrigTrunkPF from "../../images/Orig_Trunk_PF.jpg";
 import OrigTrunkPS from "../../images/Orig_Trunk_PS.jpg";
 
-import "./ProductDetail.scss";
+import "./SlideProduct.scss";
 
-class ProductDetail extends Component {
+class SlideProduct extends Component {
   constructor() {
     super();
     this.state = {
@@ -233,4 +233,4 @@ class ProductDetail extends Component {
   }
 }
 
-export default ProductDetail;
+export default SlideProduct;

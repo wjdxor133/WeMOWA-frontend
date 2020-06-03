@@ -5,7 +5,6 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 class EditionProduct extends Component {
-    
     constructor(){
       super();
       this.state={
@@ -13,67 +12,65 @@ class EditionProduct extends Component {
         heartOver: false,
         product: "",
         colors: "",
-        index: 0
+        i: 0
+        
       }
     }
 
     handleMouseOver = (idx) => {
       this.setState({
         isMouseOver: false,
-        index: idx
+        i: idx
       })
     }
-
 
     handleMouseOut = () =>{
       this.setState({
         isMouseOver: true,
-        index: 0
+        i: 0
       })
-      
     }
 
-    handleColorImage = (idx) => {
+    handleColorImage = (co) => {
       this.setState({
-        index: idx
-      },() => {
-
-        if(this.state.index === 0) {
-          this.setState({
-            colors: this.props.color[0].img_url,
-            isMouseOver: false
-          })
-        } else if (this.state.index === 1) {
-          this.setState({
-            colors: this.props.color[1].img_url,
-            isMouseOver: false
-          })
-        } else if (this.state.index ===2){
-          this.setState({
-            colors: this.props.color[2].img_url,
-            isMouseOver: false
-          })
-        } else if (this.state.index ===3){
-          this.setState({
-            colors: this.props.secondImg,
-            isMouseOver: false
-          })
-        }
+         colors: co.product_img1,
+         isMouseOver: false
       })
     }
 
-    render() { 
-      console.log(this.props.color[0].img_url);
+    boundColorImage = (co) => {
+      this.setState({
+         colors: co.product_img2,
+         isMouseOver: false
+      })
+    }
+
+    render() {
+        const {  color, img } = this.props;
+        
         return ( 
             <li className="CabinLimited">
                     <div className="LimitedThumb">
                         <div className="LimitedBody">
                             <a href=" "className="ProductLink">
                                 <div className="ProductImage">
-                                <img src= {this.state.isMouseOver ? this.props.img : this.state.colors}
-                                   onMouseEnter={() => this.handleColorImage(3)} onMouseLeave={this.handleMouseOut}
-                                   className="LimitedImage" 
-                                   alt=""/>
+                                  {/* {
+                                    this.props.img && this.props.img.map((im, index) => {
+                                      return (
+                                        <img 
+                                          src= {this.state.isMouseOver ? im.product_img1 : this.state.colors}
+                                          onMouseEnter={() => this.handleColorImage(3)} onMouseLeave={this.handleMouseOut}
+                                          className="LimitedImage" 
+                                          alt=""/>
+                                      );
+                                    })
+                                  } */}
+                                        <img 
+                                          src= {this.state.isMouseOver ? img.product_img1 : this.state.colors}
+                                          onMouseEnter={() => this.boundColorImage(img)} onMouseLeave={this.handleMouseOut}
+                                          className="LimitedImage"
+                                          alt=""/>
+                                
                                 </div>
                                 <div className="ProductCat">DIOR AND RIMOWA</div>
                                 <div className="ProductRyme">{this.props.name}</div>
@@ -89,24 +86,18 @@ class EditionProduct extends Component {
                         </div>
                         <div className="ProductSwatch">
                           <ul className="SwatchList">
-                              <li className="SwatchBlack" onMouseEnter={() => this.handleColorImage(0)} onMouseLeave={this.handleMouseOut}>
-                                <a href=" ">
-                                  <img src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw970d1792/images/swatch/dior_black.png"
-                                  className="SwatchImage" alt=""/>
-                                </a>
-                              </li>
-                              <li className="SwatchSilver" onMouseEnter={() => this.handleColorImage(1)} onMouseLeave={this.handleMouseOut}>
-                                <a href=" ">
-                                  <img src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw34e11479/images/swatch/dior_silver.png"
-                                  className="SwatchImage" alt=""></img>
-                                </a>
-                              </li>
-                              <li className="SwatchBlue" onMouseEnter={() => this.handleColorImage(2)} onMouseLeave={this.handleMouseOut}>
-                                <a href=" ">
-                                  <img src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwc0102692/images/swatch/gradient_blue.png"
-                                  className="SwatchImage" alt=""></img>
-                                </a>
-                              </li>
+                                {
+                                color && color.map((co, index) => {
+                                      return (
+                                        <li className="SwatchBlack" onMouseEnter={() => this.handleColorImage(co)} onMouseLeave={this.handleMouseOut}>
+                                        <a href=" ">                                       
+                                            <img src={co.color_url}
+                                            className="SwatchImage" alt=""/>
+                                          </a>
+                                        </li>
+                                      );
+                                    })
+                                  }                       
                           </ul>
                         </div>
                         <div className="ProductBadge">

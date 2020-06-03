@@ -20,13 +20,16 @@ class DropdownLugg extends Component {
 
     
     render() { 
+  
         return ( 
             <ul className="ColorSwatches">
               <li className="OneColor">
                   <a href=" ">
                   <img src={this.props.lugColor} className="PointColor" alt=""/>
                   </a>
-                  <span className="PointName">{this.props.colorName}</span>
+                  <span className="PointName">
+                    {this.props.colorName}
+                  </span>
               </li>
           </ul>
          );
