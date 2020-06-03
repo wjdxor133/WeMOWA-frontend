@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "./CartItem.scss";
 
 class CartItem extends Component {
+  state = {
+    subTotal: undefined,
+  };
   render() {
     return (
       <div className="CartItem flex">

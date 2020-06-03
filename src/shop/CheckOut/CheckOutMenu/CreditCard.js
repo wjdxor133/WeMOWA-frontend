@@ -8,11 +8,34 @@ class CreditCard extends Component {
     cardNumber: undefined,
     cardName: undefined,
     cardCvv: undefined,
-    cardChecked: false,
+    cardNumberCheck: false,
+    cardNameCheck: false,
+    cardCvvCheck: false,
   };
 
+  // 빈값 체크
   cardValue = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+
+    if (e.target.name === "cardNumber" && e.target.value.length > 0) {
+      this.setState({ cardNumberCheck: false });
+    } else if (e.target.name === "cardNumber" && e.target.value.length < 0) {
+      this.setState({
+        cardNumberCheck: true,
+      });
+    }
+
+    if (e.target.name === "cardName" && e.target.value.length > 0) {
+      this.setState({ cardNameCheck: false });
+    } else if (e.target.name === "cardName" && e.target.value.length < 0) {
+      this.setState({ cardNameCheck: true });
+    }
+
+    if (e.target.name === "cardCvv" && e.target.value.length > 0) {
+      this.setState({ cardCvvCheck: false });
+    } else if (e.target.name === "cardCvv" && e.target.value.length < 0) {
+      this.setState({ cardCvvCheck: true });
+    }
   };
 
   cardChecked = (e) => {
@@ -23,13 +46,17 @@ class CreditCard extends Component {
       cardName === undefined &&
       cardCvv === undefined
     ) {
-      this.setState({ cardChecked: true });
+      this.setState({
+        cardNumberCheck: true,
+        cardNameCheck: true,
+        cardCvvCheck: true,
+      });
     }
   };
 
   render() {
     const { creditCardCheck } = this.props;
-    const { cardChecked } = this.state;
+    const { cardNumberCheck, cardNameCheck, cardCvvCheck } = this.state;
     return (
       <div
         className="CreditCard"
@@ -65,7 +92,7 @@ class CreditCard extends Component {
               />
               <span
                 style={{
-                  display: cardChecked ? "block" : "none",
+                  display: cardNumberCheck ? "block" : "none",
                   fontSize: "0.7rem",
                   color: "#C81F1F",
                 }}
@@ -79,25 +106,26 @@ class CreditCard extends Component {
               />
               <span
                 style={{
-                  display: cardChecked ? "block" : "none",
+                  display: cardNameCheck ? "block" : "none",
                   fontSize: "0.7rem",
                   color: "#C81F1F",
                 }}
               >
                 This filed required.
               </span>
-              <div className="card-Validity">
-                <input placeholder="MM" />
-                <input placeholder="YY" />
-                <div className="card-ValidityOption">
+              <div className="card-year">
+                <input className="month" placeholder="MM" />
+                <input className="year" placeholder="YY" />
+                <div className="card-cardCvv">
                   <input
                     name="cardCvv"
+                    className="cardCvv"
                     placeholder="CVV*"
                     onChange={this.cardValue}
                   />
                   <span
                     style={{
-                      display: cardChecked ? "block" : "none",
+                      display: cardCvvCheck ? "block" : "none",
                       fontSize: "0.7rem",
                       color: "#C81F1F",
                     }}

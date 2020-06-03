@@ -4,7 +4,6 @@ import { faTheaterMasks } from "@fortawesome/free-solid-svg-icons";
 
 class CheckOutAddr extends Component {
   state = {
-    zipCode: undefined,
     city: undefined,
     phone: undefined,
     btnState: false,
@@ -16,13 +15,7 @@ class CheckOutAddr extends Component {
   valueChecked = (e) => {
     this.setState({ [e.target.name]: e.target.value });
 
-    // 우편번호 / 주소 / 핸드폰 번호 값 체크
-    if (e.target.name === "zipCode" && e.target.value.length < 5) {
-      this.setState({ zipCodeChecked: true });
-    } else {
-      this.setState({ zipCodeChecked: false });
-    }
-
+    //주소 / 핸드폰 번호 값 체크
     if (e.target.name === "city" && e.target.value.length < 2) {
       this.setState({ cityChecked: true });
     } else {
@@ -34,15 +27,8 @@ class CheckOutAddr extends Component {
     } else {
       this.setState({ phoneChecked: false });
     }
-    if (e.target.name === "phone" && e.target.value.length === 0) {
-      this.setState({ zipCodeChecked: false });
-    }
 
     // 비어있을 때 체크
-    if (e.target.name === "zipCode" || e.target.value.length === 0) {
-      this.setState({ zipCodeChecked: false });
-    }
-
     if (e.target.name === "city" && e.target.value.length === 0) {
       this.setState({ cityChecked: false });
     }
@@ -56,14 +42,9 @@ class CheckOutAddr extends Component {
     //onClick 이벤트 새로고침 방지하기 위해..
     e.preventDefault();
 
-    if (
-      this.state.zipCode === undefined &&
-      this.state.city === undefined &&
-      this.state.phone === undefined
-    ) {
+    if (this.state.city === undefined && this.state.phone === undefined) {
       this.setState(
         {
-          zipCodeChecked: true,
           cityChecked: true,
           phoneChecked: true,
         },
@@ -71,15 +52,6 @@ class CheckOutAddr extends Component {
       );
       // 1개 빈 값 조건
     } else if (
-      this.state.zipCode === undefined &&
-      this.state.city !== undefined &&
-      this.state.phone !== undefined
-    ) {
-      this.setState({
-        zipCodeChecked: true,
-      });
-    } else if (
-      this.state.zipCode !== undefined &&
       this.state.city === undefined &&
       this.state.phone !== undefined
     ) {
@@ -87,7 +59,6 @@ class CheckOutAddr extends Component {
         cityChecked: true,
       });
     } else if (
-      this.state.zipCode !== undefined &&
       this.state.city !== undefined &&
       this.state.phone === undefined
     ) {
@@ -96,44 +67,13 @@ class CheckOutAddr extends Component {
       });
     }
 
-    // 2개 빈 값 조건
-    else if (
-      this.state.zipCode === undefined &&
-      this.state.city === undefined &&
-      this.state.phone !== undefined
-    ) {
-      this.setState({
-        zipCodeChecked: true,
-        cityChecked: true,
-      });
-    } else if (
-      this.state.zipCode !== undefined &&
-      this.state.city === undefined &&
-      this.state.phone === undefined
-    ) {
-      this.setState({
-        cityChecked: true,
-        phoneChecked: true,
-      });
-    } else if (
-      this.state.zipCode == undefined &&
-      this.state.city !== undefined &&
-      this.state.phone === undefined
-    ) {
-      this.setState({
-        zipCodeChecked: true,
-        phoneChecked: true,
-      });
-    }
     // 3개 값이 비었을 때
     else if (
-      this.state.cityChecked !== undefined &&
       this.state.zipCodeChecked !== undefined &&
       this.state.phoneChecked !== undefined
     ) {
       const { stepThreeChecked } = this.props;
       this.setState({
-        zipCodeChecked: false,
         cityChecked: false,
         phoneChecked: false,
         btnState: true,
@@ -143,7 +83,6 @@ class CheckOutAddr extends Component {
   };
 
   render() {
-    console.log("postCode", this.props);
     const { zipCodeChecked, cityChecked, phoneChecked } = this.state;
     const { postChecked, postNumber, postAdress } = this.props;
     return (
@@ -159,7 +98,7 @@ class CheckOutAddr extends Component {
             <h4>Enter your delivery address:</h4>
             <div className="gender">
               <div>
-                <input type="radio" name="gender" value="Mr" />
+                <input type="radio" name="gender" value="Mr" checked="true" />
                 <label>Mr</label>
               </div>
               <div>

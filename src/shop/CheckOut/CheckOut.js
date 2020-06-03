@@ -90,7 +90,7 @@ class CheckOut extends Component {
       fullAddress += extraAddress !== "" ? ` (${extraAddress})` : "";
     }
 
-    console.log(fullAddress); // e.g. '서울 성동구 왕십리로2길 20 (성수동1가)'
+    console.log(fullAddress);
     this.setState(
       { postNumber: data.zonecode, postAdress: fullAddress },
       () => {
@@ -102,10 +102,13 @@ class CheckOut extends Component {
         );
       }
     );
+    this.postChecked();
   };
 
   postChecked = () => {
-    this.setState({ postChecked: true });
+    this.setState({ postChecked: !this.state.postChecked }, () => {
+      console.log(this.state.postChecked);
+    });
   };
 
   render() {
@@ -120,13 +123,12 @@ class CheckOut extends Component {
 
     const postStyle = {
       width: "40%",
-      height: "40%",
+      height: "30%",
       top: "10%",
       left: "30%",
       position: "absolute",
     };
 
-    console.log(PaymentChecked);
     return (
       <div className="CheckOut" style={{ position: "relative" }}>
         <Header />
@@ -136,6 +138,7 @@ class CheckOut extends Component {
               onComplete={this.handleComplete}
               style={postStyle}
               autoClose={true}
+              autoResize={true}
             />
           ) : null}
           <section className="checkOut-mainLeft">

@@ -30,9 +30,9 @@
     .card-input {
       display: flex;
       flex-direction: column;
+      width: 70%;
 
       input {
-        width: 70%;
         padding: 1.5em 1em;
         border: 0.05rem solid #dadada;
         border-radius: 0.3rem;
@@ -44,8 +44,18 @@
         font-size: 1rem;
       }
 
-      .card-Validity {
+      .card-year {
         display: flex;
+        width: 100%;
+
+        .month {
+        }
+        .year {
+        }
+        .card-cardCvv {
+          .cardCvv {
+          }
+        }
       }
     }
   }
