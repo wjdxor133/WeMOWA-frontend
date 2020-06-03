@@ -4,6 +4,7 @@ import "./UniqueATC.scss";
 class UniqueATC extends Component {
   state = {};
   render() {
+    const { saveCart } = this.props;
     return (
       <div className="UniqueATC">
         <div className="atcWrappr flexSBCenter">
@@ -11,7 +12,7 @@ class UniqueATC extends Component {
             <div className="atcTotal">Price</div>
             <div className="atcTaxes">Incl.VAT</div>
           </div>
-          <div className="right">
+          <div className="right" onClick={saveCart}>
             <div className="unATCBtn">DONE</div>
           </div>
         </div>

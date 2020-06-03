@@ -1,29 +1,10 @@
 import React, { Component } from "react";
 import UniqueATC from "./UniqueATC";
+import { tagColorMenu } from "../../config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackspace } from "@fortawesome/free-solid-svg-icons";
 
 import "./UniqueTag.scss";
-
-// tagColorImage
-const tagColorMenu = {
-  black:
-    "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwb781c4ec/images/customization/tagviewrectangle/Black.png",
-  paprika:
-    "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw3c19948b/images/customization/tagviewrectangle/Paprika.png",
-  ocean:
-    "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw1f2673a8/images/customization/tagviewrectangle/Ocean.png",
-  honey:
-    "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw3ff1b999/images/customization/tagviewrectangle/Honey.png",
-  azure:
-    "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw84aecf4a/images/customization/tagviewrectangle/Azure.png",
-  lagoon:
-    "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw6fa99d5b/images/customization/tagviewrectangle/Lagoon.png",
-  blush:
-    "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw51720f15/images/customization/tagviewrectangle/Blush.png",
-  clementine:
-    "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwfd009b32/images/customization/tagviewrectangle/Clementine.png",
-};
 
 let textValue = [];
 
@@ -34,6 +15,7 @@ class UniqueTag extends Component {
     addText: false,
     editText: false,
     returnAddText: false,
+    joinChecked: false,
     textValue: "",
   };
 
@@ -48,9 +30,7 @@ class UniqueTag extends Component {
   addTextClick = (value) => {
     if (textValue.length < 3) {
       textValue.push(value);
-      this.setState({ textValue: textValue }, () => {
-        console.log(this.state.textValue);
-      });
+      this.setState({ textValue: textValue });
     }
   };
 
@@ -67,8 +47,21 @@ class UniqueTag extends Component {
     this.setState({ addText: true, editText: false });
   };
 
-  textJoin = () => {
-    this.setState({ textValue: textValue.join(".") });
+  textJoin = (joinChecked) => {
+    if (joinChecked === false)
+      this.setState({ textValue: textValue.join("."), joinChecked: true });
+    else {
+      this.setState({ textValue: textValue.join(""), joinChecked: false });
+    }
+  };
+
+  saveCart = () => {
+    const { textValue, selectedColor } = this.state;
+
+    localStorage.setItem("cart", [
+      textValue.join(""),
+      tagColorMenu[selectedColor],
+    ]);
   };
 
   render() {
@@ -78,8 +71,8 @@ class UniqueTag extends Component {
       addText,
       textValue,
       editText,
+      joinChecked,
     } = this.state;
-    console.log(addText, textValue);
     return (
       <div className="UniqueTag">
         <div className="utHeaderWrapper flexSpaceBetween">
@@ -125,8 +118,8 @@ class UniqueTag extends Component {
           </div>
           {/* addText가 true이면 색상 메뉴 사라짐 */}
           <div
-            className="utPicker"
-            style={{ display: addText ? "none" : "block" }}
+            className={addText ? "utPicker remove" : "utPicker"}
+            // style={{ display: addText ? "none" : "block" }}
           >
             <form
               className="utPickWrapper flex"
@@ -151,7 +144,7 @@ class UniqueTag extends Component {
                   id="radioPaprika"
                   name="radioColor"
                   value="paprika"
-                  checked={this.state.selectedColor === "paprika"}
+                  checked={selectedColor === "paprika"}
                 />
                 <label htmlFor="radioPaprika" className="paprika"></label>
                 <div className="utColorName">Paprika</div>
@@ -226,14 +219,17 @@ class UniqueTag extends Component {
             </form>
           </div>
           <div
-            className="addTextOption"
-            style={{ display: addText ? "block" : "none" }}
+            className={addText ? "addTextOption" : "addTextOption remove"}
+            // style={{ display: addText ? "block" : "none" }}
           >
             <h3 className="addTextItem">Please enter text!</h3>
             <ul className="addTextList">
               <div className="keywordList">
                 <div className="addTextJoin">
-                  <span className="join" onClick={this.textJoin}>
+                  <span
+                    className="join"
+                    onClick={() => this.textJoin(joinChecked)}
+                  >
                     A.B
                   </span>
                 </div>
@@ -283,7 +279,9 @@ class UniqueTag extends Component {
                 <div className="textDelete" onClick={this.deleteTextClick}>
                   <FontAwesomeIcon icon={faBackspace} />
                 </div>
-                <p className="textScore">{textValue.length}/3</p>
+                <p className="textScore">
+                  {textValue.length}/{textValue.includes(".") ? 5 : 3}
+                </p>
                 <p className="btnOk" onClick={this.backColorMenu}>
                   OK
                 </p>
@@ -293,7 +291,7 @@ class UniqueTag extends Component {
         </div>
         {/* end utWrapper */}
         <div className="atcComponent">
-          <UniqueATC />
+          <UniqueATC saveCart={this.saveCart} />
         </div>
       </div>
     );

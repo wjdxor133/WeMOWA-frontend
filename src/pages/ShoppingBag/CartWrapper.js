@@ -58,6 +58,9 @@ class CartWrapper extends Component {
     });
   }
 
+  // API 연동
+  getDate = () => {};
+
   //제품 수량 빼기
   handleMinus = (product) => {
     const testProducts = [...this.state.testProducts]; //testProducts 배열을 clone 해온다. state 를 직접 업데이트 시키지 않기 위해
@@ -105,6 +108,7 @@ class CartWrapper extends Component {
   };
 
   render() {
+    console.log(localStorage.getItem("cart"));
     return (
       <div className="CartWrapper">
         <Header />

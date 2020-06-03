@@ -2,36 +2,39 @@
 
 .UniqueATC {
   width: 100%;
-}
 
-.atcWrappr {
-  min-width: 400px;
-  border-radius: 0.35em;
-  background: white;
-  padding: 0.5em;
-}
-
-.left {
-  .atcTotal {
-    font-size: 1srem;
-    line-height: 1rem;
-  }
-
-  .atcTaxes {
-    font-size: 0.5rem;
-    line-height: 1rem;
-  }
-}
-
-.right {
-  .unATCBtn {
-    font-size: 0.75rem;
-    letter-spacing: 0.15rem;
-    max-width: 120px;
-    color: white;
-    background: #393939;
+  .atcWrappr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 400px;
     border-radius: 0.35em;
-    padding: 0.875em 3em;
-    cursor: pointer;
+    background: white;
+    padding: 0.5em;
+  }
+
+  .left {
+    .atcTotal {
+      font-size: 1srem;
+      line-height: 1rem;
+    }
+
+    .atcTaxes {
+      font-size: 0.5rem;
+      line-height: 1rem;
+    }
+  }
+
+  .right {
+    .unATCBtn {
+      font-size: 0.75rem;
+      letter-spacing: 0.15rem;
+      max-width: 120px;
+      color: white;
+      background: #393939;
+      border-radius: 0.35em;
+      padding: 0.875em 3em;
+      cursor: pointer;
+    }
   }
 }
