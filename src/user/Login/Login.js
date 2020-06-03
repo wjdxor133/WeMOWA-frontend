@@ -68,8 +68,8 @@ class Login extends Component {
       this.setState(initialState);
     }
 
-    const token = localStorage.getItem("access_token");
-    fetch("http://10.58.1.249:8000/account/signin", {
+    //const token = localStorage.getItem("access_token");
+    fetch("http://10.58.3.60:8000/account/sign-in", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

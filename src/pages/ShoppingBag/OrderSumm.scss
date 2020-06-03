@@ -1,0 +1,27 @@
+@import "../../styles/common.scss";
+
+.OrderSumm {
+  width: 50%;
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+.osHeader {
+  font-size: 1.75rem;
+}
+
+.osLists {
+  border: 1px solid $faintGray;
+  padding: 1em;
+}
+
+.osSubtotal {
+  font-size: 1rem;
+  padding: 0 1em;
+  margin: 0.3em 0;
+}
+
+.osTotal {
+  font-size: 1.25rem;
+  padding: 0 0.75em;
+}

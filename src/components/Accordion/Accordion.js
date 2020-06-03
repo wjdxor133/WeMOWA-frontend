@@ -15,7 +15,7 @@ export class AccordionSpec extends Component {
   };
 
   render() {
-    console.log("props", this.props);
+    //console.log("props", this.props);
     return (
       <div className="Accordion">
         <div className="accorTab" onClick={this.handleToggle}>
@@ -47,7 +47,7 @@ export class AccordionKey extends Component {
   };
 
   render() {
-    console.log("props", this.props);
+    //console.log("props", this.props);
     return (
       <div className="Accordion">
         <div className="accorTab" onClick={this.handleToggle}>

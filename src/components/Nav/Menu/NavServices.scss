@@ -9,16 +9,19 @@
   background-color: white;
 
   ul {
+    max-width: 1200px;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-between;
+    margin: 2em auto 0;
     list-style: none;
-    padding: 2em 15em;
+    padding: 0 15em;
     font-size: 0.9rem;
 
     .services-list1 {
+      max-width: 33%;
       display: flex;
       flex-direction: column;
+      margin: 0 1em;
       span {
         letter-spacing: 0.2rem;
         font-size: 0.77rem;
@@ -36,8 +39,10 @@
     }
 
     .services-list2 {
+      max-width: 33%;
       display: flex;
       flex-direction: column;
+      margin: 0 1em;
       span {
         letter-spacing: 0.2rem;
         font-size: 0.77rem;
@@ -49,14 +54,20 @@
       }
 
       a {
+        display: block;
+        color: #454545;
+        margin: 0 0 3em;
+        font-size: 0.875rem;
+        letter-spacing: 0.05rem;
         text-decoration: underline;
-        letter-spacing: 0.1rem;
       }
     }
 
     .services-list3 {
+      max-width: 33%;
       display: flex;
       flex-direction: column;
+      margin: 0 1em;
       span {
         letter-spacing: 0.2rem;
         font-size: 0.77rem;
@@ -68,8 +79,12 @@
       }
 
       a {
+        display: block;
+        color: #454545;
+        margin: 0 0 3em;
+        font-size: 0.875rem;
+        letter-spacing: 0.05rem;
         text-decoration: underline;
-        letter-spacing: 0.1rem;
       }
     }
   }
