@@ -7,7 +7,7 @@ $beige: #f7f5f4;
 $beigeTxt: #b2ada6;
 $beigeBg: #fbfaf9;
 $darkGray: #424242;
-$gray: #6f6f6f;
+$gray: #636363;
 $faintGray: #eeeeee;
 $error: #c81f1f;
 
@@ -46,6 +46,12 @@ body {
 .flexSpaceBetween {
   display: flex;
   justify-content: space-between;
+}
+
+.flexSBCenter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .flexColumnCenter {

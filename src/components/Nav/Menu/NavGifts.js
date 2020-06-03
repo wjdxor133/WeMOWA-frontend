@@ -16,26 +16,32 @@ class NavGifts extends Component {
           </li>
           <li className="gift-list2">
             <span>BUSINESS TRIP READY</span>
-            <img
-              src="https://www.rimowa.com/on/demandware.static/-/Library-Sites-RimowaSharedLibrary/default/dw67345e13/images/260/megamenu/3-B.png"
-              alt="3-B.png"
-            ></img>
+            <div>
+              <img
+                src="https://www.rimowa.com/on/demandware.static/-/Library-Sites-RimowaSharedLibrary/default/dw67345e13/images/260/megamenu/3-B.png"
+                alt="3-B.png"
+              />
+            </div>
             <a>Professional luggage to work with</a>
           </li>
           <li className="gift-list3">
             <span>TRAVELLER FAVOURITES</span>
-            <img
-              src="https://www.rimowa.com/on/demandware.static/-/Library-Sites-RimowaSharedLibrary/default/dw28feb7df/images/260/megamenu/MustHave.jpg"
-              alt="MustHave.jpg"
-            ></img>
+            <div>
+              <img
+                src="https://www.rimowa.com/on/demandware.static/-/Library-Sites-RimowaSharedLibrary/default/dw28feb7df/images/260/megamenu/MustHave.jpg"
+                alt="MustHave.jpg"
+              />
+            </div>
             <a>Our most popualr products</a>
           </li>
           <li className="gift-list4">
             <span>RIMOWA UNIQUE</span>
-            <img
-              src="https://www.rimowa.com/on/demandware.static/-/Library-Sites-RimowaSharedLibrary/default/dw5d3fc4e5/images/260/megamenu/RimowaUnique.jpg"
-              alt="RimowaUnique.jpg"
-            ></img>
+            <div>
+              <img
+                src="https://www.rimowa.com/on/demandware.static/-/Library-Sites-RimowaSharedLibrary/default/dw5d3fc4e5/images/260/megamenu/RimowaUnique.jpg"
+                alt="RimowaUnique.jpg"
+              />
+            </div>
             <a>Make your own RIMOWA Classic</a>
           </li>
         </ul>

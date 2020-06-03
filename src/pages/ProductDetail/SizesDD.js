@@ -22,7 +22,7 @@ class SizesDD extends Component {
   };
 
   selectedItem = (t) => {
-    console.log(t);
+    //console.log(t);
     this.setState({ defaultSize: t, listOpen: false });
   };
 
