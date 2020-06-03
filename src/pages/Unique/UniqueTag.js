@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import UniqueATC from "./UniqueATC";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBackspace } from "@fortawesome/free-solid-svg-icons";
+
 import "./UniqueTag.scss";
 
 // tagColorImage
@@ -22,10 +25,16 @@ const tagColorMenu = {
     "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwfd009b32/images/customization/tagviewrectangle/Clementine.png",
 };
 
+let textValue = [];
+
 class UniqueTag extends Component {
   state = {
     selectedColor: "paprika",
+    colorMenu: false,
     addText: false,
+    editText: false,
+    returnAddText: false,
+    textValue: "",
   };
 
   handleChange = (value) => {
@@ -33,12 +42,44 @@ class UniqueTag extends Component {
   };
 
   addTextMenu = () => {
-    this.setState({ addText: true });
+    this.setState({ addText: true, colorMenu: true });
+  };
+
+  addTextClick = (value) => {
+    if (textValue.length < 3) {
+      textValue.push(value);
+      this.setState({ textValue: textValue }, () => {
+        console.log(this.state.textValue);
+      });
+    }
+  };
+
+  deleteTextClick = () => {
+    textValue.pop();
+    this.setState({ textValue: textValue });
+  };
+
+  backColorMenu = () => {
+    this.setState({ addText: false, editText: true, returnAddText: true });
+  };
+
+  deleteEditText = () => {
+    this.setState({ addText: true, editText: false });
+  };
+
+  textJoin = () => {
+    this.setState({ textValue: textValue.join(".") });
   };
 
   render() {
-    const { selectedColor, addText } = this.state;
-    console.log(addText);
+    const {
+      selectedColor,
+      returnAddText,
+      addText,
+      textValue,
+      editText,
+    } = this.state;
+    console.log(addText, textValue);
     return (
       <div className="UniqueTag">
         <div className="utHeaderWrapper flexSpaceBetween">
@@ -49,30 +90,37 @@ class UniqueTag extends Component {
           <div className="center">RIMOWA</div>
           <div className="right"></div>
         </div>
-        <div className="utWrapper">
+        <div className={addText ? "utWrapper left-margin " : "utWrapper"}>
           <div className="utTag">
             <div className="utImgWrapper">
               <img src={tagColorMenu[selectedColor]} />
               {/* addText가 true이면 텍스트 추가 버튼 사라짐 */}
-              <p
+              <div
                 className={addText ? "addText remove" : "addText"}
                 onClick={this.addTextMenu}
+                style={{ display: returnAddText ? "none" : null }}
               >
-                add Text
-              </p>
+                <div className="utAddText">
+                  <div className="utStartBtn flexCenter">
+                    <i className="fas fa-plus"></i>
+                  </div>
+                  <span className="utStartText txtUpper">
+                    add text and symbol
+                  </span>
+                </div>
+              </div>
+              {/* ok를 눌렀을 때 */}
+              <div
+                className={editText ? "editBtn" : "editBtn remove"}
+                onClick={this.deleteEditText}
+              >
+                <p>EDIT</p>
+              </div>
               <div className="utCustomText">
                 <ul className="utCharacters flexJustifyCenter">
-                  <li>M</li>
-                  <li>I</li>
-                  <li>N</li>
+                  <li>{textValue}</li>
                 </ul>
               </div>
-            </div>
-            <div className="utAddText">
-              <div className="utStartBtn flexCenter">
-                <i className="fas fa-plus"></i>
-              </div>
-              <span className="utStartText txtUpper">add text and symbol</span>
             </div>
           </div>
           {/* addText가 true이면 색상 메뉴 사라짐 */}
@@ -177,12 +225,69 @@ class UniqueTag extends Component {
               </div>
             </form>
           </div>
-          <div className="addTextOption">
-            <p>ABC</p>
+          <div
+            className="addTextOption"
+            style={{ display: addText ? "block" : "none" }}
+          >
+            <h3 className="addTextItem">Please enter text!</h3>
             <ul className="addTextList">
-              <li>WECODE</li>
-              <li>RIMOWA</li>
-              <li>taek2</li>
+              <div className="keywordList">
+                <div className="addTextJoin">
+                  <span className="join" onClick={this.textJoin}>
+                    A.B
+                  </span>
+                </div>
+                <div className="column1">
+                  <li onClick={() => this.addTextClick("A")}>A</li>
+                  <li onClick={() => this.addTextClick("B")}>B</li>
+                  <li onClick={() => this.addTextClick("C")}>C</li>
+                  <li onClick={() => this.addTextClick("D")}>D</li>
+                </div>
+                <div className="column2">
+                  <li onClick={() => this.addTextClick("E")}>E</li>
+                  <li onClick={() => this.addTextClick("F")}>F</li>
+                  <li onClick={() => this.addTextClick("G")}>G</li>
+                  <li onClick={() => this.addTextClick("H")}>H</li>
+                </div>
+                <div className="column1">
+                  <li onClick={() => this.addTextClick("I")}>I</li>
+                  <li onClick={() => this.addTextClick("J")}>J</li>
+                  <li onClick={() => this.addTextClick("K")}>K</li>
+                  <li onClick={() => this.addTextClick("L")}>L</li>
+                </div>
+                <div className="column2">
+                  <li onClick={() => this.addTextClick("M")}>M</li>
+                  <li onClick={() => this.addTextClick("N")}>N</li>
+                  <li onClick={() => this.addTextClick("O")}>O</li>
+                  <li onClick={() => this.addTextClick("P")}>P</li>
+                </div>
+                <div className="column1">
+                  <li onClick={() => this.addTextClick("Q")}>Q</li>
+                  <li onClick={() => this.addTextClick("R")}>R</li>
+                  <li onClick={() => this.addTextClick("S")}>S</li>
+                  <li onClick={() => this.addTextClick("T")}>T</li>
+                </div>
+                <div className="column2">
+                  <li onClick={() => this.addTextClick("U")}>U</li>
+                  <li onClick={() => this.addTextClick("V")}>V</li>
+                  <li onClick={() => this.addTextClick("W")}>W</li>
+                  <li onClick={() => this.addTextClick("X")}>X</li>
+                </div>
+                <div className="column1">
+                  <li onClick={() => this.addTextClick("Y")}>Y</li>
+                  <li onClick={() => this.addTextClick("Z")}>Z</li>
+                  <li onClick={() => this.addTextClick("&")}>&</li>
+                </div>
+              </div>
+              <div className="optionbox">
+                <div className="textDelete" onClick={this.deleteTextClick}>
+                  <FontAwesomeIcon icon={faBackspace} />
+                </div>
+                <p className="textScore">{textValue.length}/3</p>
+                <p className="btnOk" onClick={this.backColorMenu}>
+                  OK
+                </p>
+              </div>
             </ul>
           </div>
         </div>

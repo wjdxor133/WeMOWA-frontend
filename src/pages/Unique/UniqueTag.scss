@@ -9,6 +9,7 @@
   width: 100%;
   height: 100vh;
   background: #f7f5f4;
+  position: relative;
 }
 
 .utHeaderWrapper {
@@ -42,6 +43,10 @@
   justify-content: space-around;
 }
 
+.left-margin {
+  margin: 0 0 -0.5em;
+}
+
 .utTag {
   width: 35%;
   height: 500px;
@@ -65,11 +70,27 @@
 
   .addText {
     position: absolute;
-    top: 60%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%);
-    background-color: #fff;
     z-index: 999;
+  }
+
+  .editBtn {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%);
+    p {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 0.1rem solid white;
+      line-height: 1rem;
+      color: white;
+      padding: 0.5em;
+      border-radius: 0.3rem;
+    }
   }
 
   .remove {
@@ -77,15 +98,6 @@
   }
 }
 
-.utAddText {
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%);
-  display: none;
-}
 .utStartBtn {
   width: 50px;
   height: 50px;
@@ -208,4 +220,102 @@
   position: absolute;
   bottom: 25px;
   left: 30px;
+}
+
+.addTextOption {
+  width: 23vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  .addTextItem {
+    background-color: #efefef;
+    font-weight: bold;
+    padding: 1.5em 1em;
+  }
+  .addTextList {
+    height: 100vh;
+    background-color: white;
+    .keywordList {
+      .addTextJoin {
+        padding: 2em 0;
+        .join {
+          padding: 0.5em 1em;
+          border: 0.05rem solid #393939;
+          border-radius: 0.5rem;
+        }
+
+        .join:hover {
+          cursor: pointer;
+        }
+      }
+
+      .column1 {
+        display: flex;
+        justify-content: space-around;
+        padding: 1em 1em;
+        margin-right: 2em;
+      }
+
+      .column2 {
+        display: flex;
+        justify-content: space-around;
+        padding: 1em 1em;
+        margin-left: 2em;
+      }
+
+      li {
+        display: inline-block;
+        font-size: 2rem;
+        border: 1px solid #d6d6d6;
+        border-radius: 0.3rem;
+        padding: 0.4em;
+      }
+
+      li:hover {
+        cursor: pointer;
+      }
+    }
+
+    .optionbox {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: white;
+      padding: 0 2em 0 2em;
+
+      .textDelete {
+        width: 33.3%;
+        font-size: 1.5rem;
+        background-color: #efefef;
+        border-radius: 0.2rem;
+        padding: 0.3rem;
+      }
+
+      .textDelete:hover {
+        cursor: pointer;
+      }
+
+      .textScore {
+        width: 33.3%;
+        border-radius: 0.2rem;
+        font-size: 1.1rem;
+        color: #d6d6d6;
+      }
+
+      .btnOk {
+        width: 33.3%;
+        background-color: #393939;
+        border-radius: 0.2rem;
+        padding: 0.3rem;
+        color: white;
+      }
+
+      .btnOk:hover {
+        cursor: pointer;
+      }
+    }
+  }
 }
