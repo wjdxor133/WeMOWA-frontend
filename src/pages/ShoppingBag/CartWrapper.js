@@ -50,6 +50,14 @@ class CartWrapper extends Component {
     this.handleTotal();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    prevState.testProducts.forEach((element, idx) => {
+      if (element.qty !== this.state.testProducts[idx].qty) {
+        this.handleTotal();
+      }
+    });
+  }
+
   //제품 수량 빼기
   handleMinus = (product) => {
     const testProducts = [...this.state.testProducts]; //testProducts 배열을 clone 해온다. state 를 직접 업데이트 시키지 않기 위해

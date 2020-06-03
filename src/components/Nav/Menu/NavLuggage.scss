@@ -44,17 +44,14 @@
       color: #000000;
       text-decoration: none;
     }
-
     .li1 {
       max-width: 32%;
       color: #454545;
       padding: 0 1em;
-
       span {
         letter-spacing: 0.2rem;
         font-size: 0.77rem;
       }
-
       letter-spacing: 0.1rem;
 
       .listItem1 {
@@ -173,7 +170,6 @@
     .li2 {
       max-width: 20%;
       padding: 0 1em;
-
       span {
         letter-spacing: 0.2rem;
         font-size: 0.77rem;
@@ -244,7 +240,7 @@
       }
       .size-top {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         margin-top: 1em;
         font-size: 0.8rem;
         text-align: center;
