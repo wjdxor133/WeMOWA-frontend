@@ -21,11 +21,7 @@ class Main extends Component {
       <div className="Main">
         <Header />
         <Nav />
-        {/* 슬라이더 컴포넌트 위치*/}
-        <div
-          className="slider"
-          style={{ width: "100%", height: "700px", backgroundColor: "green" }}
-        ></div>
+        {/* css 슬라이더 적용 위치*/}
         <div className="main-slider">
           <div className="main-slider-title">
             <p className="title1">EXPLORE COLLECTIONS</p>

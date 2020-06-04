@@ -3,18 +3,22 @@ import CreditCard from "./CreditCard";
 import "./CheckoutPayment.scss";
 
 class CheckoutPayment extends Component {
-  state = { creditCardCheck: false };
+  state = { creditCardCheck: false, paypalCheck: false };
 
   changeCrditBox = () => {
     this.setState({ creditCardCheck: true });
   };
 
+  changePaypalBox = () => {
+    this.setState({ paypalCheck: true });
+  };
+
   returnCrditBox = () => {
-    this.setState({ creditCardCheck: false });
+    this.setState({ creditCardCheck: false, paypalCheck: false });
   };
 
   render() {
-    const { creditCardCheck } = this.state;
+    const { creditCardCheck, paypalCheck } = this.state;
     return (
       <div className="CheckoutPayment">
         <div className="CheckoutPayment-box">
@@ -36,7 +40,11 @@ class CheckoutPayment extends Component {
             creditCardCheck={this.state.creditCardCheck}
             return={this.returnCrditBox}
           />
-          <div className="paypal-box">
+          <div
+            className={creditCardCheck ? "changePaypal-box" : "paypal-box"}
+            style={{ backgroundColor: paypalCheck ? "#fbfaf9" : "#fff" }}
+            onClick={this.changePaypalBox}
+          >
             <img
               src="https://www.rimowa.com//on/demandware.static/-/Sites/default/dw5261c638/payment/pp_h_rgb.png"
               alr="pp_h_rgb.png"

@@ -8,79 +8,86 @@ class NavLuggage extends Component {
         <ul>
           <li className="li1">
             <span>COLLECTION</span>
-            <div className="listItem1 ">
+            <div className="listItem1">
               <div className="COLLECTION-left-list">
                 <a className="COLLECTION-item1" href="#">
-                  <img
-                    src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dwcdbcebe5/images/category_megamenu/1_ORIGINAL.png"
-                    alt="ORIGINAL-img"
-                  ></img>
+                  <div className="thumbnail">
+                    <img
+                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dwcdbcebe5/images/category_megamenu/1_ORIGINAL.png"
+                      alt="ORIGINAL-img"
+                    />
+                  </div>
                   <div className="COLLECTION-name">
-                    <p>ORIGINAL</p>
-                    <p>A travel icon</p>
+                    <p className="smTitle">ORIGINAL</p>
+                    <p className="smCaption">A travel icon</p>
                   </div>
                 </a>
                 <a className="COLLECTION-item2" href="#">
-                  <img
-                    src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw9cef6835/images/category_megamenu/6_CLASSIC.png"
-                    alt="CLASSIC-img"
-                  ></img>
+                  <div className="thumbnail">
+                    <img
+                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw9cef6835/images/category_megamenu/6_CLASSIC.png"
+                      alt="CLASSIC-img"
+                    />
+                  </div>
                   <div className="COLLECTION-name">
-                    <p>CLASSIC</p>
-                    <p>Heritage</p>
-                    <p>inspired</p>
+                    <p className="smTitle">CLASSIC</p>
+                    <p className="smCaption">Heritage inspired</p>
                   </div>
                 </a>
                 <a className="COLLECTION-item3" href="#">
-                  <img
-                    src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw261846fd/images/category_megamenu/Hybrid_White_megamenu.png"
-                    alt="HYBRID-img"
-                  ></img>
+                  <div className="thumbnail">
+                    <img
+                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw261846fd/images/category_megamenu/Hybrid_White_megamenu.png"
+                      alt="HYBRID-img"
+                    />
+                  </div>
                   <div className="COLLECTION-name">
-                    <p>HYBRID</p>
-                    <p>Best of both</p>
-                    <p>worids</p>
+                    <p className="smTitle">HYBRID</p>
+                    <p className="smCaption">Best of both worlds</p>
                   </div>
                 </a>
               </div>
               <div className="COLLECTION-right-list">
                 <a className="COLLECTION-item4" href="#">
-                  <img
-                    src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw261846fd/images/category_megamenu/Hybrid_White_megamenu.png"
-                    alt="ESSENTIAL-img"
-                  ></img>
+                  <div className="thumbnail">
+                    <img
+                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw261846fd/images/category_megamenu/Hybrid_White_megamenu.png"
+                      alt="ESSENTIAL-img"
+                    />
+                  </div>
                   <div className="COLLECTION-name">
-                    <p>ESSENTIAL</p>
-                    <p>Fiexible by</p>
-                    <p>design</p>
+                    <p className="smTitle">ESSENTIAL</p>
+                    <p className="smCaption">Fiexible by design</p>
                   </div>
                 </a>
                 <a className="COLLECTION-item5" href="#">
-                  <img
-                    src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw261846fd/images/category_megamenu/Hybrid_White_megamenu.png"
-                    alt=">ESSENTIALLITE-img"
-                  ></img>
+                  <div className="thumbnail">
+                    <img
+                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw261846fd/images/category_megamenu/Hybrid_White_megamenu.png"
+                      alt=">ESSENTIALLITE-img"
+                    />
+                  </div>
                   <div className="COLLECTION-name">
-                    <p>ESSENTIAL LITE</p>
-                    <p>Our lightest</p>
-                    <p>suitcase</p>
+                    <p className="smTitle">ESSENTIAL LITE</p>
+                    <p className="smCaption">Our lightest suitcase</p>
                   </div>
                 </a>
                 <a className="COLLECTION-item6" href="#">
-                  <img
-                    src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw261846fd/images/category_megamenu/Hybrid_White_megamenu.png"
-                    alt="ESSENTIAL-img"
-                  ></img>
+                  <div className="thumbnail">
+                    <img
+                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw261846fd/images/category_megamenu/Hybrid_White_megamenu.png"
+                      alt="ESSENTIAL-img"
+                    />
+                  </div>
                   <div className="COLLECTION-name">
-                    <p>ESSENTIAL</p>
-                    <p>SLEEVE</p>
-                    <p>Business trip ready</p>
+                    <p className="smTitle">ESSENTIAL SLEEVE</p>
+                    <p className="smCaption">Business trip ready</p>
                   </div>
                 </a>
               </div>
             </div>
             <a className="seeAllCollection" href="#">
-              See All Collection
+              See all collection
             </a>
           </li>
           <li className="li2">
@@ -253,9 +260,8 @@ class NavLuggage extends Component {
                 alt="SHORT TRIP"
               ></img>
               <div className="shortTrip-content">
-                <p>SHORT TRIP</p>
-                <p>Travelling light for 2-3</p>
-                <p>days</p>
+                <p className="smTitle">SHORT TRIP</p>
+                <p className="smCaption">Travelling light for 2-3 days</p>
               </div>
             </div>
             <div className="business-trip">
@@ -264,9 +270,10 @@ class NavLuggage extends Component {
                 alt="BUSINESS TRIP"
               ></img>
               <div className="businessTrip-content">
-                <p>BUSINESS TRIP</p>
-                <p>Professional essentials for</p>
-                <p>business travel</p>
+                <p className="smTitle">BUSINESS TRIP</p>
+                <p className="smCaption">
+                  Professional essentials for business travel
+                </p>
               </div>
             </div>
             <div className="long-haul">
@@ -275,9 +282,8 @@ class NavLuggage extends Component {
                 alt="LONG HAUL"
               ></img>
               <div className="longHaul-content">
-                <span>LONG HAUL</span>
-                <p>Extended getaways of a</p>
-                <p>week or more</p>
+                <p className="smTitle">LONG HAUL</p>
+                <p className="smCaption">Extended getaways of a week or more</p>
               </div>
             </div>
           </li>

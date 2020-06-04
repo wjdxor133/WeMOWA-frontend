@@ -1,94 +1,12 @@
 {
-  "products": [
-    {
-      "product_number": 92585004,
-      "collection": "original",
-      "name": "Truck XL",
-      "size": "80 x 44 x 46",
-      "weight": "4.3 kg",
-      "volume": "35 L",
-      "materials": {
-        "outside": "aluminium",
-        "inside": "polyester",
-        "handles": "leather",
-        "wheels": "hard plastic",
-        "dividers": "polyester"
-      },
-      "amount": 1530,
-      "currency": "euro",
-      "color": ["MediumAquaMarine", "lightcoral", "black", "silver"]
-    },
-    {
-      "product_number": 92590041,
-      "collection": "original",
-      "name": "Cabin Twist",
-      "size": "55 x 40 x 23",
-      "weight": "4.3 kg",
-      "volume": "35 L",
-      "materials": {
-        "outside": "aluminium",
-        "inside": "polyester",
-        "handles": "leather",
-        "wheels": "hard plastic",
-        "dividers": "polyester"
-      },
-      "amount": 1000,
-      "currency": "euro",
-      "color": ["MediumAquaMarine", "lightcoral", "black", "silver"]
-    },
-    {
-      "product_number": 92552014,
-      "collection": "original",
-      "name": "Cabin S",
-      "size": "55 x 40 x 20",
-      "weight": "4.2 kg",
-      "volume": "31 L",
-      "materials": {
-        "outside": "aluminium",
-        "inside": "polyester",
-        "handles": "leather",
-        "wheels": "hard plastic",
-        "dividers": "polyester"
-      },
-      "amount": 820,
-      "currency": "euro",
-      "color": ["MediumAquaMarine", "bllightcorale", "black", "silver"]
-    },
-    {
-      "product_number": 92582014,
-      "collection": "original",
-      "name": "Cabin S",
-      "size": "55 x 40 x 20",
-      "weight": "4.2 kg",
-      "volume": "31 L",
-      "materials": {
-        "outside": "aluminium",
-        "inside": "polyester",
-        "handles": "leather",
-        "wheels": "hard plastic",
-        "dividers": "polyester"
-      },
-      "amount": 820,
-      "currency": "euro",
-      "color": ["MediumAquaMarine", "lightcoral", "black", "silver"]
-    },
-    {
-      "product_number": 93332014,
-      "collection": "original",
-      "name": "Cabin S",
-      "size": "55 x 40 x 20",
-      "weight": "4.2 kg",
-      "volume": "31 L",
-      "materials": {
-        "outside": "aluminium",
-        "inside": "polyester",
-        "handles": "leather",
-        "wheels": "hard plastic",
-        "dividers": "polyester"
-      },
-      "amount": 820,
-      "currency": "euro",
-      "color": ["MediumAquaMarine", "lightcoral", "black", "silver"]
-    }
-  ]
+  "product": {
+    "product_number": 92585004,
+    "collection": "original",
+    "name": "Truck XL",
+    "stock_status": "In Stock",
+    "wishlist": "true",
+    "price": 1530,
+    "color": ["MediumAquaMarine", "lightcoral", "black", "silver"],
+    "description": "Designed for the most discerning travellers, the RIMOWA Classic Trunk in silver effortlessly combines luxury with functionality.  Rooted in heritage, each RIMOWA Classic features a high-end anodised aluminium alloy, riveted high-gloss aluminium corners, and hand-made leather handles."
+  }
 }

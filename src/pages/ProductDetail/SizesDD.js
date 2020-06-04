@@ -3,29 +3,17 @@ import { DropdownCat } from "../../components/Dropdown/Dropdown";
 
 class SizesDD extends Component {
   state = {
-    sizes: [
-      {
-        id: 0,
-        name: "Trunk XL",
-        size: "80x44x46 cm",
-      },
-      {
-        id: 1,
-        name: "Cabin S",
-        size: "80x44x46 cm",
-      },
-      {
-        id: 2,
-        name: "Cabin Plus",
-        size: "80x44x46 cm",
-      },
-      {
-        id: 3,
-        name: "Check-In M",
-        size: "80x44x46 cm",
-      },
-    ],
+    sizes: [],
+    defaultSize: {},
   };
+
+  componentDidMount() {
+    fetch("/data/pd_sizes.json")
+      .then((res) => res.json())
+      .then((res) =>
+        this.setState({ sizes: res.sizes, defaultSize: res.sizes[0] })
+      );
+  }
 
   handleToggle = () => {
     this.setState((prev) => ({
@@ -34,8 +22,8 @@ class SizesDD extends Component {
   };
 
   selectedItem = (t) => {
-    console.log(t.name);
-    this.setState({ default: t.name, listOpen: false });
+    //console.log(t);
+    this.setState({ defaultSize: t, listOpen: false });
   };
 
   render() {
@@ -44,10 +32,10 @@ class SizesDD extends Component {
         <DropdownCat
           category="Size"
           list={this.state.sizes}
-          selectedItem={this.state.selectedItem}
           listOpen={this.state.listOpen}
           handleToggle={this.handleToggle}
           handleSelection={this.selectedItem}
+          defaultSize={this.state.defaultSize}
         />
       </div>
     );
