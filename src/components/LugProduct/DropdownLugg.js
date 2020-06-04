@@ -7,7 +7,8 @@ class DropdownLugg extends Component {
     constructor(){
       super();
       this.state={
-        isMouseOver: false
+        isMouseOver: false,
+        selectColor: ""
       
       }
     }
@@ -18,15 +19,21 @@ class DropdownLugg extends Component {
       })
     }
 
-    
+
+
+
     render() { 
+  
         return ( 
             <ul className="ColorSwatches">
               <li className="OneColor">
-                  <a href=" ">
-                  <img src={this.props.lugColor} className="PointColor" alt=""/>
-                  </a>
-                  <span className="PointName">{this.props.colorName}</span>
+    
+                  <img src={this.props.lugColor} className="PointColor" 
+                  //onClick={() => this.props.selectedHandler(this.props.colorName)} alt=""/>
+                  onClick={() => {this.props.selectedHandler(this.props.colorName);console.log("colorfiltered");}} alt=""/>
+                  <span className="PointName">
+                    {this.props.colorName}
+                  </span>
               </li>
           </ul>
          );

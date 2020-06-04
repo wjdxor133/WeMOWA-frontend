@@ -17,7 +17,8 @@ class AccList extends Component {
     this.state={
       selectValue: "",
       data: [],
-      isToggleOn: false
+      isToggleOn: false,
+      isSortOn: false
     };
     this.filterDropdownChange = this.filterDropdownChange.bind(this);
     this.handleDropdown = this.handleDropdown.bind(this);
@@ -34,10 +35,17 @@ class AccList extends Component {
 
   }
   
+  SortDropdown = () => {
+    this.setState(state => ({
+      isSortOn: !state.isSortOn
+    }));
+
+  }
+
   componentDidMount(){
-    fetch("/data/JHdata.json")
+    fetch("http://10.58.2.57:8000/product/2")
     .then((response) => response.json())
-    .then((response) => this.setState({data: response.products}));
+    .then((response) => this.setState({data: response.data}));
   }
 
 
@@ -50,13 +58,14 @@ class AccList extends Component {
           <Nav/>
         
         <main className="ListMain">
-          <div className="ListTop">
-            <div className="ListFilter">
+        <div className="ListTop">
+            <div className="TopFilter">
               <div className="FilterToggle">
                   <button onClick={this.handleDropdown} className="ToggleButton">FILTER</button>
                   {this.state.isToggleOn ?(
                     <div className="FilterDropdown">
                         <div className="DropdownBox">
+                           
                             <div className="PriceFilter">
                                 <span>PRICE</span>
                                 <CheckPrice/>
@@ -81,7 +90,18 @@ class AccList extends Component {
               </div>
               <div className="TopSeller">
                 <div className="Seller">
-                  <span className="SortBy">SORT BY</span>
+                <p onClick={this.SortDropdown} className="SortBy">SORT BY</p>
+                {this.state.isSortOn ?(
+                    <div className="FilterDropdown">
+                        <div className="DropdownBox">
+                            <div className="CollectionFilter">
+                                <span>PRODUCT COLLENTION</span>
+                                <CheckCollect/>
+                            </div>
+                        </div>
+                    </div>
+                  ) : (null)
+                  }
                 </div>
               </div>
             </div>
@@ -89,8 +109,10 @@ class AccList extends Component {
           <div className="ListContainer">
             <ul className="ListCabin">
                 {this.state.data.map( product =>{
-                return (<Accessories name={product.name} price={product.price} img={product.img} secondImg={product.secondImg}
-                  color={product.colors} accImg={product.accImg} accSecond={product.accSecond} accPrice={product.accPrice}
+                return (<Accessories name={product.name} collection={product.collection} price={product.price}
+                   img={product.series_color[0]}
+                  color={product.colors} 
+                  
                   accName={product.accName}
                 />);})}
                 
