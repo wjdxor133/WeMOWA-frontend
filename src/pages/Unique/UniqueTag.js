@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import UniqueATC from "./UniqueATC";
+import { withRouter } from "react-router-dom";
 import { tagColorMenu } from "../../config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackspace } from "@fortawesome/free-solid-svg-icons";
@@ -57,14 +58,32 @@ class UniqueTag extends Component {
 
   saveCart = () => {
     const { textValue, selectedColor } = this.state;
+    // const tag = selectedColor;
+    // const tag_text = textValue;
 
-    localStorage.setItem("cart", [
-      textValue.join(""),
-      tagColorMenu[selectedColor],
-    ]);
+    // fetch("API 주소", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     tag: tag,
+    //     tag_text: tag_text,
+    //   }),
+    // });
+
+    localStorage.setItem("cart", [textValue, selectedColor]);
+
+    // 장바구니 화면으로
+    this.props.history.push("/cart");
+  };
+
+  goToMain = () => {
+    this.props.history.push("/");
   };
 
   render() {
+    console.log("textValue", this.state.textValue);
     const {
       selectedColor,
       returnAddText,
@@ -78,9 +97,13 @@ class UniqueTag extends Component {
         <div className="utHeaderWrapper flexSpaceBetween">
           <div className="left txtUpper flexCenter">
             <i className="fas fa-arrow-left"></i>
-            <span className="pdML3">Back to shop</span>
+            <span className="pdML3" onClick={this.goToMain}>
+              Back to shop
+            </span>
           </div>
-          <div className="center">RIMOWA</div>
+          <div className="center" onClick={this.goToMain}>
+            RIMOWA
+          </div>
           <div className="right"></div>
         </div>
         <div className={addText ? "utWrapper left-margin " : "utWrapper"}>
@@ -223,8 +246,8 @@ class UniqueTag extends Component {
             // style={{ display: addText ? "block" : "none" }}
           >
             <h3 className="addTextItem">Please enter text!</h3>
-            <ul className="addTextList">
-              <div className="keywordList">
+            <div className="addTextList">
+              <ul className="keywordList">
                 <div className="addTextJoin">
                   <span
                     className="join"
@@ -233,48 +256,50 @@ class UniqueTag extends Component {
                     A.B
                   </span>
                 </div>
-                <div className="column1">
-                  <li onClick={() => this.addTextClick("A")}>A</li>
-                  <li onClick={() => this.addTextClick("B")}>B</li>
-                  <li onClick={() => this.addTextClick("C")}>C</li>
-                  <li onClick={() => this.addTextClick("D")}>D</li>
+                <div className="addTextTable">
+                  <div className="column1">
+                    <li onClick={() => this.addTextClick("A")}>A</li>
+                    <li onClick={() => this.addTextClick("B")}>B</li>
+                    <li onClick={() => this.addTextClick("C")}>C</li>
+                    <li onClick={() => this.addTextClick("D")}>D</li>
+                  </div>
+                  <div className="column2">
+                    <li onClick={() => this.addTextClick("E")}>E</li>
+                    <li onClick={() => this.addTextClick("F")}>F</li>
+                    <li onClick={() => this.addTextClick("G")}>G</li>
+                    <li onClick={() => this.addTextClick("H")}>H</li>
+                  </div>
+                  <div className="column1">
+                    <li onClick={() => this.addTextClick("I")}>I</li>
+                    <li onClick={() => this.addTextClick("J")}>J</li>
+                    <li onClick={() => this.addTextClick("K")}>K</li>
+                    <li onClick={() => this.addTextClick("L")}>L</li>
+                  </div>
+                  <div className="column2">
+                    <li onClick={() => this.addTextClick("M")}>M</li>
+                    <li onClick={() => this.addTextClick("N")}>N</li>
+                    <li onClick={() => this.addTextClick("O")}>O</li>
+                    <li onClick={() => this.addTextClick("P")}>P</li>
+                  </div>
+                  <div className="column1">
+                    <li onClick={() => this.addTextClick("Q")}>Q</li>
+                    <li onClick={() => this.addTextClick("R")}>R</li>
+                    <li onClick={() => this.addTextClick("S")}>S</li>
+                    <li onClick={() => this.addTextClick("T")}>T</li>
+                  </div>
+                  <div className="column2">
+                    <li onClick={() => this.addTextClick("U")}>U</li>
+                    <li onClick={() => this.addTextClick("V")}>V</li>
+                    <li onClick={() => this.addTextClick("W")}>W</li>
+                    <li onClick={() => this.addTextClick("X")}>X</li>
+                  </div>
+                  <div className="column1">
+                    <li onClick={() => this.addTextClick("Y")}>Y</li>
+                    <li onClick={() => this.addTextClick("Z")}>Z</li>
+                    <li onClick={() => this.addTextClick("&")}>&</li>
+                  </div>
                 </div>
-                <div className="column2">
-                  <li onClick={() => this.addTextClick("E")}>E</li>
-                  <li onClick={() => this.addTextClick("F")}>F</li>
-                  <li onClick={() => this.addTextClick("G")}>G</li>
-                  <li onClick={() => this.addTextClick("H")}>H</li>
-                </div>
-                <div className="column1">
-                  <li onClick={() => this.addTextClick("I")}>I</li>
-                  <li onClick={() => this.addTextClick("J")}>J</li>
-                  <li onClick={() => this.addTextClick("K")}>K</li>
-                  <li onClick={() => this.addTextClick("L")}>L</li>
-                </div>
-                <div className="column2">
-                  <li onClick={() => this.addTextClick("M")}>M</li>
-                  <li onClick={() => this.addTextClick("N")}>N</li>
-                  <li onClick={() => this.addTextClick("O")}>O</li>
-                  <li onClick={() => this.addTextClick("P")}>P</li>
-                </div>
-                <div className="column1">
-                  <li onClick={() => this.addTextClick("Q")}>Q</li>
-                  <li onClick={() => this.addTextClick("R")}>R</li>
-                  <li onClick={() => this.addTextClick("S")}>S</li>
-                  <li onClick={() => this.addTextClick("T")}>T</li>
-                </div>
-                <div className="column2">
-                  <li onClick={() => this.addTextClick("U")}>U</li>
-                  <li onClick={() => this.addTextClick("V")}>V</li>
-                  <li onClick={() => this.addTextClick("W")}>W</li>
-                  <li onClick={() => this.addTextClick("X")}>X</li>
-                </div>
-                <div className="column1">
-                  <li onClick={() => this.addTextClick("Y")}>Y</li>
-                  <li onClick={() => this.addTextClick("Z")}>Z</li>
-                  <li onClick={() => this.addTextClick("&")}>&</li>
-                </div>
-              </div>
+              </ul>
               <div className="optionbox">
                 <div className="textDelete" onClick={this.deleteTextClick}>
                   <FontAwesomeIcon icon={faBackspace} />
@@ -286,7 +311,7 @@ class UniqueTag extends Component {
                   OK
                 </p>
               </div>
-            </ul>
+            </div>
           </div>
         </div>
         {/* end utWrapper */}
@@ -298,4 +323,4 @@ class UniqueTag extends Component {
   }
 }
 
-export default UniqueTag;
+export default withRouter(UniqueTag);

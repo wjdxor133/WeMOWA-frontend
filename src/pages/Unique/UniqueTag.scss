@@ -5,11 +5,6 @@
 .UniqueTag {
   width: 100%;
   background: #f7f5f4;
-  position: relative;
-
-  body {
-    background-color: #f7f5f4;
-  }
 
   .remove {
     display: none;
@@ -17,6 +12,9 @@
 
   .pdML3 {
     margin-left: 0.875em;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .utHeaderWrapper {
@@ -27,6 +25,7 @@
     text-align: center;
     padding-top: 1em;
     margin: 0 auto 5em;
+    position: relative;
 
     .left {
       width: 20%;
@@ -35,6 +34,9 @@
 
     .center {
       width: 60%;
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     .right {
@@ -90,6 +92,10 @@
       top: 70%;
       left: 50%;
       transform: translate(-50%);
+      &:hover {
+        cursor: pointer;
+      }
+
       p {
         background-color: rgba(255, 255, 255, 0);
         border: 0.1rem solid white;
@@ -116,8 +122,9 @@
 
   .utStartText {
     color: white;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     line-height: 0.25rem;
+    letter-spacing: 0.2rem;
   }
 
   .utCustomText {
@@ -253,31 +260,31 @@
             cursor: pointer;
           }
         }
+        .addTextTable {
+          .column1 {
+            display: flex;
+            justify-content: space-around;
+            padding: 1em 1em;
+            margin-right: 2em;
+          }
 
-        .column1 {
-          display: flex;
-          justify-content: space-around;
-          padding: 1em 1em;
-          margin-right: 2em;
-        }
+          .column2 {
+            display: flex;
+            justify-content: space-around;
+            padding: 1em 1em;
+            margin-left: 2em;
+          }
 
-        .column2 {
-          display: flex;
-          justify-content: space-around;
-          padding: 1em 1em;
-          margin-left: 2em;
-        }
-
-        li {
-          display: inline-block;
-          font-size: 2rem;
-          border: 1px solid #d6d6d6;
-          border-radius: 0.3rem;
-          padding: 0.4em;
-        }
-
-        li:hover {
-          cursor: pointer;
+          li {
+            display: inline-block;
+            font-size: 2rem;
+            border: 1px solid #d6d6d6;
+            border-radius: 0.3rem;
+            padding: 0.4em;
+          }
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
 

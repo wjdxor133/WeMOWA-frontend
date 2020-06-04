@@ -15,7 +15,7 @@ class CheckOut extends Component {
     postChecked: false,
     postNumber: undefined,
     postAdress: undefined,
-    isChecked: false,
+    isChecked: 1,
   };
 
   showMenu = (num) => {
