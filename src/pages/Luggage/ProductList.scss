@@ -19,7 +19,7 @@
         padding: 0 7em;
         .FilterToggle{
             margin-right: 3em;
-            text-transform: uppercase;
+            
             display: flex;
             align-items: center;
             .ToggleButton{
@@ -80,10 +80,8 @@
                                 }
                                 .PointName{
                                     font-size: 0.8rem;
-                                    text-transform: uppercase;
                                     color: #b2ada6;
                                     list-style: none;
-                                    margin-bottom: 0.7em;
                                 }
 
                             }

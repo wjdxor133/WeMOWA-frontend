@@ -9,6 +9,7 @@ class EditionProduct extends Component {
       super();
       this.state={
         isMouseOver: true,
+        isToggleOn: true,
         heartOver: false,
         product: "",
         colors: "",
@@ -33,7 +34,7 @@ class EditionProduct extends Component {
 
     handleColorImage = (co) => {
       this.setState({
-         colors: co.product_img1,
+         colors: co,
          isMouseOver: false
       })
     }
@@ -45,15 +46,24 @@ class EditionProduct extends Component {
       })
     }
 
+    convertProduct = () => {
+      this.setState({
+        isToggleOn: !this.state.isToggleOn
+      })
+      
+    }
+
     render() {
-        const {  color, img } = this.props;
+        const {  name, price, collect, img, color} = this.props;
+        // console.log("img", img)
+        // console.log("convertnumber", this.props.img);
         
         return ( 
             <li className="CabinLimited">
                     <div className="LimitedThumb">
                         <div className="LimitedBody">
                             <a href=" "className="ProductLink">
-                                <div className="ProductImage">
+                                <div className="ProductImage" onChange={this.convertProduct}>
                                   {/* {
                                     this.props.img && this.props.img.map((im, index) => {
                                       return (
@@ -65,18 +75,20 @@ class EditionProduct extends Component {
                                       );
                                     })
                                   } */}
+                                  
                                         <img 
                                           src= {this.state.isMouseOver ? img.product_img1 : this.state.colors}
                                           onMouseEnter={() => this.boundColorImage(img)} onMouseLeave={this.handleMouseOut}
                                           className="LimitedImage"
-                                          alt=""/>
-                                
+                                          alt=""/>   
+                                          
+                                        
                                 </div>
-                                <div className="ProductCat">DIOR AND RIMOWA</div>
-                                <div className="ProductRyme">{this.props.name}</div>
+                                <div className="ProductCat">{collect}</div>
+                                <div className="ProductRyme">{name}</div>
                             </a>
                             <div className="ProductPrice">
-                              <span >{this.props.price} €</span>
+                              <span >{price} €</span>
                             </div>
                             <div className="ProductPromo"></div>
                         </div>
@@ -89,7 +101,7 @@ class EditionProduct extends Component {
                                 {
                                 color && color.map((co, index) => {
                                       return (
-                                        <li className="SwatchBlack" onMouseEnter={() => this.handleColorImage(co)} onMouseLeave={this.handleMouseOut}>
+                                        <li className="SwatchBlack" onMouseEnter={() => this.handleColorImage(co.product_img1)} onMouseLeave={this.handleMouseOut}>
                                         <a href=" ">                                       
                                             <img src={co.color_url}
                                             className="SwatchImage" alt=""/>

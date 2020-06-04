@@ -5,6 +5,7 @@ import DropdownLugg from '../../components/LugProduct/DropdownLugg';
 import CheckPrice from '../../components/LugProduct/CheckPrice';
 import CheckCollect from '../../components/LugProduct/CheckCollect';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import Gmap from '../../components/LugProduct/Gmap';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Nav from '../../components/Nav/Nav';
@@ -19,15 +20,21 @@ class StoreLocator extends Component {
     this.state={
       selectValue: "",
       data: [],
+      name: "",
       isToggleOn: false,
-
       radioGroup: {
         stores: false,
         repairs: false
       },
+      zoom:
+        "16"
+      ,
       style: {
         width: "100%",
         height: "400px"
+      },
+      selectedPlace: {
+        name: "RIMOWA"
       }
     };
     this.filterDropdownChange = this.filterDropdownChange.bind(this);
@@ -60,10 +67,17 @@ class StoreLocator extends Component {
     console.log(this.state);
 }
 
+  // onMarkerClick(zoom, map) {
+  //   map.setState({
+  //     zoom: 16
+  //  })
+  // }
+
+ 
 
   render() {
     console.log(this.state.data);
-
+    
     return(
       <div className="List">
          <Header/>
@@ -131,7 +145,10 @@ class StoreLocator extends Component {
               </div>
               <div className="MapTitle">
                     <div className="CityName">
-                        <span></span>
+                        <span>
+                          <Gmap/>
+
+                        </span>
                     </div>
                     <div className="CityPoint">
 
@@ -139,13 +156,35 @@ class StoreLocator extends Component {
               </div>
               <div className="GoogleMap">
                       <Map google={this.props.google} 
-                          zoom={14} style={this.state.style}
+                         
+                          zoom={13} style={this.state.style}
+                          center={{ lat: 37.522050, lng: 127.026260}}
+                          
                         >
-                        <Marker onClick={this.onMarkerClick}
-                          name={'Current location'}/>
-                        <InfoWindow onClose={this.onInfoWindowClose}>
-                            
-                        </InfoWindow>
+                         <Marker position={{ lat: 37.525293, lng: 127.047441}}
+                          name={this.state.name}
+                          zoom={this.state.zoom}
+                          icon="https://www.rimowa.com/on/demandware.static/Sites-Rimowa-Site/-/default/dw9170d170/images/pin.png"
+                          onClick={(zoom, map) => this.onMarkerClick(zoom, map)}
+                         
+                         />
+                         <Marker position={{ lat: 37.508746, lng: 127.059921}}
+                          name={'RIMOWA'}
+                          icon="https://www.rimowa.com/on/demandware.static/Sites-Rimowa-Site/-/default/dw9170d170/images/pin.png"
+                         />
+                         <Marker position={{ lat: 37.512224, lng: 127.101935}}
+                          name={'RIMOWA'}
+                          icon="https://www.rimowa.com/on/demandware.static/Sites-Rimowa-Site/-/default/dw9170d170/images/pin.png"
+                         />
+                        <InfoWindow 
+                            marker={this.state.activeMarker}
+                            onOpen={this.windowHasOpened}
+                            onClose={this.windowHasClosed}
+                            visible={this.state.showingInfoWindow}>
+                            <div>
+                              <h1>{this.state.selectedPlace.name}</h1>
+                            </div>
+                        </InfoWindow> 
                       </Map>
               </div>
                   <div className="LocatorFilter">

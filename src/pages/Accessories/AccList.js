@@ -43,9 +43,9 @@ class AccList extends Component {
   }
 
   componentDidMount(){
-    fetch("/data/JHdata.json")
+    fetch("http://10.58.2.57:8000/product/2")
     .then((response) => response.json())
-    .then((response) => this.setState({data: response.products}));
+    .then((response) => this.setState({data: response.data}));
   }
 
 
@@ -109,8 +109,10 @@ class AccList extends Component {
           <div className="ListContainer">
             <ul className="ListCabin">
                 {this.state.data.map( product =>{
-                return (<Accessories name={product.name} price={product.price} img={product.img} secondImg={product.secondImg}
+                return (<Accessories name={product.name} collection={product.collection} price={product.price}
+                   img={product.series_color[0]}
                   color={product.colors} accImg={product.accImg} accSecond={product.accSecond} accPrice={product.accPrice}
+                  
                   accName={product.accName}
                 />);})}
                 

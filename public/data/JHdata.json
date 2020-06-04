@@ -131,7 +131,7 @@
         "amount": 820,
         "currency": "euro",
         "colorName":[
-          "TITANIUM"
+          "Titanium"
         ],
         "lugColor":
             "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwa63c5831/images/swatch/titanium.png"
@@ -181,7 +181,7 @@
         "amount": 820,
         "currency": "euro",
         "colorName":[
-          "SILVER"
+          "Silver"
         ],
         "lugColor":
             "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw09a30f7e/images/16/megamenu/silver_cat_menu.png"
@@ -232,7 +232,7 @@
         "amount": 820,
         "currency": "euro",
         "colorName":[
-          "CORAL"
+          "Coral"
         ],
         "lugColor":
             "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw24587791/images/swatch/scarlet_gloss.png"
@@ -283,7 +283,7 @@
         "amount": 820,
         "currency": "euro",
         "colorName":
-          "SAFFRON"
+          "Saffron"
         ,
         "lugColor":
             "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw58bf9758/images/swatch/saffron_gloss.png"
@@ -334,7 +334,7 @@
         "amount": 820,
         "currency": "euro",
         "colorName":
-          "DIORSILVER"
+          "Diorsilver"
         ,
         "lugColor":
            "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw34e11479/images/swatch/dior_silver.png"
@@ -385,10 +385,61 @@
         "amount": 820,
         "currency": "euro",
         "colorName":
-            "MARINE"
+            "Marine"
         ,
         "lugColor":
             "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw63c14d15/images/swatch/marine_gloss.png"
+
+        ,
+        "colors": [
+          {
+           "name": "black",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwf59b2afc/images/medium/99090002_1.png"
+         },
+          {
+           "name": "silver",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw2f206c44/images/medium/99090001_1.png"
+         },
+          {
+           "name": "blue",
+           "img_url": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwf6ec4b1e/images/medium/99090004_1.png"
+         }
+       ]
+      },
+      {
+        "product_number": 92552014,
+        "collection": "original",
+        "name": "Personal",
+        "size": "55 x 40 x 20",
+        "weight": "4.2 kg",
+        "volume": "31 L",
+        "price": "1.700,00",
+        "accName": "Iridescent Groove Case for iPhone 11",
+        "accPrice": "70,00",
+        "img" : "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwf6ec4b1e/images/medium/99090004_1.png",
+        "secondImg": "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwad8221aa/images/medium/99090004_2.png",
+        "accImg":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwb812b29c/images/medium/50500025_1.png",
+        "accSecond":"https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw4fb844ba/images/medium/50500025_2.png",
+        "StoreImg":"https://www.rimowa.com/dw/image/v2/BCLH_PRD/on/demandware.static/-/Sites/default/dw4d8104a3/storelocator-1.jpg?sw=350&sh=260",
+        "StoreName":"Rimowa Store Paris Printemps Haussmann",
+        "StoreFloor":"64, boulevard Haussmann 75009",
+        "StoreCountry":"FRANCE",
+        "StoreCity":"Paris",
+        "StorePart":"REPAIRS | STORE",
+        "materials": {
+          "outside": "aluminium",
+          "inside": "polyester",
+          "handles": "leather",
+          "wheels": "hard plastic",
+          "dividers": "polyester"
+        },
+        "amount": 820,
+        "currency": "euro",
+        "colorName":
+            "Black"
+        ,
+        "lugColor":
+            "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwedd36852/images/swatch/black_gloss.png"
 
         ,
         "colors": [
