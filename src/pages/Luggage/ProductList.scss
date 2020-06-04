@@ -16,10 +16,10 @@
         justify-content: space-between;
         position: relative;
         width: 100%;
-        padding: 0 2em;
+        padding: 0 7em;
         .FilterToggle{
             margin-right: 3em;
-            text-transform: uppercase;
+            
             display: flex;
             align-items: center;
             .ToggleButton{
@@ -80,10 +80,8 @@
                                 }
                                 .PointName{
                                     font-size: 0.8rem;
-                                    text-transform: uppercase;
                                     color: #b2ada6;
                                     list-style: none;
-                                    margin-bottom: 0.7em;
                                 }
 
                             }
@@ -103,12 +101,12 @@
                                 padding: 0.5em 0;
                                 
                                 .PointCheck{
-                                    width: 14px;
-                                    height: 14px;
+                                    width: 1.5em;
+                                    height: 1.5em;
                                     background: #fff;
                                     float: left;
                                     border: 3px solid #fff;
-                                    box-shadow: 0 0 0 1px #b2ada6;
+                                    
                                     border-radius: 1px;
                                     
                                 }
@@ -180,6 +178,7 @@
                     .CancleBox{
                         .CancelBtn{
                             background: 0 0;
+                            color: black;
                             border: none;
                             padding: 1em;
                             border-radius: 4px;
@@ -195,6 +194,7 @@
                         }
                     }
                     .ApplyBox{
+                        display: flex;
                         .RESETBtn{
                             margin-right: 0.7em;
                             color: #000;
@@ -252,6 +252,73 @@
                 .SortBy{
                     color: #0d0901;
                 }
+            }
+            .FilterDropdown{
+                width: 22%;
+                position: absolute;
+                right: 2.5em;
+                top: 69px;
+                background-color: #fbfaf9;
+                transition: all .2s ease;
+                box-shadow: 0 100vw 0 100vw rgba(0,0,0,.5);
+                padding: 2em 0 0;
+                z-index: 2;
+                .DropdownBox{
+                    min-width: 1024px;
+                    max-width: 1360px;
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: space-between;
+                    width: 100%;
+                    flex-wrap: nowrap;
+                    padding: 0 2.8em;
+                    margin-right: auto;
+                    margin-left: auto;
+                    padding-bottom: .65em;
+                    position: relative;
+                    .ColorFilter{
+                        flex: 1;
+
+                    }
+
+                    .CollectionFilter{
+                        flex: 1;
+                        .CollectionCheck{
+                            list-style: none;
+                            margin: 1em 0;
+                            padding: 0;
+                            display: flex;
+                            flex-direction: column;
+                            .OneCollection{
+                                display: flex;
+                                align-items: center;
+                                padding: 0.5em 0;
+                                .PointCheck{
+                                    width: 14px;
+                                    height: 14px;
+                                    background: #fff;
+                                    float: left;
+                                    border: 3px solid #fff;
+                                    box-shadow: 0 0 0 1px #b2ada6;
+                                    border-radius: 1px;
+                                    
+                                }
+                                
+                                .PointCollection{
+                                    margin-left: 0.7em;
+                                    background-color: transparent;
+                                    list-style: none;
+                                    text-transform: uppercase;
+                                    text-decoration: none;
+                                    font-size: 0.8rem;
+                                    color: #b2ada6;
+                                }
+                            }
+                        }
+                    }
+
+                }
+
             }
         }
         

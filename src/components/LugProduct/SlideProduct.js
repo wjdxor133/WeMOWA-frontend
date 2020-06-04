@@ -1,37 +1,41 @@
 import React, { Component } from "react";
 import Carousel from "nuka-carousel";
-import Header from "../../components/Header/Header";
-import Nav from "../../components/Nav/Nav";
 import SizesDD from "./SizesDD";
+import { AccordionSpec } from "../../components/Accordion/Accordion";
 import OrigTrunkPF from "../../images/Orig_Trunk_PF.jpg";
 import OrigTrunkPS from "../../images/Orig_Trunk_PS.jpg";
 
-import "./ProductDetail.scss";
+import "./SlideProduct.scss";
 
-class ProductDetail extends Component {
-  state = {
-    product: {},
-    wishlist: false,
-  };
+class SlideProduct extends Component {
+  constructor() {
+    super();
+    this.state = {
+      products: [],
+      accordion: [
+        {
+          id: 0,
+          title: "Specifications",
+          specs: {
+            weight: "Weight: 6.8 KG",
+            volume: "130 L",
+          },
+        },
+        {
+          id: 1,
+          title: "Materials",
+          text:
+            "Packed items are kept in perfect order during transit with the height adjustable Flex Divider, which can be adapted to suit your belongings.",
+        },
+      ],
+      wishlist: false,
+    };
+  }
 
   componentDidMount() {
-    //if match.params.id, then fetch then setState
-
-    const token = localStorage.getItem("token");
-    console.log(token);
-    fetch("http://10.58.3.60:8000/product?product_number=92585004", {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: token,
-      },
-    })
+    fetch("/data/pd_data.json")
       .then((res) => res.json())
-      .then((res) => this.setState({ product: res.data }));
-
-    //fetch("/data/pd_data.json")
-    //  .then((res) => res.json())
-    //  .then((res) => this.setState({ product: res.product }));
+      .then((res) => this.setState({ products: res.products }));
   }
 
   handleWishlist = () => {
@@ -41,26 +45,10 @@ class ProductDetail extends Component {
   handleColor = () => {};
 
   render() {
-    const { product_number } = this.state.product;
-    const { collection } = this.state.product;
-    const { name } = this.state.product;
-    const { price } = this.state.product;
-    const { stock_status } = this.state.product;
-    const { description } = this.state.product;
-    const { innerHTML } = this.state.product;
-
     return (
       <div className="ProductDetail">
-        <Header />
-        <Nav />
         <div className="pdpTop">
           <div className="productImg">
-            <div className="pdTag">
-              <div className="productLabel flex">
-                <div className="pdDiamond"></div>
-                <div className="pdTxtUpper">New</div>
-              </div>
-            </div>
             <Carousel
               className="imgCarousel"
               renderBottomCenterControls={({ currentSlide }) => (
@@ -95,22 +83,22 @@ class ProductDetail extends Component {
           <div className="productDetail center">
             <div className="pdInfo">
               <div className="pdHeader">
-                <span className="subHeader">{collection && collection}</span>
-                <h1>{name && name}</h1>
+                <span className="subHeader">Original</span>
+                <h1>Trunk XL</h1>
               </div>
               <div className="pdPrice">
-                <span>{`${price && price} €`}</span>
+                <span>1.530,00 €</span>
               </div>
             </div>
 
             <div className="pdSelectSize">
-              <SizesDD products={this.state.product} />
+              <SizesDD products={this.state.products} />
             </div>
             <div className="pdAddToCart">
               <button>Purchase</button>
             </div>
             <div className="pdAvail">
-              <span className="pdTxtUpper">{stock_status && stock_status}</span>
+              <span className="pdTxtUpper">Limited Stock</span>
             </div>
             <div className="pdOptions flexJustifyCenter">
               <div
@@ -131,11 +119,22 @@ class ProductDetail extends Component {
               </div>
             </div>
             <div className="pdText">
-              <p>{description && description}</p>
+              <p>
+                The unmistakable RIMOWA Original aluminium suitcase with its
+                distinctive grooves is regarded as one of the most iconic
+                luggage designs of all time. Made from high-end anodised
+                aluminium, the RIMOWA Original Trunk XL in silver is our largest
+                suitcase yet. An oversized edition inspired by our original
+                trunks, this extra large four wheel suitcase is the same height
+                as the RIMOWA Original Trunk Plus and offers 25% more space for
+                less than 6% of additional weight. Suited to open-ended voyages
+                of four weeks or more. Includes a complimentary leather luggage
+                tag and sticker set.
+              </p>
             </div>
             <div className="pdColors flexJustifyCenter">
-              {this.state.product[0] &&
-                this.state.product[0].color.map((color) => (
+              {this.state.products[0] &&
+                this.state.products[0].color.map((color) => (
                   <div
                     className="pdML3 colorPalette"
                     style={{ backgroundColor: color }}
@@ -147,8 +146,16 @@ class ProductDetail extends Component {
         <div className="divider"></div>
         <div className="pdpBottom">
           <div className="pdpSpecs">
+            <div className="sectionHeader center">
+              <span className="subHeader">Specifications</span>
+              <h1>Refined to the very last detail</h1>
+            </div>
             <div className="specDetail flex">
               <div className="specImg">
+                <div className="specUnit pdTxtUpper">
+                  <span className="metric">Metric</span>
+                  <span className="imperial">Imperial</span>
+                </div>
                 <div className="specWire flexEnd">
                   <div className="wireLeft flex">
                     <div className="specHeight flexColumnCenter">
@@ -178,10 +185,21 @@ class ProductDetail extends Component {
                   </div>
                 </div>
               </div>
-              <div className="specDetails"></div>
+              <div className="specDetails">
+                {this.state.accordion.map((m) => {
+                  return (
+                    <AccordionSpec
+                      key={m.id}
+                      title={m.title}
+                      specs={m.text}
+                      list={m}
+                    />
+                  );
+                })}
+              </div>
             </div>
             <div className="specPN pdTxtUpper center">
-              Product Number : {product_number && product_number}
+              Product Number : 92585004
             </div>
           </div>
           <div className="pdpKey flex">
@@ -196,14 +214,23 @@ class ProductDetail extends Component {
                 <span className="subHeader">Specifications</span>
                 <h1>Engineered for travel</h1>
               </div>
+              {this.state.accordion.map((m) => {
+                return (
+                  <AccordionSpec
+                    key={m.id}
+                    title={m.title}
+                    specs={m.text}
+                    list={m}
+                  />
+                );
+              })}
             </div>
           </div>
-          {/* <div className="pdpRecommend">{innerHTML && innerHTML}</div> */}
-          <div dangerouslySetInnerHTML={{ __html: innerHTML }} />
+          <div className="pdpRecommend">pdpRecommend</div>
         </div>
       </div>
     );
   }
 }
 
-export default ProductDetail;
+export default SlideProduct;
