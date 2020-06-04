@@ -42,7 +42,7 @@ export class DropdownCheck extends Component {
 
 export class DropdownCat extends Component {
   render() {
-    console.log("defaultSize:", this.props.defaultSize);
+    //console.log("defaultSize:", this.props.defaultSize);
     return (
       <div className="DropdownCat">
         <div className="CatHeaderWrapper" onClick={this.props.handleToggle}>
@@ -67,7 +67,7 @@ export class DropdownCat extends Component {
           <ul className="chFlyout">
             {this.props.list.map((t) => (
               <li
-                key={t.product_number}
+                key={t.id}
                 className={
                   this.props.defaultSize === t ? "CatSelected" : "Catli"
                 }

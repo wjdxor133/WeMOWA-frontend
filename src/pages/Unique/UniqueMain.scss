@@ -2,6 +2,7 @@
 
 .UniqueMain {
   width: 100%;
+  position: relative;
 }
 /********** TYPOGRAPHY **********/
 .unUpper {
@@ -20,10 +21,33 @@
   text-decoration: underline;
   cursor: pointer;
 }
-/********** SPACING **********/
+/********** Hero **********/
+
+.unHero {
+  position: relative;
+}
 
 .unHeroVideo {
   width: 100%;
+}
+
+.heroBtn {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+}
+
+.HeaderStyle {
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+
+.NavStyle {
+  position: absolute;
+  width: 100%;
+  top: 50px;
+  z-index: 100;
 }
 
 /********** WRAPPER **********/

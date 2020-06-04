@@ -7,7 +7,7 @@ class NavServices extends Component {
       <div className="NavServices">
         <ul>
           <li className="services-list1">
-            <span>STORE LOCATOR</span>
+            <span><a href="http://localhost:3000/locator">STORE LOCATOR</a></span>
             <img
               src="https://www.rimowa.com/on/demandware.static/-/Library-Sites-RimowaSharedLibrary/default/dw3024992a/images/260/megamenu/Store.jpg"
               alt="Store.jpg"

@@ -3,8 +3,6 @@ import "./Accordion.scss";
 
 export class AccordionSpec extends Component {
   state = {
-    title: this.props.title,
-    text: this.props.specs,
     showInfo: false,
   };
 
@@ -19,13 +17,13 @@ export class AccordionSpec extends Component {
     return (
       <div className="Accordion">
         <div className="accorTab" onClick={this.handleToggle}>
-          <p>{this.state.title}</p>
+          <p>{this.props.list.title}</p>
         </div>
         <div
           className={this.state.showInfo ? "showContent content" : "content"}
         >
           <ul>
-            <li>{this.state.text}</li>
+            <li>{this.props.list.specs}</li>
           </ul>
         </div>
       </div>

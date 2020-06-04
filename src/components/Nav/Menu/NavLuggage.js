@@ -8,7 +8,7 @@ class NavLuggage extends Component {
         <ul>
           <li className="li1">
             <span>COLLECTION</span>
-            <div className="listItem1 ">
+            <div className="listItem1">
               <div className="COLLECTION-left-list">
                 <a className="COLLECTION-item1" href="#">
                   <div className="thumbnail">

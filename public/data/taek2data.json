@@ -2,12 +2,21 @@
   "products": [
     {
       "product_number": 92585004,
-
       "collection": "ORIGINAL",
       "title": "A TRAVEL ICON",
-
-      "collection": "original",
-
+      "name": "Truck XL",
+      "size": "80 x 44 x 46",
+      "weight": "4.3 kg",
+      "volume": "35 L",
+      "materials": {
+        "outside": "aluminium",
+        "inside": "polyester",
+        "handles": "leather",
+        "wheels": "hard plastic",
+        "dividers": "polyester"
+      },
+      "amount": 1530,
+      "currency": "euro",
       "colors": {
         "red": {
           "name": "red",
@@ -39,7 +48,6 @@
       "title": "FLEXIBLITY BUILT TO MATCH",
       "name": "Truck XL",
       "size": "80 x 44 x 46",
-
       "weight": "4.3 kg",
       "volume": "35 L",
       "materials": {
@@ -49,7 +57,6 @@
         "wheels": "hard plastic",
         "dividers": "polyester"
       },
-
       "amount": 1530,
       "currency": "euro",
       "colors": {
@@ -85,7 +92,6 @@
       "size": "80 x 44 x 46",
       "weight": "4.3 kg",
       "volume": "35 L",
-
       "materials": {
         "outside": "aluminium",
         "inside": "polyester",
@@ -93,7 +99,6 @@
         "wheels": "hard plastic",
         "dividers": "polyester"
       },
-
       "amount": 1530,
       "currency": "euro",
       "colors": {
@@ -129,7 +134,6 @@
       "size": "80 x 44 x 46",
       "weight": "4.3 kg",
       "volume": "35 L",
-
       "materials": {
         "outside": "aluminium",
         "inside": "polyester",
@@ -137,7 +141,6 @@
         "wheels": "hard plastic",
         "dividers": "polyester"
       },
-
       "amount": 1530,
       "currency": "euro",
       "colors": {
@@ -173,7 +176,6 @@
       "size": "80 x 44 x 46",
       "weight": "4.3 kg",
       "volume": "35 L",
-
       "materials": {
         "outside": "aluminium",
         "inside": "polyester",
@@ -181,7 +183,6 @@
         "wheels": "hard plastic",
         "dividers": "polyester"
       },
-
       "amount": 1530,
       "currency": "euro",
       "colors": {

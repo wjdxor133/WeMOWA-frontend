@@ -186,9 +186,7 @@ class Signup extends Component {
       this.setState(initialState);
     }
 
-    const token = localStorage.getItem("access_token");
-
-    fetch("http://10.58.3.60:8000/account/sign-up", {
+    fetch("http://10.58.2.57:8000/account/sign-up", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -313,7 +311,7 @@ class Signup extends Component {
                   <p>
                     I consent to RIMOWA processing my personal data in order to
                     send personalised marketing material in accordance with the{" "}
-                    <a href="">consent form</a> and the privacy policy.
+                    <a href=" ">consent form</a> and the privacy policy.
                   </p>
                 </div>
               </div>
@@ -327,7 +325,7 @@ class Signup extends Component {
                 </div>
                 <div className="right">
                   By clicking "create account", I consent to the{" "}
-                  <a href="">privacy policy</a>.
+                  <a href=" ">privacy policy</a>.
                 </div>
               </div>
               <button>Create Account</button>
@@ -335,11 +333,11 @@ class Signup extends Component {
             <div className="caption center">
               <p>By creating an account, you agree to our:</p>{" "}
               <p>
-                <a href="" className="terms">
+                <a href=" " className="terms">
                   TERMS OF CONDITIONS
                 </a>
                 |
-                <a href="" className="privacy">
+                <a href=" " className="privacy">
                   PRIVACY POLICY
                 </a>
               </p>

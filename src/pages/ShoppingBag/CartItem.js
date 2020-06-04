@@ -2,13 +2,20 @@ import React, { Component } from "react";
 import "./CartItem.scss";
 
 class CartItem extends Component {
+  state = {
+    subTotal: undefined,
+  };
   render() {
     return (
       <div className="CartItem flex">
-        <div className="cartImg">img</div>
+        <div className="cartImg">
+          <div className="cartImgFit">
+            <img src={this.props.product.image} alt="" />
+          </div>
+        </div>
         <div className="cartDetails">
           <div className="cartItemTitle cartMB">
-            <div className="subHeader">{this.props.product.collection}</div>
+            {/* <div className="subHeader">{this.props.product.collection}</div> */}
             <h5>{this.props.product.name}</h5>
             <span className="cartItemPrice">{this.props.product.price}</span>
           </div>
@@ -16,7 +23,7 @@ class CartItem extends Component {
             <div className="color flexAlignCenter">
               <div className="img"></div>
               <div className="cartUpper cartML3">
-                {this.props.product.color}
+                {this.props.product.luggage_color}
               </div>
             </div>
             <div className="availability cartUpper">In Stock</div>
@@ -33,7 +40,7 @@ class CartItem extends Component {
               >
                 -
               </div>
-              <div className="center">{this.props.product.qty}</div>
+              <div className="center">{this.props.product.amount}</div>
               <div
                 className="right"
                 onClick={() => this.props.handlePlus(this.props.product)}
@@ -43,7 +50,7 @@ class CartItem extends Component {
             </div>
             <div
               className="cartItemRemove cartUpper"
-              onClick={() => this.props.handleRemove(this.props.product.pn)}
+              onClick={() => this.props.handleRemove(this.props.product)}
             >
               Remove
             </div>

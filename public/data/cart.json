@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "id": 92585004,
+      "collection": "original",
+      "name": "Truck XL",
+      "color": "red",
+      "size": "80 x 44 x 46",
+      "price": 1530,
+      "amount": 1
+    },
+    {
+      "id": 92590041,
+      "collection": "classic",
+      "name": "Cabin",
+      "color": "black",
+      "size": "55 x 40 x 23",
+      "price": 1000,
+      "amount": 2
+    },
+    {
+      "id": 92552014,
+      "collection": "original",
+      "name": "Cabin S",
+      "color": "silver",
+      "size": "55 x 40 x 20",
+      "price": 1230,
+      "amount": 1
+    }
+  ]
+}

@@ -1,26 +1,39 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
 import "./UniqueMain.scss";
 
 class UniqueMain extends Component {
-  state = {};
+  goToTag = () => {
+    this.props.history.push("/Uniquetag");
+  };
 
   render() {
     return (
       <div className="UniqueMain">
-        <Header />
-        <Nav />
+        <div className="HeaderStyle">
+          <Header />
+        </div>
+
+        <div className="NavStyle">
+          <Nav />
+        </div>
         <div className="unHero">
           <video
-            autoPlay
-            loop
+            // autoPlay
+            // loop
             muted
             src="https://player.vimeo.com/external/374678558.hd.mp4?s=05a79d933175820bb407e32beafb744785363798&amp;profile_id=175"
             type="video/mp4"
             className="unHeroVideo"
           ></video>
+          <div className="heroBtn">
+            <div className="unSubheader unUpper">Rimowa Unique</div>
+            <div className="unTitle">Make your own RIMOWA</div>
+            <button onClick={this.goToTag}>CUSTOMISE</button>
+          </div>
         </div>
         <div className="unWrapper">
           <div className="unPitch">
@@ -82,7 +95,7 @@ class UniqueMain extends Component {
               </div>
             </div>
             <div className="unHowBtn">
-              <div>Get Started</div>
+              <div onClick={this.goToTag}>Get Started</div>
             </div>
           </div>
           <div className="unSticker">
@@ -97,7 +110,7 @@ class UniqueMain extends Component {
             </div>
           </div>
           <div className="unAccessories flex">
-            <div className="left">
+            <div className="left" onClick={this.goToTag}>
               <div className="unSubheader unUpper">Accessories</div>
               <div className="unTitle">Personalise your tag</div>
               <div className="unLink unUpper">Discover</div>
@@ -119,4 +132,4 @@ class UniqueMain extends Component {
   }
 }
 
-export default UniqueMain;
+export default withRouter(UniqueMain);

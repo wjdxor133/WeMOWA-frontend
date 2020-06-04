@@ -4,41 +4,26 @@ import "./OrderSumm.scss";
 
 class OrderSumm extends Component {
   state = {
-    items: [
-      {
-        pn: 92585004,
-        collection: "original",
-        name: "Truck XL",
-        color: "red",
-        size: "80 x 44 x 46",
-        price: 1530,
-        qty: 1,
-      },
-      {
-        pn: 92590041,
-        collection: "classic",
-        name: "Cabin",
-        color: "black",
-        size: "55 x 40 x 23",
-        price: 1000,
-        qty: 2,
-      },
-      {
-        pn: 92552014,
-        collection: "original",
-        name: "Cabin S",
-        color: "silver",
-        size: "55 x 40 x 20",
-        price: 1230,
-        qty: 1,
-      },
-    ],
+    data: [],
     shipping: 0,
   };
 
+  componentDidMount() {
+    const token = localStorage.getItem("token");
+    fetch("http://10.58.2.57:8000/order", {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: token,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => this.setState({ data: res.data }));
+  }
+
   handleTotal = () => {
     let total = 0;
-    this.state.items.map((item) => (total += item.price * item.qty));
+    this.state.data.map((item) => (total += item.price * item.amount));
     return total;
   };
 
@@ -46,10 +31,12 @@ class OrderSumm extends Component {
     const { shipping } = this.state;
     return (
       <div className="OrderSumm">
-        <div className="osHeader">Order Summary</div>
+        <div className="osHeader">
+          <h2>Order Summary</h2>
+        </div>
         <div className="osLists">
-          {this.state.items.map((item) => (
-            <OrderItem key={item.pn} product={item} qty={item.qty} />
+          {this.state.data.map((item) => (
+            <OrderItem key={item.id} product={item} amount={item.amount} />
           ))}
         </div>
         <div className="osCal">
@@ -59,11 +46,11 @@ class OrderSumm extends Component {
           </div>
           <div className="osSubtotal flexSpaceBetween">
             <div className="label">Shipping</div>
-            <div className="amount">{shipping} €</div>
+            <div className="amount">Free</div>
           </div>
           <div className="osTotal flexSpaceBetween">
             <div className="label">Total</div>
-            <div className="amount">{this.handleTotal() + shipping} €</div>
+            <div className="amount">{this.handleTotal()} €</div>
           </div>
         </div>
       </div>
