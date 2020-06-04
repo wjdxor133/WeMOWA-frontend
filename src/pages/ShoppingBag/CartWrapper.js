@@ -108,7 +108,7 @@ class CartWrapper extends Component {
   };
 
   render() {
-    console.log(localStorage.getItem("cart"));
+    // console.log(localStorage.getItem("cart"));
     return (
       <div className="CartWrapper">
         <Header />
