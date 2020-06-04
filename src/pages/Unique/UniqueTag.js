@@ -83,7 +83,7 @@ class UniqueTag extends Component {
   };
 
   render() {
-    console.log("textValue", this.state.textValue);
+    // console.log("textValue", this.state.textValue);
     const {
       selectedColor,
       returnAddText,
