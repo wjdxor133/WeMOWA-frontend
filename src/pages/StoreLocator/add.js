@@ -5,6 +5,7 @@ class  add extends Component {
     render() { 
         return ( 
             <div>hi</div>
+            <h1>hellow</h1>
 
          );
     }

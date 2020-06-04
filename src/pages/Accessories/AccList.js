@@ -111,7 +111,7 @@ class AccList extends Component {
                 {this.state.data.map( product =>{
                 return (<Accessories name={product.name} collection={product.collection} price={product.price}
                    img={product.series_color[0]}
-                  color={product.colors} accImg={product.accImg} accSecond={product.accSecond} accPrice={product.accPrice}
+                  color={product.colors} 
                   
                   accName={product.accName}
                 />);})}
