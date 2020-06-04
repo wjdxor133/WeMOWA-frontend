@@ -3,14 +3,8 @@ import { DropdownCheck } from "../../components/Dropdown/Dropdown";
 
 class CountryDD extends Component {
   state = {
-    countries: [],
+    country: this.props.country,
   };
-
-  componentDidMount() {
-    fetch("/data/signup.json")
-      .then((res) => res.json())
-      .then((res) => this.setState({ countries: res.countries }));
-  }
 
   handleToggle = () => {
     this.setState((prev) => ({
@@ -27,10 +21,10 @@ class CountryDD extends Component {
     return (
       <div>
         <DropdownCheck
-          list={this.state.countries}
+          list={this.props.countries}
           listOpen={this.state.listOpen}
           handleToggle={this.handleToggle}
-          selectedItem={this.state.country}
+          selectedItem={this.props.country}
           handleSelection={this.selectedItem}
         />
       </div>

@@ -23,16 +23,68 @@ const initialState = {
   passwordError: "",
   pw2Error: "",
   listOpen: false,
+  countries: [
+    {
+      name: "Australia",
+      region: "Oceania",
+      latlng: [-10.5, 105.66666666],
+      currencies: [{ code: "AUD", name: "Australian dollar", symbol: "$" }],
+    },
+    {
+      name: "Estonia",
+      region: "Europe",
+      latlng: [59.0, 26.0],
+      currencies: [{ code: "EUR", name: "Euro", symbol: "€" }],
+    },
+    {
+      name: "France",
+      region: "Europe",
+      latlng: [46.0, 2.0],
+      currencies: [{ code: "EUR", name: "Euro", symbol: "€" }],
+    },
+    {
+      name: "Italy",
+      region: "Europe",
+      latlng: [42.83333333, 12.83333333],
+      currencies: [{ code: "EUR", name: "Euro", symbol: "€" }],
+    },
+    {
+      name: "Korea (Republic of)",
+      region: "Asia",
+      latlng: [37.0, 127.5],
+      currencies: [{ code: "KRW", name: "South Korean won", symbol: "₩" }],
+    },
+    {
+      name: "Monaco",
+      region: "Europe",
+      latlng: [43.73333333, 7.4],
+      currencies: [{ code: "EUR", name: "Euro", symbol: "€" }],
+    },
+    {
+      name: "Taiwan",
+      region: "Asia",
+      latlng: [23.5, 121.0],
+      currencies: [{ code: "TWD", name: "New Taiwan dollar", symbol: "$" }],
+    },
+    {
+      name: "United States of America",
+      region: "Americas",
+      latlng: [38.0, -97.0],
+      currencies: [{ code: "USD", name: "United States dollar", symbol: "$" }],
+    },
+  ],
 };
 
 class Signup extends Component {
   state = initialState;
 
+  /*
   componentDidMount() {
     fetch("/data/signup.json")
       .then((res) => res.json())
       .then((res) => this.setState({ title: res.title }));
   }
+  */
 
   //input 값을 state 에 넣어주기
   handleInput = (event) => {
@@ -122,7 +174,7 @@ class Signup extends Component {
   };
 
   selectedItem = (t) => {
-    console.log(t.name);
+    //console.log(t.name);
     this.setState({ prefix: t.name, listOpen: false });
   };
 
@@ -130,13 +182,13 @@ class Signup extends Component {
     event.preventDefault();
     const isValid = this.validate();
     if (isValid) {
-      console.log(this.state);
+      //console.log(this.state);
       this.setState(initialState);
     }
-    /*
+
     const token = localStorage.getItem("access_token");
 
-    fetch("http://10.58.1.249:8000/account/signup", {
+    fetch("http://10.58.3.60:8000/account/sign-up", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -157,10 +209,10 @@ class Signup extends Component {
           alert("Signup Success!");
           this.props.history.push("/");
         } else if (response.message !== "SUCCESS") {
-          alert("Something Wrong");
+          alert("Already registered. Please enter a new address");
           this.props.history.push("/signup");
         }
-      });*/
+      });
   };
 
   render() {
@@ -207,7 +259,10 @@ class Signup extends Component {
                 <p className="showError center">{this.state.last_nameError}</p>
               </div>
               <div className="countryDD">
-                <Country />
+                <Country
+                  countries={this.state.countries}
+                  country={this.state.country}
+                />
               </div>
               <div className="inputWrapper">
                 <input

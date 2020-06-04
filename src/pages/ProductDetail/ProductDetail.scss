@@ -71,8 +71,6 @@
 }
 
 .productLabel {
-  position: absolute;
-  top: 3em;
   font-size: 0.75rem;
 }
 
@@ -273,4 +271,39 @@
   .productDetail {
     width: 100%;
   }
+}
+
+/***** innerHTML *****/
+.o-title--h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 0.1875rem;
+  text-align: center;
+}
+
+.o-title--h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 0.75em 0 1em;
+  text-align: center;
+}
+
+.c-switch {
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+  color: #636363;
+  padding-left: 2.5rem;
+}
+
+.c-spec-details__height-value {
+  transform: rotate(-90deg);
+}
+
+.c-dimension-value-content {
+  margin-right: 2em;
+}
+
+.c-dimension-value {
+  text-align: center;
 }

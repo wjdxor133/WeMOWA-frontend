@@ -50,7 +50,7 @@ export class DropdownCat extends Component {
             <div className="top">{this.props.category}</div>
             <div className="bottom">
               <span className="bleft">{this.props.defaultSize.name}</span>
-              <span className="bright">{this.props.defaultSize.size}</span>
+              <span className="bright">88x44x46cm</span>
             </div>
           </div>
           <div className="right">
