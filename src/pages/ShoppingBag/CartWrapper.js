@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../../components/Header/Header";
 import Nav from "../../components/Nav/Nav";
+import Footer from "../../components/Footer/Footer";
 import CartHeader from "./CartHeader";
 import ShoppingBag from "./ShoppingBag";
 import EmptyCart from "./EmptyCart";
@@ -15,23 +16,28 @@ class CartWrapper extends Component {
     grandTotal: 0,
   };
 
+  // //API
+  // componentDidMount() {
+  //   const token = localStorage.getItem("token");
+  //   fetch("http://10.58.2.57:8000/order", {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-type": "application/json",
+  //       Authorization: token,
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => this.setState({ data: res.data }));
+  //   //.then((res) => console.log(res.data));
+
+  //   this.handleTotal();
+  // }
+
+  //Mock Data
   componentDidMount() {
-    const token = localStorage.getItem("token");
-    fetch("http://10.58.2.57:8000/order", {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: token,
-      },
-    })
+    fetch("/data/cart.json")
       .then((res) => res.json())
       .then((res) => this.setState({ data: res.data }));
-    //.then((res) => console.log(res.data));
-
-    // fetch("/data/cart.json")
-    //   .then((res) => res.json())
-    //   .then((res) => this.setState({ data: res.data }));
-
     this.handleTotal();
   }
 
@@ -157,6 +163,7 @@ class CartWrapper extends Component {
             />
           )}
         </main>
+        <Footer />
       </div>
     );
   }

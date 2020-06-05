@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import "./Header.scss";
 import { faSearch, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
@@ -6,6 +7,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Header extends Component {
   state = {};
+
+  goToCart = () => {
+    this.props.history.push("/cart");
+  };
+
+  goToSignin = () => {
+    this.props.history.push("/login");
+  };
+
   render() {
     return (
       <div className="Header">
@@ -17,16 +27,24 @@ class Header extends Component {
             </span>
           </div>
           <div className="header-logoTitle">
-            <p><a href="http://localhost:3000/">RIMOWA</a></p>
+            <p>
+              <a href="http://localhost:3000/">RIMOWA</a>
+            </p>
           </div>
           <div className="header-items">
             <div className="header-signIn">
-              <a href="#">SIGN IN</a>
+              <div className="goToSignin" onClick={this.goToSignin}>
+                SIGN IN
+              </div>
             </div>
             <div className="header-icons">
               <FontAwesomeIcon className="icon1" icon={faSearch} />
               <FontAwesomeIcon className="icon2" icon={faHeart} />
-              <FontAwesomeIcon className="icon3" icon={faShoppingBag} />
+              <FontAwesomeIcon
+                className="icon3"
+                icon={faShoppingBag}
+                onClick={this.goToCart}
+              />
             </div>
           </div>
         </div>
@@ -35,4 +53,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);
