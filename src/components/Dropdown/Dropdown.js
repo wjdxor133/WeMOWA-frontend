@@ -22,9 +22,9 @@ export class DropdownCheck extends Component {
         </div>
         <div className={`${this.props.listOpen ? "show" : "hide"}`}>
           <ul className="chFlyout">
-            {this.props.list.map((t) => (
+            {this.props.list.map((t, idx) => (
               <li
-                key={t.id}
+                key={idx}
                 className={
                   this.props.selectedItem === t ? "selected" : "unselected"
                 }

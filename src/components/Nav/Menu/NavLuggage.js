@@ -106,7 +106,7 @@ class NavLuggage extends Component {
                 <a href="#">
                   <div className="color-row">
                     <img
-                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw76e8640c/images/16/megamenu/black_cat_menu.png"
+                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw51e2248e/images/16/megamenu/coral_megamenu.png"
                       alt="Coral"
                     ></img>
                     <p>Coral</p>
@@ -115,7 +115,7 @@ class NavLuggage extends Component {
                 <a href="#">
                   <div className="color-row">
                     <img
-                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw76e8640c/images/16/megamenu/black_cat_menu.png"
+                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw5e3ef23d/images/16/megamenu/red_cat_menu.png"
                       alt="Red"
                     ></img>
                     <p>Red</p>
@@ -124,7 +124,7 @@ class NavLuggage extends Component {
                 <a href="#">
                   <div className="color-row">
                     <img
-                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw76e8640c/images/16/megamenu/black_cat_menu.png"
+                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw781f56c6/images/16/megamenu/slate_megamenu.png"
                       alt="Slate"
                     ></img>
                     <p>Slate</p>
@@ -133,7 +133,7 @@ class NavLuggage extends Component {
                 <a href="#">
                   <div className="color-row">
                     <img
-                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw76e8640c/images/16/megamenu/black_cat_menu.png"
+                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw4429c0e8/images/16/megamenu/white_cat_menu2.png"
                       alt="White"
                     ></img>
                     <p>White</p>
@@ -142,7 +142,7 @@ class NavLuggage extends Component {
                 <a href="#">
                   <div className="color-row">
                     <img
-                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw76e8640c/images/16/megamenu/black_cat_menu.png"
+                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dwc6e164a1/images/16/megamenu/glacier_megamenu.png"
                       alt="Glacier"
                     ></img>
                     <p>Glacier</p>
@@ -153,7 +153,7 @@ class NavLuggage extends Component {
                 <a href="#">
                   <div className="color-row">
                     <img
-                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw76e8640c/images/16/megamenu/black_cat_menu.png"
+                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw91eddacb/images/16/megamenu/blue_cat_menu2.png"
                       alt="Blue"
                     ></img>
                     <p>Blue</p>
@@ -162,7 +162,7 @@ class NavLuggage extends Component {
                 <a href="#">
                   <div className="color-row">
                     <img
-                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw76e8640c/images/16/megamenu/black_cat_menu.png"
+                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw09a30f7e/images/16/megamenu/green_cat_menu.png"
                       alt="Green"
                     ></img>
                     <p>Green</p>
@@ -171,7 +171,7 @@ class NavLuggage extends Component {
                 <a href="#">
                   <div className="color-row">
                     <img
-                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw76e8640c/images/16/megamenu/black_cat_menu.png"
+                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw51e2248e/images/16/megamenu/saffron_megamenu.png"
                       alt="Saffron"
                     ></img>
                     <p>Saffron</p>
@@ -180,7 +180,7 @@ class NavLuggage extends Component {
                 <a href="#">
                   <div className="color-row">
                     <img
-                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw76e8640c/images/16/megamenu/black_cat_menu.png"
+                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw4925b759/images/16/megamenu/silver_cat_menu.png"
                       ali="Silver"
                     ></img>
                     <p>Silver</p>
@@ -189,7 +189,7 @@ class NavLuggage extends Component {
                 <a href="#">
                   <div className="color-row">
                     <img
-                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw76e8640c/images/16/megamenu/black_cat_menu.png"
+                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw73775252/images/16/megamenu/berry_megamenu.png"
                       alt="Berry"
                     ></img>
                     <p>Berry</p>
@@ -198,7 +198,7 @@ class NavLuggage extends Component {
                 <a href="#">
                   <div className="color-row">
                     <img
-                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw76e8640c/images/16/megamenu/black_cat_menu.png"
+                      src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dwb64f27a9/images/16/megamenu/titanium1_cat_menu.png"
                       alt="Titanium"
                     ></img>
                     <p>Titanium</p>

@@ -12,15 +12,13 @@
 .unSubheader {
   font-size: 0.875rem;
 }
-.unTitle {
-  font-size: 1.75rem;
-  margin: 0.5em 0;
-}
+
 .unLink {
   font-size: 0.75rem;
   text-decoration: underline;
   cursor: pointer;
 }
+
 /********** Hero **********/
 
 .unHero {
@@ -31,10 +29,24 @@
   width: 100%;
 }
 
-.heroBtn {
+.heroMsg {
   position: absolute;
   top: 30%;
   left: 10%;
+}
+
+.heroBtn {
+  background-color: white;
+  color: black;
+  width: 100%;
+  font-size: 0.675rem;
+  color: $white;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  border-radius: 0.375em;
+  padding: 1.5em;
+  border: none;
+  cursor: pointer;
 }
 
 .HeaderStyle {
@@ -69,7 +81,7 @@
 }
 
 .pitchBody {
-  max-width: 460px;
+  max-width: 500px;
   margin: 0 auto;
   font-size: 0.9375rem;
 }
@@ -104,6 +116,7 @@
 
 /********** HOW **********/
 .unHow {
+  margin-top: 8em;
 }
 
 .howHeader {

@@ -13,12 +13,13 @@ class UniqueMain extends Component {
   render() {
     return (
       <div className="UniqueMain">
-        <div className="HeaderStyle">
-          <Header />
-        </div>
-
-        <div className="NavStyle">
-          <Nav />
+        <div className="unHeader">
+          <div className="HeaderStyle">
+            <Header />
+          </div>
+          <div className="NavStyle">
+            <Nav />
+          </div>
         </div>
         <div className="unHero">
           <video
@@ -29,10 +30,12 @@ class UniqueMain extends Component {
             type="video/mp4"
             className="unHeroVideo"
           ></video>
-          <div className="heroBtn">
-            <div className="unSubheader unUpper">Rimowa Unique</div>
-            <div className="unTitle">Make your own RIMOWA</div>
-            <button onClick={this.goToTag}>CUSTOMISE</button>
+          <div className="heroMsg">
+            <h6 className="upper">Rimowa Unique</h6>
+            <h1>Make your own RIMOWA</h1>
+            <div className="heroBtn" onClick={this.goToTag}>
+              CUSTOMISE
+            </div>
           </div>
         </div>
         <div className="unWrapper">
@@ -46,11 +49,11 @@ class UniqueMain extends Component {
             </div>
           </div>
           <div className="unInspo">
-            <div className="unToggle flexJustifyCenter">
+            {/* <div className="unToggle flexJustifyCenter">
               <div className="unInspiration unUpper ">Inspirations</div>
               <div className="unInspiration">|</div>
               <div className="unMydesign unUpper ">My Designs</div>
-            </div>
+            </div> */}
           </div>
           <div className="unHow">
             <div className="howHeader">How It Works</div>

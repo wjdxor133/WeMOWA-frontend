@@ -13,23 +13,40 @@
       li {
         padding: 2em;
       }
-      .NEW-btn:hover {
+      .NEW-btn,
+      .LUGGAGE-btn,
+      .ACCESSORIES-btn,
+      .GIFTS-btn,
+      .SERVICES-btn,
+      .CUSTOMISE-btn {
+        position: relative;
         cursor: pointer;
       }
-      .LUGGAGE-btn:hover {
-        cursor: pointer;
+      .NEW-btn::after,
+      .LUGGAGE-btn::after,
+      .ACCESSORIES-btn::after,
+      .GIFTS-btn::after,
+      .SERVICES-btn::after,
+      .CUSTOMISE-btn::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 17px;
+        width: 100%;
+        height: 1px;
+        background: black;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.2s ease-in;
       }
-      .ACCESSORIES-btn:hover {
-        cursor: pointer;
-      }
-      .GIFTS-btn:hover {
-        cursor: pointer;
-      }
-      .SERVICES-btn:hover {
-        cursor: pointer;
-      }
-      .CUSTOMISE-btn:hover {
-        cursor: pointer;
+
+      .NEW-btn:hover::after,
+      .LUGGAGE-btn:hover::after,
+      .ACCESSORIES-btn:hover::after,
+      .GIFTS-btn:hover::after,
+      .SERVICES-btn:hover::after,
+      .CUSTOMISE-btn:hover::after {
+        transform: scaleX(1);
       }
     }
   }

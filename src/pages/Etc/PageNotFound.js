@@ -1,11 +1,15 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
 import "./etc.scss";
 
 class PageNotFound extends Component {
-  state = {};
+  goToLink = () => {
+    this.props.history.push("/");
+  };
+
   render() {
     return (
       <div className="PageNotFound">
@@ -21,7 +25,9 @@ class PageNotFound extends Component {
               shopping.
             </p>
           </div>
-          <button className="etcBtn">Start Shopping</button>
+          <button className="etcBtn" onClick={this.goToLink}>
+            Start Shopping
+          </button>
         </div>
         <Footer />
       </div>
@@ -29,4 +35,4 @@ class PageNotFound extends Component {
   }
 }
 
-export default PageNotFound;
+export default withRouter(PageNotFound);
