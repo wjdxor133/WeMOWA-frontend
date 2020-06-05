@@ -8,27 +8,6 @@ li {
   list-style: none;
 }
 
-button {
-  background-color: $black;
-  color: $white;
-  text-transform: uppercase;
-  width: 100%;
-  border-radius: 0.375em;
-  padding: 1em;
-}
-
-/********* typography *********/
-h3 {
-  font-size: 1.25rem;
-  font-weight: 300;
-}
-
-h5 {
-  font-size: 1rem;
-  font-weight: 400;
-}
-/********* typography *********/
-
 .mainRow {
   max-width: 1360px;
   width: 100%;
@@ -56,12 +35,17 @@ h5 {
   width: 100%;
 }
 
-.signinBtn {
-  margin: 0.75em auto 1em;
+.signinBtn,
+.createAccBtn {
+  margin: 2em 0;
 }
 
 .forgotPW {
-  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 input {

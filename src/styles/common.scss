@@ -8,6 +8,7 @@ $beigeTxt: #b2ada6;
 $beigeBg: #fbfaf9;
 $darkGray: #424242;
 $gray: #636363;
+$lightGray: #a0a0a0;
 $faintGray: #eeeeee;
 $error: #c81f1f;
 
@@ -67,14 +68,65 @@ body {
 }
 
 /* font */
+h1 {
+  font-size: 1.875rem;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-weight: 300;
+  letter-spacing: 0.125rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 0.125rem;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+}
+
+.center {
+  text-align: center;
+}
+.upper {
+  text-transform: uppercase;
+}
 .txtUpper {
   text-transform: uppercase;
 }
 
-a{
+a {
   text-decoration: none;
   color: black;
 }
-button{
-  outline: none;
+
+/* Button */
+button {
+  background-color: black;
+  width: 100%;
+  font-size: 0.675rem;
+  color: $white;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  border-radius: 0.375em;
+  padding: 1.5em;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  color: rgba(255, 255, 255, 0.7);
 }

@@ -8,20 +8,6 @@ li {
   list-style: none;
 }
 
-button {
-  background-color: $black;
-  color: $white;
-  text-transform: uppercase;
-  width: 100%;
-  border-radius: 0.375em;
-  padding: 1em;
-}
-
-button:hover {
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.7);
-}
-
 input {
   padding: 1em;
   border-radius: 0.3em;
@@ -29,31 +15,16 @@ input {
 }
 
 /********* typography *********/
-h3 {
-  font-size: 1.15rem;
-  font-weight: 300;
-  letter-spacing: 0.125rem;
-}
 
-h5 {
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-.center {
-  text-align: center;
-}
-
-/********* end typography *********/
-
-.mainRow {
-  max-width: 1360px;
+.SignupWrapper {
   width: 100%;
+  max-width: 1360px;
+  padding: 4em 0;
   margin: 0 auto;
-}
 
-.signupWrapper {
-  width: 50%;
+  .wrapper {
+    width: 50%;
+  }
 }
 
 .signInForm {
@@ -118,19 +89,31 @@ h5 {
   }
 }
 
-.caption,
-.signin {
+.Signin {
   margin-top: 2em;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
-.terms {
+.Terms,
+.Privacy {
   margin-right: 0.75em;
   text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
-.privacy {
-  margin-left: 0.75em;
-  text-decoration: none;
+.Privacy {
+  margin-left: 0.5em;
+}
+
+.signupBtn {
+  margin: 2em 0;
 }
 
 .linktoLogin {

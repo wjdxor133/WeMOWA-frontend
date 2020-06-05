@@ -4,11 +4,8 @@ import { withRouter } from "react-router-dom";
 import { tagColorMenu } from "../../config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackspace } from "@fortawesome/free-solid-svg-icons";
-
 import "./UniqueTag.scss";
-
 let textValue = [];
-
 class UniqueTag extends Component {
   state = {
     selectedColor: "paprika",
@@ -19,35 +16,28 @@ class UniqueTag extends Component {
     joinChecked: false,
     textValue: "",
   };
-
   handleChange = (value) => {
     this.setState({ selectedColor: value });
   };
-
   addTextMenu = () => {
     this.setState({ addText: true, colorMenu: true });
   };
-
   addTextClick = (value) => {
     if (textValue.length < 3) {
       textValue.push(value);
       this.setState({ textValue: textValue });
     }
   };
-
   deleteTextClick = () => {
     textValue.pop();
     this.setState({ textValue: textValue });
   };
-
   backColorMenu = () => {
     this.setState({ addText: false, editText: true, returnAddText: true });
   };
-
   deleteEditText = () => {
     this.setState({ addText: true, editText: false });
   };
-
   textJoin = (joinChecked) => {
     if (joinChecked === false)
       this.setState({ textValue: textValue.join("."), joinChecked: true });
@@ -55,7 +45,6 @@ class UniqueTag extends Component {
       this.setState({ textValue: textValue.join(""), joinChecked: false });
     }
   };
-
   saveCart = () => {
     const { textValue, selectedColor } = this.state;
     const token = localStorage.getItem("token");
@@ -73,7 +62,6 @@ class UniqueTag extends Component {
       "selectedColor",
       selectedColor
     );
-
     fetch("http://10.58.2.57:8000/order", {
       method: "POST",
       headers: {
@@ -91,13 +79,11 @@ class UniqueTag extends Component {
     // localStorage.setItem("cart", [textValue, selectedColor]);
 
     // 장바구니 화면으로
-    this.props.history.push("/cart");
+    // this.props.history.push("/cart");
   };
-
   goToMain = () => {
     this.props.history.push("/");
   };
-
   render() {
     // console.log("textValue", this.state.textValue);
     const {
@@ -339,5 +325,4 @@ class UniqueTag extends Component {
     );
   }
 }
-
 export default withRouter(UniqueTag);
