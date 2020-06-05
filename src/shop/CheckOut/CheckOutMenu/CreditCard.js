@@ -96,9 +96,17 @@ class CreditCard extends Component {
       //   }
       // });
 
-      toast("확인!", { position: "bottom-center" }, { autoClose: 1500 });
-      setTimeout(this.props.history.push("/ordersuccess"), 3500);
+      toast.success(
+        "확인!",
+        { position: "bottom-center" },
+        { autoClose: 1500 }
+      );
+      setTimeout(this.goTosuc, 4000);
     }
+  };
+
+  goTosuc = () => {
+    this.props.history.push("/ordersuccess");
   };
 
   render() {

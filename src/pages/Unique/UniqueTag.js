@@ -79,7 +79,7 @@ class UniqueTag extends Component {
     // localStorage.setItem("cart", [textValue, selectedColor]);
 
     // 장바구니 화면으로
-    // this.props.history.push("/cart");
+    this.props.history.push("/cart");
   };
   goToMain = () => {
     this.props.history.push("/");
