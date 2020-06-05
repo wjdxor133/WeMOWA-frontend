@@ -21,6 +21,14 @@ class UniqueMain extends Component {
     this.props.history.push("/Uniquetag");
   };
 
+  goToLuggage = () => {
+    this.props.history.push("/productList");
+  };
+
+  goToAcc = () => {
+    this.props.history.push("/accList");
+  };
+
   render() {
     return (
       <div className="UniqueMain">
@@ -35,7 +43,7 @@ class UniqueMain extends Component {
         <div className="unHero">
           <video
             autoPlay
-            // loop
+            loop
             muted
             src="https://player.vimeo.com/external/374678558.hd.mp4?s=05a79d933175820bb407e32beafb744785363798&amp;profile_id=175"
             type="video/mp4"
@@ -111,7 +119,7 @@ class UniqueMain extends Component {
               Get Started
             </button>
           </div>
-          <div className="unSticker">
+          <div className="unSticker" onClick={this.goToLuggage}>
             <h6 className="upper">Sticker Collection</h6>
             <h2 className="unTitle">Trace your jorney with stickers</h2>
             <div className="unLink upper">Discover</div>
@@ -129,7 +137,7 @@ class UniqueMain extends Component {
               <div className="unLink upper">Discover</div>
               <div className="unTag"></div>
             </div>
-            <div className="right">
+            <div className="right" onClick={this.goToAcc}>
               <div className="unAccHeader">
                 <h6 className="upper">Accessories</h6>
                 <h2 className="unTitle">Choose a wheel colour</h2>

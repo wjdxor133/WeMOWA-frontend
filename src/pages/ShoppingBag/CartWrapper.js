@@ -1,40 +1,45 @@
 import React, { Component } from "react";
 import Header from "../../components/Header/Header";
 import Nav from "../../components/Nav/Nav";
+import Footer from "../../components/Footer/Footer";
 import CartHeader from "./CartHeader";
 import ShoppingBag from "./ShoppingBag";
 import EmptyCart from "./EmptyCart";
 import "./CartWrapper.scss";
-
 class CartWrapper extends Component {
   state = {
     data: [],
-
     cartTotal: 0,
     shipping: 0,
     grandTotal: 0,
   };
+  // componentDidMount() {
+  //   const token = localStorage.getItem("token");
+  //   fetch("http://10.58.2.57:8000/order", {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-type": "application/json",
+  //       Authorization: token,
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       console.log(res);
+  //       this.setState({ data: res.data });
+  //     });
+  //   //.then((res) => console.log(res.data));
+  //   // fetch("/data/cart.json")
+  //   //   .then((res) => res.json())
+  //   //   .then((res) => this.setState({ data: res.data }));
+  //   this.handleTotal();
+  // }
 
   componentDidMount() {
-    const token = localStorage.getItem("token");
-    fetch("http://10.58.2.57:8000/order", {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: token,
-      },
-    })
+    fetch("/data/cart.json")
       .then((res) => res.json())
       .then((res) => this.setState({ data: res.data }));
-    //.then((res) => console.log(res.data));
-
-    // fetch("/data/cart.json")
-    //   .then((res) => res.json())
-    //   .then((res) => this.setState({ data: res.data }));
-
     this.handleTotal();
   }
-
   componentDidUpdate(prevProps, prevState) {
     if (prevState.data.length !== this.state.data.length) this.handleTotal();
     else {
@@ -45,10 +50,8 @@ class CartWrapper extends Component {
       });
     }
   }
-
   // API 연동
   getDate = () => {};
-
   //제품 수량 빼기
   handleMinus = (product) => {
     const token = localStorage.getItem("token");
@@ -58,7 +61,6 @@ class CartWrapper extends Component {
     if (data[i].amount > 1) {
       data[i].amount--; //clone 된 객체의 수량에 1을 빼준 후
     }
-
     //  fetch("http://" , {
     //    method: "PATCH",
     //    header: {
@@ -71,10 +73,8 @@ class CartWrapper extends Component {
     //     })
     //   })
     //   .then(res => console.log(res))
-
     this.setState({ data }); // 그 값을 testProduct 에 setState 해준다
   };
-
   //제품 수량 더하기
   handlePlus = (product) => {
     const token = localStorage.getItem("token");
@@ -82,50 +82,42 @@ class CartWrapper extends Component {
     const i = data.indexOf(product);
     data[i] = { ...product };
     data[i].amount++; //clone 된 객체의 수량에 1을 더해준 후
-
-    fetch("http://10.58.2.57:8000/order", {
-      method: "PATCH",
-      header: {
-        "Content-type": "application/json",
-        Authorization: token,
-      },
-      body: JSON.stringify({
-        amount: data[i].amount,
-      }),
-    }).then((res) => console.log(res));
-
+    // fetch("http://10.58.2.57:8000/order", {
+    //   method: "PATCH",
+    //   header: {
+    //     "Content-type": "application/json",
+    //     Authorization: token,
+    //   },
+    //   body: JSON.stringify({
+    //     amount: data[i].amount,
+    //   }),
+    // }).then((res) => console.log(res));
     this.setState({ data }); // 그 값을 testProduct 에 setState 해준다
   };
-
   handleRemove = (product) => {
     const token = localStorage.getItem("token");
     const data = [...this.state.data];
     const newdata = data.filter((p) => p.id !== product.id);
-
-    fetch("http://10.58.2.57:8000/order", {
-      method: "DELETE",
-      header: {
-        "Content-type": "application/json",
-        Authorization: token,
-      },
-      body: JSON.stringify({
-        product_id: product.id,
-      }),
-    }).then((res) => console.log(res));
-
+    // fetch("http://10.58.2.57:8000/order", {
+    //   method: "DELETE",
+    //   header: {
+    //     "Content-type": "application/json",
+    //     Authorization: token,
+    //   },
+    //   body: JSON.stringify({
+    //     product_id: product.id,
+    //   }),
+    // }).then((res) => console.log(res));
     this.setState({ data: newdata });
   };
-
   handleSubtotal = (product) => {
     const amount = product.amount;
     return product.price * amount;
   };
-
   handleTotal = () => {
     let total = 0;
     this.state.data.map((item) => (total += item.price * item.amount));
     total = total.toFixed(2);
-
     this.setState({ cartTotal: total });
     //const grandTotal = total + this.state.shipping;
     //const update = () => {
@@ -133,7 +125,6 @@ class CartWrapper extends Component {
     //};
     //return update;
   };
-
   render() {
     // console.log(localStorage.getItem("cart"));
     return (
@@ -141,7 +132,7 @@ class CartWrapper extends Component {
         <Header />
         <Nav />
         <div className="ctHeader">
-          {/* <CartHeader totalNumber={this.state.data.length} /> */}
+          <CartHeader totalNumber={this.state.data.length} />
         </div>
         <main className="ShoppingBag">
           {this.state.data.length === 0 ? (
@@ -157,9 +148,9 @@ class CartWrapper extends Component {
             />
           )}
         </main>
+        <Footer />
       </div>
     );
   }
 }
-
 export default CartWrapper;

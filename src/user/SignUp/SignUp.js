@@ -143,33 +143,35 @@ class Signup extends Component {
     event.preventDefault();
     const isValid = this.validate();
     if (isValid) {
-      fetch("http://10.58.2.57:8000/account/sign-up", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          first_name: this.state.first_name,
-          last_name: this.state.last_name,
-          email: this.state.email,
-          password: this.state.password,
-          prefix: this.state.prefix,
-          country: this.state.country,
-        }),
-      })
-        .then((response) => response.json())
-        .then((response) => {
-          console.log(response);
-          if (response.message === "SUCCESS") {
-            alert("Signup Success!");
-            this.props.history.push("/");
-          } else if (response.message !== "SUCCESS") {
-            alert("Already registered. Please enter a new address");
-            this.props.history.push("/signup");
-          }
-        });
       this.setState(initialState);
     }
+  };
+
+  goToMain = () => {
+    fetch("http://10.58.2.57:8000/account/sign-up", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
+        email: this.state.email,
+        password: this.state.password,
+        prefix: this.state.prefix,
+        country: this.state.country,
+      }),
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          alert("Signup Success!");
+          this.props.history.push("/");
+        } else {
+          alert("Already registered. Please enter a new address");
+          this.props.history.push("/signup");
+        }
+      })
+      .catch((error) => console.log(error));
   };
 
   render() {
@@ -292,7 +294,9 @@ class Signup extends Component {
                 </div>
               </div>
 
-              <button className="signupBtn">Create Account</button>
+              <button className="signupBtn" onClick={this.goToMain}>
+                Create Account
+              </button>
             </form>
             <div className="caption center">
               <p>By creating an account, you agree to our:</p>{" "}

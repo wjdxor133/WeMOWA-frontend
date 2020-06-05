@@ -98,6 +98,10 @@ class Login extends Component {
       });
   };
 
+  goToSignup = () => {
+    this.props.history.push("/signup");
+  };
+
   render() {
     return (
       <div className="Login">
@@ -158,7 +162,9 @@ class Login extends Component {
                 <li>REGISTER MY RIMOWA</li>
               </ul>
               <form action="" className="signUpBtn">
-                <button className="createAccBtn">Create Account</button>
+                <button className="createAccBtn" onClick={this.goToSignup}>
+                  Create Account
+                </button>
               </form>
             </div>
           </div>
