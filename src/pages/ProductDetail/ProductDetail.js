@@ -29,6 +29,30 @@ class ProductDetail extends Component {
 
   // Mock Data
   componentDidMount() {
+    
+    const token = localStorage.getItem("token");
+    console.log(token);
+    console.log(this.props.location)
+    
+      fetch("http://10.58.4.117:8000/product"+this.props.location, {
+            method: "GET",
+            headers: {
+              "Content-type": "application/json",
+            },
+          })
+            .then((res) => res.json())
+            .then((res) => this.setState({ product: res.data }));
+       
+
+      
+    //fetch("/data/pd_data.json")
+    //  .then((res) => res.json())
+    //  .then((res) => this.setState({ product: res.product }));
+        }
+
+  handleWishlist = () => {
+    this.setState((prev) => ({ wishlist: !prev.wishlist }));
+
     fetch("/data/test.json")
       .then((res) => res.json())
       .then((res) => this.setState({ product: res.data }));
@@ -97,7 +121,7 @@ class ProductDetail extends Component {
     const { color_urls } = this.state.product;
     const { color_product_numbers } = this.state.product;
     const { wishlist } = this.state.product;
-    console.log(this.state.product.price);
+    console.log("???",this.state.product);
     return (
       <div className="ProductDetail">
         <Header />
