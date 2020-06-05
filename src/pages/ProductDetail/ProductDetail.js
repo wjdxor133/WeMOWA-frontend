@@ -15,25 +15,24 @@ class ProductDetail extends Component {
     product: {},
   };
 
-  // API
-  componentDidMount() {
-    //if match.params.id, then fetch then setState
-    fetch("http://10.58.6.226:8000/product?product_number=92585004", {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => this.setState({ product: res.data }));
-  }
-
-  // // Mock Data
+  // // API
   // componentDidMount() {
-  //   fetch("/data/test.json")
+  //   fetch("http://10.58.6.226:8000/product?product_number=92585004", {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-type": "application/json",
+  //     },
+  //   })
   //     .then((res) => res.json())
   //     .then((res) => this.setState({ product: res.data }));
   // }
+
+  // Mock Data
+  componentDidMount() {
+    fetch("/data/test.json")
+      .then((res) => res.json())
+      .then((res) => this.setState({ product: res.data }));
+  }
 
   handleWishlist = () => {
     // const token = localStorage.getItem("token");
@@ -58,7 +57,7 @@ class ProductDetail extends Component {
   };
 
   sendDataToCart = () => {
-    const { product_id, price } = this.state;
+    // const { product_id, price } = this.state.product;
     const token = localStorage.getItem("token");
     fetch("http://10.58.2.57:8000/order", {
       method: "POST",
@@ -67,15 +66,16 @@ class ProductDetail extends Component {
         Authorization: token,
       },
       body: JSON.stringify({
-        product_id: product_id,
-        amount: price,
-        tag: null,
-        tag_text: null,
+        product_id: this.state.product.product_id,
+        amount: 1,
+        tag: "Red",
+        tag_text: "ABC",
       }),
     })
       .then((res) => res.json())
       //.then((res) => console.log(res));
       .then((res) => {
+        console.log("response", res);
         if (res.status === 200) {
           alert("Item added to cart");
           this.props.history.push("/cart");
@@ -97,8 +97,7 @@ class ProductDetail extends Component {
     const { color_urls } = this.state.product;
     const { color_product_numbers } = this.state.product;
     const { wishlist } = this.state.product;
-    console.log(this.props);
-    console.log("wishlist: ", wishlist);
+    console.log(this.state.product.price);
     return (
       <div className="ProductDetail">
         <Header />
