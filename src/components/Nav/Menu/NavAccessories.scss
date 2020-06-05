@@ -15,7 +15,7 @@
     display: flex;
     justify-content: space-between;
     list-style: none;
-    padding: 0 5.3em;
+    padding: 0 2em;
     margin: 2em auto 0;
     font-size: 0.9rem;
     letter-spacing: 0.1rem;
@@ -23,6 +23,7 @@
     .iphone-cases {
       color: #454545;
       max-width: 25%;
+      padding-bottom: 3em;
       p {
         color: $darkGray;
         font-size: 0.875rem;

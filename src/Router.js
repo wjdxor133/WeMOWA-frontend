@@ -13,6 +13,8 @@ import SizesDD from "./pages/ProductDetail/SizesDD";
 import StoreLocator from "./pages/StoreLocator/StoreLocator";
 import CheckOut from "./shop/CheckOut/CheckOut";
 import UniqueTag from "./pages/Unique/UniqueTag";
+import OrderConfirmation from "./pages/Etc/OrderConfirmation";
+import PageNotFound from "./pages/Etc/PageNotFound";
 
 class Routes extends Component {
   render() {
@@ -32,6 +34,12 @@ class Routes extends Component {
           <Route exact path="/locator" component={StoreLocator} />
           <Route exact path="/CheckOut" component={CheckOut}></Route>
           <Route exact path="/Uniquetag" component={UniqueTag}></Route>
+          <Route
+            exact
+            path="/ordersuccess"
+            component={OrderConfirmation}
+          ></Route>
+          <Route component={PageNotFound}></Route>
         </Switch>
       </Router>
     );

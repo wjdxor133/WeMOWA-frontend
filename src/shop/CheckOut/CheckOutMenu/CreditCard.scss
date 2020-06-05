@@ -1,4 +1,11 @@
 .CreditCard {
+  .block {
+    display: block;
+  }
+
+  .none {
+    display: none;
+  }
   .credit-back {
     display: flex;
     align-items: center;
@@ -11,6 +18,8 @@
     }
   }
   .CreditCard-items {
+    margin-bottom: 1em;
+
     h4 {
       padding: 2em 0 1em;
     }
@@ -32,11 +41,27 @@
       flex-direction: column;
       width: 70%;
 
+      .redText {
+        font-size: 0.7rem;
+        color: #c81f1f;
+      }
+
       input {
         padding: 1.5em 1em;
         border: 0.05rem solid #dadada;
         border-radius: 0.3rem;
         margin-top: 1em;
+        outline-style: none;
+      }
+
+      .inputChecked {
+        width: 100%;
+        border: 1px solid #c81f1f;
+        border-radius: 0.3rem;
+        background-color: #fff;
+        height: 3rem;
+        margin: 0.6em 0;
+        padding: 2em 1em;
       }
 
       input::placeholder {
@@ -49,10 +74,15 @@
         width: 100%;
 
         .month {
+          width: 30%;
+          margin-right: 1em;
         }
         .year {
+          width: 30%;
+          margin-right: 1em;
         }
         .card-cardCvv {
+          width: 30%;
           .cardCvv {
           }
         }
@@ -68,6 +98,7 @@
       border-radius: 0.2rem;
       border-style: none;
       margin: 2rem 0 4rem;
+      outline-style: none;
     }
 
     span {

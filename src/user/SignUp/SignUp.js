@@ -1,12 +1,15 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import Header from "../../components/Header/Header";
+import Nav from "../../components/Nav/Nav";
+import Footer from "../../components/Footer/Footer";
 import { DropdownCheck } from "../../components/Dropdown/Dropdown";
 import Country from "./CountryDD";
 import "./signup.scss";
 
 const initialState = {
-  title: [],
   prefix: "Ms",
+  listOpen: false,
   country: "France",
   first_name: "",
   last_name: "",
@@ -22,75 +25,26 @@ const initialState = {
   emailError: "",
   passwordError: "",
   pw2Error: "",
-  listOpen: false,
+  title: [{ name: "Mr" }, { name: "Ms" }, { name: "Mrs" }],
   countries: [
-    {
-      name: "Australia",
-      region: "Oceania",
-      latlng: [-10.5, 105.66666666],
-      currencies: [{ code: "AUD", name: "Australian dollar", symbol: "$" }],
-    },
-    {
-      name: "Estonia",
-      region: "Europe",
-      latlng: [59.0, 26.0],
-      currencies: [{ code: "EUR", name: "Euro", symbol: "€" }],
-    },
-    {
-      name: "France",
-      region: "Europe",
-      latlng: [46.0, 2.0],
-      currencies: [{ code: "EUR", name: "Euro", symbol: "€" }],
-    },
-    {
-      name: "Italy",
-      region: "Europe",
-      latlng: [42.83333333, 12.83333333],
-      currencies: [{ code: "EUR", name: "Euro", symbol: "€" }],
-    },
-    {
-      name: "Korea (Republic of)",
-      region: "Asia",
-      latlng: [37.0, 127.5],
-      currencies: [{ code: "KRW", name: "South Korean won", symbol: "₩" }],
-    },
-    {
-      name: "Monaco",
-      region: "Europe",
-      latlng: [43.73333333, 7.4],
-      currencies: [{ code: "EUR", name: "Euro", symbol: "€" }],
-    },
-    {
-      name: "Taiwan",
-      region: "Asia",
-      latlng: [23.5, 121.0],
-      currencies: [{ code: "TWD", name: "New Taiwan dollar", symbol: "$" }],
-    },
-    {
-      name: "United States of America",
-      region: "Americas",
-      latlng: [38.0, -97.0],
-      currencies: [{ code: "USD", name: "United States dollar", symbol: "$" }],
-    },
+    { name: "Australia" },
+    { name: "France" },
+    { name: "Italy" },
+    { name: "Korea (Republic of)" },
+    { name: "Taiwan" },
+    { name: "United States of America" },
   ],
 };
 
 class Signup extends Component {
   state = initialState;
 
-  /*
-  componentDidMount() {
-    fetch("/data/signup.json")
-      .then((res) => res.json())
-      .then((res) => this.setState({ title: res.title }));
-  }
-  */
-
   //input 값을 state 에 넣어주기
   handleInput = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  //checkbox true or false
   handlePersonalData = () => {
     this.setState((initialState) => ({
       personalData: !initialState.personalData,
@@ -111,31 +65,31 @@ class Signup extends Component {
     let passwordError = "";
     let pw2Error = "";
 
+    //first, last name 이 비었을 경우
     if (!this.state.first_name) {
-      //first name 이 비었을경우
       first_nameError = "First name is required";
     }
 
     if (!this.state.last_name) {
-      //last name 이 비었을경우
       last_nameError = "Last name is required";
     }
 
+    //email 에 @가 없을경우
     if (!this.state.email.includes("@")) {
-      //email 에 @가 없을경우
       emailError = "Please enter valid email address";
     }
 
+    //pw 가 8글자 이상, 숫자 포함, uppercase, lower case 포함이 되지 않았을때
     if (!this.state.password.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/)) {
-      //pw 가 8글자 이상, 숫자 포함, uppercase, lower case 포함이 되지 않았을때
       passwordError = "Please enter valid password";
     }
 
+    //password 가 일치하지 않을 때
     if (this.state.pw2 !== this.state.password) {
-      //confirm password
       pw2Error = "Password doesn't match";
     }
 
+    //if error message가 있으면
     if (
       first_nameError ||
       last_nameError ||
@@ -143,14 +97,13 @@ class Signup extends Component {
       passwordError ||
       pw2Error
     ) {
-      //if they contain error message
       this.setState({
         first_nameError,
         last_nameError,
         emailError,
         passwordError,
         pw2Error,
-      }); //setState to error message
+      });
       return false; //validate() is false, !isValid, show errormsg
     }
 
@@ -178,49 +131,55 @@ class Signup extends Component {
     this.setState({ prefix: t.name, listOpen: false });
   };
 
+  handleCountry = (c) => {
+    this.setState({ country: c.name });
+  };
+
+  goToLink = () => {
+    this.props.history.push("/login");
+  };
+
   handleSubmit = (event) => {
     event.preventDefault();
     const isValid = this.validate();
     if (isValid) {
-      //console.log(this.state);
+      fetch("http://10.58.2.57:8000/account/sign-up", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          first_name: this.state.first_name,
+          last_name: this.state.last_name,
+          email: this.state.email,
+          password: this.state.password,
+          prefix: this.state.prefix,
+          country: this.state.country,
+        }),
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          console.log(response);
+          if (response.message === "SUCCESS") {
+            alert("Signup Success!");
+            this.props.history.push("/");
+          } else if (response.message !== "SUCCESS") {
+            alert("Already registered. Please enter a new address");
+            this.props.history.push("/signup");
+          }
+        });
       this.setState(initialState);
     }
-
-    const token = localStorage.getItem("access_token");
-
-    fetch("http://10.58.3.60:8000/account/sign-up", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        first_name: this.state.first_name,
-        last_name: this.state.last_name,
-        email: this.state.email,
-        password: this.state.password,
-        prefix: this.state.prefix,
-        country: this.state.country,
-      }),
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        console.log(response);
-        if (response.message === "SUCCESS") {
-          alert("Signup Success!");
-          this.props.history.push("/");
-        } else if (response.message !== "SUCCESS") {
-          alert("Already registered. Please enter a new address");
-          this.props.history.push("/signup");
-        }
-      });
   };
 
   render() {
     return (
       <div className="Signup">
-        <div className="mainRow flexJustifyCenter">
-          <div className="signupWrapper">
-            <h3 className="txtUpper center">Create a Rimowa Account</h3>
+        <Header />
+        <Nav />
+        <div className="SignupWrapper flexJustifyCenter">
+          <div className="wrapper">
+            <h3 className="upper center">Create a Rimowa Account</h3>
             <form
               className="signInForm flexColumnCenter"
               onSubmit={this.handleSubmit}
@@ -229,9 +188,9 @@ class Signup extends Component {
                 <div className="left">
                   <DropdownCheck
                     list={this.state.title}
+                    selectedItem={this.state.prefix}
                     listOpen={this.state.listOpen}
                     handleToggle={this.handleToggle}
-                    selectedItem={this.state.prefix}
                     handleSelection={this.selectedItem}
                   />
                 </div>
@@ -262,6 +221,7 @@ class Signup extends Component {
                 <Country
                   countries={this.state.countries}
                   country={this.state.country}
+                  selectedItem={this.handleCountry}
                 />
               </div>
               <div className="inputWrapper">
@@ -301,6 +261,7 @@ class Signup extends Component {
                 />
                 <p className="showError center">{this.state.pw2Error}</p>
               </div>
+
               <div className="checkWrapper flex">
                 <div className="left">
                   <input
@@ -330,32 +291,30 @@ class Signup extends Component {
                   <a href=" ">privacy policy</a>.
                 </div>
               </div>
-              <button>Create Account</button>
+
+              <button className="signupBtn">Create Account</button>
             </form>
             <div className="caption center">
               <p>By creating an account, you agree to our:</p>{" "}
               <p>
-                <a href=" " className="terms">
+                <a href=" " className="Terms">
                   TERMS OF CONDITIONS
                 </a>
                 |
-                <a href=" " className="privacy">
+                <a href=" " className="Privacy">
                   PRIVACY POLICY
                 </a>
               </p>
             </div>
-            <div className="signin center">
-              <p>
-                <Link to="" className="linktoLogin">
-                  ALREADY HAVE AN ACCOUNT?
-                </Link>
-              </p>
+            <div className="Signin center" onClick={this.goToLink}>
+              <p>ALREADY HAVE AN ACCOUNT?</p>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
 }
 
-export default Signup;
+export default withRouter(Signup);

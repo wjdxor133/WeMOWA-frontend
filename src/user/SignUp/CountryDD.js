@@ -3,7 +3,8 @@ import { DropdownCheck } from "../../components/Dropdown/Dropdown";
 
 class CountryDD extends Component {
   state = {
-    country: this.props.country,
+    list: this.props.countries,
+    listOpen: false,
   };
 
   handleToggle = () => {
@@ -12,20 +13,20 @@ class CountryDD extends Component {
     }));
   };
 
-  selectedItem = (c) => {
-    console.log(c.name);
-    this.setState({ country: c.name, listOpen: false });
+  handleSelection = (c) => {
+    this.setState({ listOpen: false });
+    this.props.selectedItem(c);
   };
 
   render() {
     return (
       <div>
         <DropdownCheck
-          list={this.props.countries}
+          list={this.state.list}
+          selectedItem={this.props.country}
           listOpen={this.state.listOpen}
           handleToggle={this.handleToggle}
-          selectedItem={this.props.country}
-          handleSelection={this.selectedItem}
+          handleSelection={this.handleSelection}
         />
       </div>
     );

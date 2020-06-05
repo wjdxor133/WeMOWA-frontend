@@ -12,11 +12,11 @@ class ShoppingBag extends Component {
         <div className="cartMain flexSpaceBetween">
           <div className="cartLeft">
             <div className="cartItem">
-              {this.props.testProducts.map((p) => (
+              {this.props.data.map((p) => (
                 <CartItem
-                  key={p.pn}
+                  key={p.id}
                   product={p}
-                  qty={p.qty}
+                  amount={p.amount}
                   handleMinus={this.props.handleMinus}
                   handlePlus={this.props.handlePlus}
                   handleRemove={this.props.handleRemove}

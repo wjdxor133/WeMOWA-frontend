@@ -51,6 +51,7 @@
 
 .ProductDetail {
   width: 100vw;
+  background: white;
 }
 
 .pdpTop {
@@ -119,11 +120,7 @@
 
   button {
     background: #0c67e7;
-    font-size: 0.675rem;
-    letter-spacing: 0.2rem;
-    border: none;
     padding: 2em;
-    cursor: pointer;
   }
 
   button:hover {
@@ -148,6 +145,7 @@
 
 .pdText {
   margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .pdColors {
@@ -169,15 +167,32 @@
 .pdpBottom {
   width: 100%;
   max-width: 1360px;
-  margin: 4em auto 0;
+  margin: 0 auto;
+  background: #fff;
 }
 
 .pdpSpecs {
+  padding-top: 4em;
 }
 
 .specDetails {
   margin-top: 4em;
   padding-left: 4em;
+
+  .specTitle {
+    padding-bottom: 1em;
+    text-transform: uppercase;
+  }
+
+  ul {
+    margin-bottom: 1.5em;
+  }
+
+  li {
+    color: $lightGray;
+    border-top: 1px solid $lightGray;
+    padding: 1em 0;
+  }
 }
 
 .specImg {
@@ -245,7 +260,9 @@
 
 .pdpKey {
   width: 100%;
-  margin: 4em auto;
+  margin: 4em auto 0;
+  padding-top: 6em;
+  background: #f7f5f4;
 
   .keyImg {
     width: 50%;
@@ -253,6 +270,25 @@
 
   .keyAccor {
     width: 50%;
+  }
+}
+
+.keyDetails {
+  padding-top: 2em;
+  .keyTitle {
+    text-transform: uppercase;
+    border-bottom: 1px solid $lightGray;
+    padding-bottom: 1em;
+    margin: 1.25em 0;
+  }
+
+  ul {
+  }
+
+  li {
+    color: $lightGray;
+    border-bottom: 1px solid $lightGray;
+    padding-bottom: 0.875em;
   }
 }
 

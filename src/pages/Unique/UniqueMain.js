@@ -1,65 +1,91 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
+import MainWrapper from "../Main/MainWrapper";
 import "./UniqueMain.scss";
 
 class UniqueMain extends Component {
-  state = {};
+  state = {
+    data: [],
+  };
+
+  componentDidMount() {
+    fetch("./data/taek2data.json")
+      .then((res) => res.json())
+      .then((res) => this.setState({ data: res.products }));
+  }
+
+  goToTag = () => {
+    this.props.history.push("/Uniquetag");
+  };
 
   render() {
     return (
       <div className="UniqueMain">
-        <Header />
-        <Nav />
+        <div className="unHeader">
+          <div className="HeaderStyle">
+            <Header />
+          </div>
+          <div className="NavStyle">
+            <Nav />
+          </div>
+        </div>
         <div className="unHero">
           <video
             autoPlay
-            loop
+            // loop
             muted
             src="https://player.vimeo.com/external/374678558.hd.mp4?s=05a79d933175820bb407e32beafb744785363798&amp;profile_id=175"
             type="video/mp4"
             className="unHeroVideo"
           ></video>
+          <div className="heroMsg">
+            <h6 className="heroSubHeader upper">Rimowa Unique</h6>
+            <h1 className="heroHeader">Make your own RIMOWA</h1>
+            <div className="heroBtn" onClick={this.goToTag}>
+              <p>CUSTOMISE</p>
+            </div>
+          </div>
         </div>
         <div className="unWrapper">
           <div className="unPitch">
-            <div className="pitchHeader unUpper">RIMOWA UNIQUE</div>
+            <h1 className="pitchHeader">RIMOWA UNIQUE</h1>
             <div className="pitchBody">
-              This is your chance to put your own spin on your suitcase. Use the
-              RIMOWA UNIQUE customisation service and configurator to choose
-              from a range of colourful accents and accessories to distinguish
-              your RIMOWA Classic case on the go.
-            </div>
-          </div>
-          <div className="unInspo">
-            <div className="unToggle flexJustifyCenter">
-              <div className="unInspiration unUpper ">Inspirations</div>
-              <div className="unInspiration">|</div>
-              <div className="unMydesign unUpper ">My Designs</div>
+              <p>
+                This is your chance to put your own spin on your suitcase. Use
+                the RIMOWA UNIQUE customisation service and configurator to
+                choose from a range of colourful accents and accessories to
+                distinguish your RIMOWA Classic case on the go.
+              </p>
             </div>
           </div>
           <div className="unHow">
-            <div className="howHeader">How It Works</div>
+            <h1 className="howHeader">HOW IT WORKS</h1>
             <div className="unHow1 flexCenter">
               <div className="unImgWrapper">
                 <div className="unImg1"></div>
               </div>
               <div className="unDes">
-                <div className="unDesHeader">Start with the Classic Cabin</div>
+                <h2 className="unDesHeader">Start with the Classic Cabin</h2>
                 <div className="unHowBody">
-                  Choose a RIMOWA Classic Cabin to custom build your suitcase.
+                  <p>
+                    Choose a RIMOWA Classic Cabin to custom build your suitcase.
+                  </p>
                 </div>
               </div>
             </div>
             <div className="unHow2 flexCenter">
               <div className="unDes">
-                <div className="unDesHeader">
+                <h2 className="unDesHeader">
                   Create a look that is uniquely yours
-                </div>
+                </h2>
                 <div className="unHowBody">
-                  Customise your travels by adding pops of colour to your RIMOWA
-                  Classic's wheels and handles.
+                  <p>
+                    Customise your travels by adding pops of colour to your
+                    RIMOWA Classic's wheels and handles.
+                  </p>
                 </div>
               </div>
               <div className="unImgWrapper">
@@ -72,23 +98,23 @@ class UniqueMain extends Component {
               </div>
 
               <div className="unDes">
-                <div className="unDesHeader">
-                  Add a personal finishing touch
-                </div>
+                <h2 className="unDesHeader">Add a personal finishing touch</h2>
                 <div className="unHowBody">
-                  Initial your leather luggage tag to ensure your RIMOWA always
-                  stays by your side.
+                  <p>
+                    Initial your leather luggage tag to ensure your RIMOWA
+                    always stays by your side.
+                  </p>
                 </div>
               </div>
             </div>
-            <div className="unHowBtn">
-              <div>Get Started</div>
-            </div>
+            <button className="unGetStartedBtn" onClick={this.goToTag}>
+              Get Started
+            </button>
           </div>
           <div className="unSticker">
-            <div className="unSubheader unUpper">Sticker Collection</div>
-            <div className="unTitle">Trace your jorney with stickers</div>
-            <div className="unLink unUpper">Discover</div>
+            <h6 className="upper">Sticker Collection</h6>
+            <h2 className="unTitle">Trace your jorney with stickers</h2>
+            <div className="unLink upper">Discover</div>
             <div className="unStickerImg">
               <img
                 src="https://www.rimowa.com/on/demandware.static/-/Library-Sites-RimowaSharedLibrary/default/dwf5fd0190/images/mozaic_horizontal/Stickers.png"
@@ -97,19 +123,39 @@ class UniqueMain extends Component {
             </div>
           </div>
           <div className="unAccessories flex">
-            <div className="left">
-              <div className="unSubheader unUpper">Accessories</div>
-              <div className="unTitle">Personalise your tag</div>
-              <div className="unLink unUpper">Discover</div>
+            <div className="left" onClick={this.goToTag}>
+              <h6 className="upper">Accessories</h6>
+              <h2 className="unTitle">Personalise your tag</h2>
+              <div className="unLink upper">Discover</div>
               <div className="unTag"></div>
             </div>
             <div className="right">
               <div className="unAccHeader">
-                <div className="unSubheader unUpper">Accessories</div>
-                <div className="unTitle">Choose a wheel colour</div>
-                <div className="unLink unUpper">Discover</div>
+                <h6 className="upper">Accessories</h6>
+                <h2 className="unTitle">Choose a wheel colour</h2>
+                <div className="unLink upper">Discover</div>
               </div>
               <div className="unWheel"></div>
+            </div>
+          </div>
+          <div className="main-slider">
+            <div className="main-slider-title">
+              <h6 className="upper">EXPLORE COLLECTIONS</h6>
+              <h2 className="unTitle">
+                The perfect suitcase, 120 years in the making
+              </h2>
+            </div>
+            <div className="main-wrapper">
+              {this.state.data.map((product) => {
+                return (
+                  <MainWrapper
+                    collection={product.collection}
+                    img_url={product.img_url}
+                    title={product.title}
+                    colorPalette={product.colorPalette}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>
@@ -119,4 +165,4 @@ class UniqueMain extends Component {
   }
 }
 
-export default UniqueMain;
+export default withRouter(UniqueMain);

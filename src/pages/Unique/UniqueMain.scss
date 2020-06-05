@@ -2,28 +2,70 @@
 
 .UniqueMain {
   width: 100%;
+  position: relative;
 }
 /********** TYPOGRAPHY **********/
 .unUpper {
   text-transform: uppercase;
 }
 
-.unSubheader {
-  font-size: 0.875rem;
+.HeaderStyle {
+  position: absolute;
+  width: 100%;
+  z-index: 100;
 }
-.unTitle {
-  font-size: 1.75rem;
-  margin: 0.5em 0;
+
+.NavStyle {
+  position: absolute;
+  width: 100%;
+  top: 50px;
+  z-index: 100;
 }
-.unLink {
-  font-size: 0.75rem;
-  text-decoration: underline;
-  cursor: pointer;
+
+/********** Hero **********/
+
+.unHero {
+  position: relative;
 }
-/********** SPACING **********/
 
 .unHeroVideo {
   width: 100%;
+}
+
+.heroMsg {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+}
+
+.heroHeader {
+  margin: 0.3em 0;
+}
+
+.heroBtn {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  font-size: 0.675rem;
+  color: $white;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  border-radius: 0.375em;
+  padding: 1.5em;
+  border: none;
+  cursor: pointer;
+  margin: 3em 0;
+  transition: 0.5s ease-in;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+
+  p {
+    color: black;
+    font-size: 0.875rem;
+    font-weight: 300;
+    text-align: center;
+  }
 }
 
 /********** WRAPPER **********/
@@ -36,55 +78,32 @@
 
 /********** PITCH **********/
 .unPitch {
-  margin: 3em 0;
+  padding-top: 6em;
 }
 
 .pitchHeader {
-  font-size: 1.875rem;
-  margin: 2em 0;
+  font-weight: 400;
+  margin-bottom: 2em;
 }
 
 .pitchBody {
-  max-width: 460px;
+  max-width: 500px;
   margin: 0 auto;
   font-size: 0.9375rem;
-}
 
-/********** INSPO **********/
-.unInspo {
-  margin: 2em 0;
-}
-
-.unToggle {
-  font-size: 0.95rem;
-  letter-spacing: 0.2rem;
-  font-weight: 300;
-  cursor: pointer;
-}
-
-.unInspiration {
-  margin: 0 0.5em;
-}
-
-.unInspiration:hover {
-  color: $gray;
-}
-
-.unMydesign {
-  margin: 0 0.5em;
-}
-
-.unMydesign:hover {
-  color: $gray;
+  p {
+    line-height: 1.75em;
+  }
 }
 
 /********** HOW **********/
 .unHow {
+  margin-top: 8em;
 }
 
 .howHeader {
-  font-size: 2rem;
-  margin: 0 auto 2em;
+  font-weight: 400;
+  margin-bottom: 2em;
 }
 
 .unHow1,
@@ -198,6 +217,10 @@
   }
 }
 /********** STICKER **********/
+.unTitle {
+  margin: 0.5em 0;
+}
+
 .unSticker {
   background: #f7f5f4;
   padding-top: 6em;
@@ -260,4 +283,33 @@
   height: 384px;
   object-fit: contain;
   margin-top: 5em;
+}
+
+.unGetStartedBtn {
+  width: 25%;
+  margin: 1em 0;
+}
+
+.main-slider {
+  padding: 5em 0;
+  background-color: #f7f5f4;
+
+  .main-slider-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  padding: 2em 1em 2em;
+}
+
+.unLink {
+  font-size: 0.875rem;
+  text-decoration: underline;
+  cursor: pointer;
 }
