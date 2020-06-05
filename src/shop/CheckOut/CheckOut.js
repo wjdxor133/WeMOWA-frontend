@@ -15,61 +15,22 @@ class CheckOut extends Component {
     postChecked: false,
     postNumber: undefined,
     postAdress: undefined,
+    isChecked: 1,
   };
 
-  showDlivery = () => {
-    this.setState({
-      DliveryCehcked: true,
-      AddrChecked: false,
-      PaymentChecked: false,
-    });
-  };
-
-  showAddr = () => {
-    this.setState({
-      AddrChecked: true,
-      DliveryCehcked: false,
-      PaymentChecked: false,
-    });
-  };
-
-  showPayment = () => {
-    this.setState({
-      PaymentChecked: true,
-      AddrChecked: false,
-      DliveryCehcked: false,
-    });
-  };
-
-  outDlivery = (e) => {
-    this.setState({
-      DliveryCehcked: false,
-    });
-  };
-
-  outAddr = () => {
-    this.setState({
-      AddrChecked: false,
-    });
-  };
-
-  outPayment = () => {
-    this.setState({ PaymentChecked: false });
+  showMenu = (num) => {
+    this.setState({ isChecked: num });
   };
 
   stepTwoChecked = () => {
     this.setState({
-      PaymentChecked: false,
-      AddrChecked: true,
-      DliveryCehcked: false,
+      isChecked: 2,
     });
   };
 
   stepThreeChecked = () => {
     this.setState({
-      PaymentChecked: true,
-      AddrChecked: false,
-      DliveryCehcked: false,
+      isChecked: 3,
     });
   };
 
@@ -77,11 +38,11 @@ class CheckOut extends Component {
   handleComplete = (data) => {
     let fullAddress = data.address;
     let extraAddress = "";
-    console.log(data);
+
     if (data.addressType === "R") {
       if (data.bname !== "") {
         extraAddress += data.bname;
-        console.log(extraAddress);
+        // console.log(extraAddress);
       }
       if (data.buildingName !== "") {
         extraAddress +=
@@ -90,36 +51,16 @@ class CheckOut extends Component {
       fullAddress += extraAddress !== "" ? ` (${extraAddress})` : "";
     }
 
-    console.log(fullAddress);
-    this.setState(
-      { postNumber: data.zonecode, postAdress: fullAddress },
-      () => {
-        console.log(
-          "postNumber",
-          this.state.postNumber,
-          "postAdress",
-          this.state.postAdress
-        );
-      }
-    );
+    this.setState({ postNumber: data.zonecode, postAdress: fullAddress });
     this.postChecked();
   };
 
   postChecked = () => {
-    this.setState({ postChecked: !this.state.postChecked }, () => {
-      console.log(this.state.postChecked);
-    });
+    this.setState({ postChecked: !this.state.postChecked });
   };
 
   render() {
-    const {
-      DliveryCehcked,
-      AddrChecked,
-      PaymentChecked,
-      postChecked,
-      postNumber,
-      postAdress,
-    } = this.state;
+    const { isChecked, postChecked, postNumber, postAdress } = this.state;
 
     const postStyle = {
       width: "40%",
@@ -145,24 +86,24 @@ class CheckOut extends Component {
             <div className="CheckOutMenu-item">
               <div
                 className="CheckOutMenu-title"
-                onClick={DliveryCehcked ? this.outDlivery : this.showDlivery}
+                onClick={() => this.showMenu(1)}
               >
                 <span className="title-number">1.</span>
                 <h2>Delivery and pickup options</h2>
               </div>
-              <div style={{ display: DliveryCehcked ? "block" : "none" }}>
+              <div className={isChecked === 1 ? "block" : "none"}>
                 <CheckOutDlivery stepTwoChecked={this.stepTwoChecked} />
               </div>
             </div>
             <div className="CheckOutMenu-item">
               <div
                 className="CheckOutMenu-title"
-                onClick={AddrChecked ? this.outAddr : this.showAddr}
+                onClick={() => this.showMenu(2)}
               >
                 <span className="title-number">2.</span>
                 <h2>Shipping and billing details</h2>
               </div>
-              <div style={{ display: AddrChecked ? "block" : "none" }}>
+              <div className={isChecked === 2 ? "block" : "none"}>
                 <CheckOutAddr
                   stepThreeChecked={this.stepThreeChecked}
                   postChecked={this.postChecked}
@@ -174,12 +115,12 @@ class CheckOut extends Component {
             <div name="CheckoutPaymentChecked" className="CheckOutMenu-item">
               <div
                 className="CheckOutMenu-title"
-                onClick={PaymentChecked ? this.outPayment : this.showPayment}
+                onClick={() => this.showMenu(3)}
               >
                 <span className="title-number">3.</span>
                 <h2>Payment method</h2>
               </div>
-              <div style={{ display: PaymentChecked ? "block" : "none" }}>
+              <div className={isChecked === 3 ? "block" : "none"}>
                 <CheckoutPayment />
               </div>
             </div>

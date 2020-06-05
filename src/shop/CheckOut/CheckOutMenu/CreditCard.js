@@ -1,13 +1,18 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ToastContainer, toast } from "react-toastify";
 import "./CreditCard.scss";
+import "react-toastify/dist/ReactToastify.css";
 
 class CreditCard extends Component {
   state = {
-    cardNumber: undefined,
-    cardName: undefined,
-    cardCvv: undefined,
+    cardNumber: "",
+    cardName: "",
+    cardCvv: "",
+    cardMM: "",
+    cardYY: "",
     cardNumberCheck: false,
     cardNameCheck: false,
     cardCvvCheck: false,
@@ -17,52 +22,106 @@ class CreditCard extends Component {
   cardValue = (e) => {
     this.setState({ [e.target.name]: e.target.value });
 
-    if (e.target.name === "cardNumber" && e.target.value.length > 0) {
+    if (
+      e.target.name === "cardNumber" &&
+      e.target.value.length > 0 &&
+      e.target.value.length < 18
+    ) {
       this.setState({ cardNumberCheck: false });
-    } else if (e.target.name === "cardNumber" && e.target.value.length < 0) {
-      this.setState({
-        cardNumberCheck: true,
-      });
+    } else if (e.target.name === "cardNumber" && e.target.value.length <= 0) {
+      this.setState({ cardNumberCheck: true });
     }
 
     if (e.target.name === "cardName" && e.target.value.length > 0) {
       this.setState({ cardNameCheck: false });
-    } else if (e.target.name === "cardName" && e.target.value.length < 0) {
+    } else if (e.target.name === "cardName" && e.target.value.length <= 0) {
       this.setState({ cardNameCheck: true });
     }
 
-    if (e.target.name === "cardCvv" && e.target.value.length > 0) {
-      this.setState({ cardCvvCheck: false });
-    } else if (e.target.name === "cardCvv" && e.target.value.length < 0) {
+    if (
+      e.target.name === "cardCvv" &&
+      e.target.value.length >= 0 &&
+      e.target.value.length < 3
+    ) {
       this.setState({ cardCvvCheck: true });
+    } else {
+      this.setState({ cardCvvCheck: false });
     }
   };
 
   cardChecked = (e) => {
     e.preventDefault();
-    const { cardNumber, cardName, cardCvv } = this.state;
+    const { cardNumber, cardName, cardMM, cardYY, cardCvv } = this.state;
     if (
-      cardNumber === undefined &&
-      cardName === undefined &&
-      cardCvv === undefined
+      cardNumber.length === 0 ||
+      cardName.length === 0 ||
+      cardCvv.length === 0 ||
+      cardMM.length === 0 ||
+      cardYY.length === 0
     ) {
       this.setState({
         cardNumberCheck: true,
         cardNameCheck: true,
         cardCvvCheck: true,
       });
+    } else {
+      this.setState({
+        cardNumberCheck: false,
+        cardNameCheck: false,
+        cardCvvCheck: false,
+        cardNumber: "",
+        cardName: "",
+        cardMM: "",
+        cardYY: "",
+        cardCvv: "",
+      });
+
+      const token = localStorage.getItem("token");
+      fetch("API주소", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+        body: JSON.stringify({
+          cardCvv: cardCvv,
+        }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res);
+          if (res) {
+            toast("확인!", { position: "bottom-center" }, { autoClose: 1500 });
+            // setTimeout(this.props.history.push("/"), 3500);
+          } else {
+            toast.error("실패", { position: "bottom-center" });
+          }
+        });
+
+      // 결제 완료 페이지로!
+      // this.props.history.push("/")
     }
   };
 
   render() {
     const { creditCardCheck } = this.props;
-    const { cardNumberCheck, cardNameCheck, cardCvvCheck } = this.state;
+    const {
+      cardNumber,
+      cardName,
+      cardMM,
+      cardYY,
+      cardCvv,
+      cardNumberCheck,
+      cardNameCheck,
+      cardCvvCheck,
+    } = this.state;
     return (
       <div
         className="CreditCard"
         style={{ display: creditCardCheck ? "block" : "none" }}
       >
-        <form onClick={this.cardChecked}>
+        <ToastContainer />
+        <form onSubmit={this.cardChecked}>
           <div className="credit-back" onClick={this.props.return}>
             <FontAwesomeIcon className="arrow" icon={faArrowLeft} />
             <span>Choose another payment method</span>
@@ -87,53 +146,57 @@ class CreditCard extends Component {
             <div className="card-input">
               <input
                 name="cardNumber"
+                className={cardNumberCheck ? "inputChecked " : "null"}
                 placeholder="Number*"
                 onChange={this.cardValue}
+                value={cardNumber}
+                maxlength="18"
               />
               <span
-                style={{
-                  display: cardNumberCheck ? "block" : "none",
-                  fontSize: "0.7rem",
-                  color: "#C81F1F",
-                }}
+                className={cardNumberCheck ? "redText block" : "redText none"}
               >
-                This filed required.
+                Please enter at least 18 characters.
               </span>
               <input
                 name="cardName"
+                className={cardNameCheck ? "inputChecked " : "null"}
                 placeholder="Name on card*"
                 onChange={this.cardValue}
+                value={cardName}
               />
               <span
-                style={{
-                  display: cardNameCheck ? "block" : "none",
-                  fontSize: "0.7rem",
-                  color: "#C81F1F",
-                }}
+                className={cardNameCheck ? "redText block" : "redText none"}
               >
                 This filed required.
               </span>
               <div className="card-year">
-                <input className="month" placeholder="MM" />
-                <input className="year" placeholder="YY" />
+                <input
+                  name="cardMM"
+                  className="month"
+                  placeholder="MM"
+                  onChange={this.cardValue}
+                  value={cardMM}
+                />
+                <input
+                  name="cardYY"
+                  className="year"
+                  placeholder="YY"
+                  onChange={this.cardValue}
+                  value={cardYY}
+                />
                 <div className="card-cardCvv">
                   <input
                     name="cardCvv"
-                    className="cardCvv"
+                    className={cardCvvCheck ? "inputChecked " : "null"}
                     placeholder="CVV*"
                     onChange={this.cardValue}
+                    value={cardCvv}
                   />
-                  <span
-                    style={{
-                      display: cardCvvCheck ? "block" : "none",
-                      fontSize: "0.7rem",
-                      color: "#C81F1F",
-                    }}
-                  >
-                    This filed required.
-                  </span>
                 </div>
               </div>
+              <span className={cardCvvCheck ? "redText block" : "redText none"}>
+                Please enter at least 3 characters.
+              </span>
             </div>
           </div>
           <div className="CreditCard-btn">
@@ -147,4 +210,4 @@ class CreditCard extends Component {
   }
 }
 
-export default CreditCard;
+export default withRouter(CreditCard);
