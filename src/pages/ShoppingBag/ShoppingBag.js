@@ -2,13 +2,11 @@ import React, { Component } from "react";
 import CartItem from "./CartItem";
 import CartTotal from "./CartTotal";
 import "./ShoppingBag.scss";
-
 class ShoppingBag extends Component {
   render() {
     return (
       <div className="ShoppingBag">
         <div className="cartHeader flexColumnCenter"></div>
-
         <div className="cartMain flexSpaceBetween">
           <div className="cartLeft">
             <div className="cartItem">
@@ -33,5 +31,4 @@ class ShoppingBag extends Component {
     );
   }
 }
-
 export default ShoppingBag;

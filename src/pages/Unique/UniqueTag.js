@@ -48,10 +48,12 @@ class UniqueTag extends Component {
   saveCart = () => {
     const { textValue, selectedColor } = this.state;
     const token = localStorage.getItem("token");
-    // if (typeof tag_text === Array) {
-    //   tag_text = tag_text.join("");
-    //   console.log("tag:", tag, "tag_text:", tag_text);
-    // }
+
+    if (textValue === "") {
+      alert("실패");
+      return;
+    }
+
     console.log(
       "token",
       token,
@@ -67,13 +69,15 @@ class UniqueTag extends Component {
         Authorization: token,
       },
       body: JSON.stringify({
-        product_id: 10,
+        product_id: 11,
         amount: 1,
         tag: selectedColor,
         tag_text: textValue,
       }),
     });
+
     // localStorage.setItem("cart", [textValue, selectedColor]);
+
     // 장바구니 화면으로
     // this.props.history.push("/cart");
   };

@@ -76,30 +76,28 @@ class CreditCard extends Component {
         cardCvv: "",
       });
 
-      const token = localStorage.getItem("token");
-      fetch("API주소", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-        body: JSON.stringify({
-          cardCvv: cardCvv,
-        }),
-      })
-        .then((res) => res.json())
-        .then((res) => {
-          console.log(res);
-          if (res) {
-            toast("확인!", { position: "bottom-center" }, { autoClose: 1500 });
-            // setTimeout(this.props.history.push("/"), 3500);
-          } else {
-            toast.error("실패", { position: "bottom-center" });
-          }
-        });
+      // const token = localStorage.getItem("token");
+      // fetch("http://10.58.2.57:8000/order/payment", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     Authorization: token,
+      //   },
+      //   body: JSON.stringify({
+      //     cardCvv: cardCvv,
+      //   }),
+      // }).then((res) => {
+      //   console.log(res);
+      //   if (res) {
+      //     toast("확인!", { position: "bottom-center" }, { autoClose: 1500 });
+      //     setTimeout(this.props.history.push("/ordersuccess"), 3500);
+      //   } else {
+      //     toast.error("실패", { position: "bottom-center" });
+      //   }
+      // });
 
-      // 결제 완료 페이지로!
-      this.props.history.push("/ordersuccess");
+      toast("확인!", { position: "bottom-center" }, { autoClose: 1500 });
+      setTimeout(this.props.history.push("/ordersuccess"), 3500);
     }
   };
 
