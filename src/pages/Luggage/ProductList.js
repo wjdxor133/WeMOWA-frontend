@@ -23,14 +23,14 @@ class ProductList extends Component {
       isSortOn: false,
       hwan: "",
       ata: [],
-      fixColor: [],
+      fixColor: "",
       num: 0,
       fixPrice: ""
     }
   }
 
   componentDidMount = () => {
-    fetch("http://10.58.4.117:8000/product/1?")
+    fetch("http://10.58.4.117:8000/product/1")
     .then((response) => response.json())
     .then((response) => this.setState({data: response.data}));
     
@@ -97,16 +97,17 @@ class ProductList extends Component {
   }
 
   fetchColor = () => {
+    
     fetch("http://10.58.4.117:8000/product/1?color="+this.state.fixColor)
     .then((response) => response.json())
     .then((response) => this.setState({data: response.data}));
   }
 
-  fetchPrice = () => {
-    fetch("http://10.58.4.117:8000/product/1?price="+this.state.fixPrice)
-    .then((response) => response.json())
-    .then((response) => this.setState({data: response.data}));
-  }
+  // fetchPrice = () => {
+  //   fetch("http://10.58.4.117:8000/product/1?price="+this.state.fixPrice)
+  //   .then((response) => response.json())
+  //   .then((response) => this.setState({data: response.data}));
+  // }
 
 
   convertImg = (obj) => {
@@ -129,11 +130,9 @@ class ProductList extends Component {
     
   
 
-
-
   render() {
     console.log("datasss", this.state.data)
-    console.log("ppp", this.state.fixPrice)
+    console.log("ppp", this.state.fixColor)
     return(
       <div className="List">
         <Header/>

@@ -78,7 +78,7 @@ class EditionProduct extends Component {
                     <div className="LimitedThumb">
                         <div className="LimitedBody">
                             <a href=" "className="ProductLink">
-                            <div className="ProductImage" onClick={() => {this.props.history.push("/pdp?product_number="+this.props.proNumber)}}>
+                            <div className="ProductImage" onClick={() => {this.props.history.push("/product?product_number="+this.props.proNumber)}}>
                                
                                   {/* {
                                     this.props.img && this.props.img.map((im, index) => {
