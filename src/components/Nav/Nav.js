@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import NavNew from "./Menu/NavNew";
 import NavLuggage from "./Menu/NavLuggage";
 import NavAccessories from "./Menu/NavAccessories";
@@ -31,6 +32,18 @@ class Nav extends Component {
     this.setState({ menuChacked: false, component: "" });
   };
 
+  goToLuggage = () => {
+    this.props.history.push("/productList");
+  };
+
+  goToAcc = () => {
+    this.props.history.push("/accList");
+  };
+
+  goToCus = () => {
+    this.props.history.push("/Uniquetag");
+  };
+
   render() {
     return (
       <div className="Nav" onMouseLeave={this.leaveckeck}>
@@ -43,13 +56,15 @@ class Nav extends Component {
               className="LUGGAGE-btn"
               onMouseEnter={() => this.dropMenucheck(1)}
             >
-              <a className="BtnLug" href="http://localhost:3000/productList">LUGGAGE</a>
+              <div className="BtnLug" onClick={this.goToLuggage}>
+                LUGGAGE
+              </div>
             </li>
             <li
               className="ACCESSORIES-btn"
               onMouseEnter={() => this.dropMenucheck(2)}
             >
-              <a href="http://localhost:3000/accList">ACCESSORIES</a>
+              <div onClick={this.goToAcc}>ACCESSORIES</div>
             </li>
             <li
               className="GIFTS-btn"
@@ -63,7 +78,9 @@ class Nav extends Component {
             >
               SERVICES
             </li>
-            <li className="CUSTOMISE-btn">CUSTOMISE</li>
+            <li className="CUSTOMISE-btn">
+              <div onClick={this.goToCus}>CUSTOMISE</div>
+            </li>
           </ul>
         </div>
         <div onMouseLeave={this.leaveckeck}>
@@ -74,4 +91,4 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);

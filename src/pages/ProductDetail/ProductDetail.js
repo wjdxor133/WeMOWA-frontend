@@ -17,7 +17,7 @@ class ProductDetail extends Component {
 
   // // API
   // componentDidMount() {
-  //   fetch("http://10.58.6.226:8000/product?product_number=92585004", {
+  //   fetch("http://10.58.4.117:8000/product?product_number=92585004", {
   //     method: "GET",
   //     headers: {
   //       "Content-type": "application/json",
@@ -27,28 +27,31 @@ class ProductDetail extends Component {
   //     .then((res) => this.setState({ product: res.data }));
   // }
 
-  // Mock Data
   componentDidMount() {
-    
     const token = localStorage.getItem("token");
     console.log(token);
-    console.log(this.props.location)
-    
-      fetch("http://10.58.4.117:8000/product"+this.props.location, {
-            method: "GET",
-            headers: {
-              "Content-type": "application/json",
-            },
-          })
-            .then((res) => res.json())
-            .then((res) => this.setState({ product: res.data }));
-       
+    console.log(this.props.location);
 
-      
+    fetch("http://10.58.4.117:8000/product" + this.props.location, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => this.setState({ product: res.data }));
+
     //fetch("/data/pd_data.json")
     //  .then((res) => res.json())
     //  .then((res) => this.setState({ product: res.product }));
-        }
+  }
+
+  // Mock Data
+  componentDidMount() {
+    fetch("/data/test.json")
+      .then((res) => res.json())
+      .then((res) => this.setState({ product: res.data }));
+  }
 
   handleWishlist = () => {
     this.setState((prev) => ({ wishlist: !prev.wishlist }));
@@ -56,7 +59,7 @@ class ProductDetail extends Component {
     fetch("/data/test.json")
       .then((res) => res.json())
       .then((res) => this.setState({ product: res.data }));
-  }
+  };
 
   handleWishlist = () => {
     // const token = localStorage.getItem("token");
@@ -81,33 +84,33 @@ class ProductDetail extends Component {
   };
 
   sendDataToCart = () => {
-    // const { product_id, price } = this.state.product;
-    const token = localStorage.getItem("token");
-    fetch("http://10.58.2.57:8000/order", {
-      method: "POST",
-      header: {
-        "Content-type": "application/json",
-        Authorization: token,
-      },
-      body: JSON.stringify({
-        product_id: this.state.product.product_id,
-        amount: 1,
-        tag: "Red",
-        tag_text: "ABC",
-      }),
-    })
-      .then((res) => res.json())
-      //.then((res) => console.log(res));
-      .then((res) => {
-        console.log("response", res);
-        if (res.status === 200) {
-          alert("Item added to cart");
-          this.props.history.push("/cart");
-        } else {
-          alert("Please log in first");
-          this.props.history.push("/login");
-        }
-      });
+    // const token = localStorage.getItem("token");
+    // fetch("http://10.58.2.57:8000/order", {
+    //   method: "POST",
+    //   header: {
+    //     "Content-type": "application/json",
+    //     Authorization: token,
+    //   },
+    //   body: JSON.stringify({
+    //     product_id: this.state.product.product_id,
+    //     amount: 1,
+    //     tag: "Red",
+    //     tag_text: "ABC",
+    //   }),
+    // })
+    //   .then((res) => res.json())
+    //   //.then((res) => console.log(res));
+    //   .then((res) => {
+    //     console.log("response", res);
+    //     if (res.status === 200) {
+    //       alert("Item added to cart");
+    //       this.props.history.push("/cart");
+    //     } else {
+    //       alert("Please log in first");
+    //       this.props.history.push("/login");
+    //     }
+    //   });
+    this.props.history.push("/cart");
   };
 
   render() {
@@ -121,7 +124,7 @@ class ProductDetail extends Component {
     const { color_urls } = this.state.product;
     const { color_product_numbers } = this.state.product;
     const { wishlist } = this.state.product;
-    console.log("???",this.state.product);
+    console.log("???", this.state.product);
     return (
       <div className="ProductDetail">
         <Header />

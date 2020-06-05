@@ -99,7 +99,7 @@ class CreditCard extends Component {
         });
 
       // 결제 완료 페이지로!
-      // this.props.history.push("/")
+      this.props.history.push("/ordersuccess");
     }
   };
 
@@ -201,7 +201,7 @@ class CreditCard extends Component {
           </div>
           <div className="CreditCard-btn">
             <button>
-              <span>CONTINUE</span>
+              <span>PLACE ORDER</span>
             </button>
           </div>
         </form>

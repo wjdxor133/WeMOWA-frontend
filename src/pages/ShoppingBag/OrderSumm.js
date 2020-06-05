@@ -8,17 +8,24 @@ class OrderSumm extends Component {
     shipping: 0,
   };
 
+  // componentDidMount() {
+  //   const token = localStorage.getItem("token");
+  //   fetch("http://10.58.2.57:8000/order", {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-type": "application/json",
+  //       Authorization: token,
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => this.setState({ data: res.data }));
+  // }
+
   componentDidMount() {
-    const token = localStorage.getItem("token");
-    fetch("http://10.58.2.57:8000/order", {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: token,
-      },
-    })
+    fetch("/data/cart.json")
       .then((res) => res.json())
       .then((res) => this.setState({ data: res.data }));
+    this.handleTotal();
   }
 
   handleTotal = () => {
