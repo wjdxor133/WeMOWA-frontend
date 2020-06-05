@@ -23,8 +23,9 @@ class ProductList extends Component {
       isSortOn: false,
       hwan: "",
       ata: [],
-      fixColor: "",
-      num: 0
+      fixColor: [],
+      num: 0,
+      fixPrice: ""
     }
   }
 
@@ -87,11 +88,26 @@ class ProductList extends Component {
     })
   }
 
+  pricedHandler = (price) => {
+    this.setState({
+      fixPrice: price
+      //fixcolor는 자식 드롭다운 이미지를 눌렀을때 받아오는 colorName을 넣은 state이다.
+      //누른 색상에 대한 이름
+    })
+  }
+
   fetchColor = () => {
     fetch("http://10.58.2.57:8000/product/1?color="+this.state.fixColor)
     .then((response) => response.json())
     .then((response) => this.setState({data: response.data}));
   }
+
+  fetchPrice = () => {
+    fetch("http://10.58.2.57:8000/product/1?price="+this.state.fixPrice)
+    .then((response) => response.json())
+    .then((response) => this.setState({data: response.data}));
+  }
+
 
   convertImg = (obj) => {
     // if(this.state.data.length > 0){
@@ -117,6 +133,7 @@ class ProductList extends Component {
 
   render() {
     console.log("datasss", this.state.data)
+    console.log("ppp", this.state.fixPrice)
     return(
       <div className="List">
         <Header/>
@@ -138,7 +155,7 @@ class ProductList extends Component {
                             </div>
                             <div className="PriceFilter">
                                 <span>PRICE</span>
-                                <CheckPrice/>
+                                <CheckPrice pricedHandler={this.pricedHandler}/>
                             </div>
                             <div className="CollectionFilter">
                                 <span>PRODUCT COLLENTION</span>
@@ -151,7 +168,7 @@ class ProductList extends Component {
                                 </div>
                                 <div className="ApplyBox">
                                 <button className="RESETBtn">RESET</button>
-                                <button onClick={this.fetchColor} className="APPLYBtn">APPLY</button>
+                                <button onClick={this.fetchColor} onMouseEnter={this.fetchPrice} className="APPLYBtn">APPLY</button>
                                 </div>    
                         </div>
                     </div>
@@ -183,6 +200,7 @@ class ProductList extends Component {
                   return (
                     <EditionProduct
                       collect={product.collection}
+                      proNumber={product.product_number}
                       name={product.name}
                       fixName={product.series_color}
                       price={product.price}

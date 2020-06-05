@@ -33,9 +33,7 @@ class StoreLocator extends Component {
         width: "100%",
         height: "400px"
       },
-      selectedPlace: {
-        name: "RIMOWA"
-      }
+    
     };
     this.filterDropdownChange = this.filterDropdownChange.bind(this);
     this.handleDropdown = this.handleDropdown.bind(this);
@@ -66,12 +64,6 @@ class StoreLocator extends Component {
     this.setState({radioGroup: obj})
     console.log(this.state);
 }
-
-  // onMarkerClick(zoom, map) {
-  //   map.setState({
-  //     zoom: 16
-  //  })
-  // }
 
  
 
@@ -181,9 +173,7 @@ class StoreLocator extends Component {
                             onOpen={this.windowHasOpened}
                             onClose={this.windowHasClosed}
                             visible={this.state.showingInfoWindow}>
-                            <div>
-                              <h1>{this.state.selectedPlace.name}</h1>
-                            </div>
+                        
                         </InfoWindow> 
                       </Map>
               </div>

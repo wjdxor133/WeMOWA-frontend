@@ -16,18 +16,22 @@ class ProductDetail extends Component {
 
   componentDidMount() {
     //if match.params.id, then fetch then setState
-
+    
     const token = localStorage.getItem("token");
     console.log(token);
-    fetch("http://10.58.3.60:8000/product?product_number=92585004", {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: token,
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => this.setState({ product: res.data }));
+   
+
+      fetch("http://10.58.3.60:8000/pdp?product_number="+this.props.location.search, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: token,
+        },
+      })
+        .then((res) => res.json())
+        .then((res) => this.setState({ product: res.data }));
+    
+    
 
     //fetch("/data/pd_data.json")
     //  .then((res) => res.json())
@@ -41,6 +45,7 @@ class ProductDetail extends Component {
   handleColor = () => {};
 
   render() {
+    console.log("확인", this.props);
     const { product_number } = this.state.product;
     const { collection } = this.state.product;
     const { name } = this.state.product;
