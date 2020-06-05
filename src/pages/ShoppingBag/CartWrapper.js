@@ -46,6 +46,9 @@ class CartWrapper extends Component {
     }
   }
 
+  // API 연동
+  getDate = () => {};
+
   //제품 수량 빼기
   handleMinus = (product) => {
     const token = localStorage.getItem("token");
@@ -132,6 +135,7 @@ class CartWrapper extends Component {
   };
 
   render() {
+    // console.log(localStorage.getItem("cart"));
     return (
       <div className="CartWrapper">
         <Header />

@@ -7,6 +7,7 @@ import Footer from "../../components/Footer/Footer";
 import SizesDD from "./SizesDD";
 import OrigTrunkPF from "../../images/Orig_Trunk_PF.jpg";
 import OrigTrunkPS from "../../images/Orig_Trunk_PS.jpg";
+
 import "./ProductDetail.scss";
 
 class ProductDetail extends Component {

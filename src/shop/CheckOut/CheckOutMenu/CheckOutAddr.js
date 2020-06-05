@@ -43,13 +43,10 @@ class CheckOutAddr extends Component {
     e.preventDefault();
 
     if (this.state.city === undefined && this.state.phone === undefined) {
-      this.setState(
-        {
-          cityChecked: true,
-          phoneChecked: true,
-        },
-        () => console.log(this.state.btnState)
-      );
+      this.setState({
+        cityChecked: true,
+        phoneChecked: true,
+      });
       // 1개 빈 값 조건
     } else if (
       this.state.city === undefined &&

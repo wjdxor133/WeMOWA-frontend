@@ -19,33 +19,104 @@ class ProductList extends Component {
     this.state={
       selectValue: "",
       data: [],
-      isToggleOn: false
-    };
-    this.filterDropdownChange = this.filterDropdownChange.bind(this);
-    this.handleDropdown = this.handleDropdown.bind(this);
+      isToggleOn: false,
+      isSortOn: false,
+      hwan: "",
+      ata: [],
+      fixColor: "",
+      num: 0
+    }
   }
 
-  filterDropdownChange(e){
+  componentDidMount = () => {
+    fetch("http://10.58.2.57:8000/product/1")
+    .then((response) => response.json())
+    .then((response) => this.setState({data: response.data}));
+    
+  }
+
+  // componentDidUpdate(){
+  //   fetch("/data/JHdata.json")
+  //   .then((response) => response.json())
+  //   .then((response) => this.setState({ata: response.products}));
+  // }
+
+  filterDropdownChange = (e) => {
     this.setState({ selectValue: e.target.value });
   }
   
-  handleDropdown(){
-      this.setState(state => ({
-        isToggleOn: !state.isToggleOn
-      }));
-
-  }
-
-  componentDidMount(){
+  handleDropdown = () => {
     fetch("/data/JHdata.json")
     .then((response) => response.json())
-    .then((response) => this.setState({data: response.products}));
+    .then((response) => this.setState({
+      ata: response.products,
+      isToggleOn: !this.state.isToggleOn
+    }));
+      // this.setState(state => ({
+      //   isToggleOn: !state.isToggleOn
+      // }))
   }
+
+  SortDropdown = () => {
+      this.setState(state => ({
+        isSortOn: !state.isSortOn
+      }));
+  }
+
+  addHanlder = (zino) => {
+    this.setState({
+      hwan: zino
+    }, () => {
+      console.log(this.state.hwan);  
+    })}
+
+  // selectedHandler = (color) => {
+ 
+    
+  //   this.setState({
+  //     fixColor: color
+  //     //fixcolor는 자식 드롭다운 이미지를 눌렀을때 받아오는 colorName을 넣은 state이다.
+  //     //누른 색상에 대한 이름
+  //   })
+  // }
+  selectedHandler = (color) => {
+    this.setState({
+      fixColor: color
+      //fixcolor는 자식 드롭다운 이미지를 눌렀을때 받아오는 colorName을 넣은 state이다.
+      //누른 색상에 대한 이름
+    })
+  }
+
+  fetchColor = () => {
+    fetch("http://10.58.2.57:8000/product/1?color="+this.state.fixColor)
+    .then((response) => response.json())
+    .then((response) => this.setState({data: response.data}));
+  }
+
+  convertImg = (obj) => {
+    // if(this.state.data.length > 0){
+    //   for(let i=0; i < this.state.data.series_color.length; i++){
+    //     if(this.state.data.series_color[i].name.includes(this.state.fixColor)){
+          
+    //       return i; 
+    //     }
+    //   }
+    // }    
+    for (let i = 0; i < obj.series_color.length; i++) {
+
+      if (obj.series_color[i].name.includes(this.state.fixColor)) {
+        return i
+      }
+    }
+    return 0;
+  }
+    
+  
+
 
 
   render() {
-    console.log(this.state.data);
-    
+    console.log("datasss", this.state.data)
     return(
       <div className="List">
         <Header/>
@@ -55,13 +126,14 @@ class ProductList extends Component {
             <div className="TopFilter">
               <div className="FilterToggle">
                   <button onClick={this.handleDropdown} className="ToggleButton">FILTER</button>
-                  {this.state.isToggleOn ?(
+                  {this.state.isToggleOn ? (
                     <div className="FilterDropdown">
                         <div className="DropdownBox">
                             <div className="ColorFilter">
                                 <span>Color</span>
-                                {this.state.data.map( product =>{
-                                return (<DropdownLugg colorName={product.colorName} lugColor={product.lugColor}
+                                {this.state.ata.map( luc =>{
+                                return (<DropdownLugg lugColor={luc.lugColor} colorName={luc.colorName}
+                                  selectedHandler={this.selectedHandler}
                                 />);})} 
                             </div>
                             <div className="PriceFilter">
@@ -79,7 +151,7 @@ class ProductList extends Component {
                                 </div>
                                 <div className="ApplyBox">
                                 <button className="RESETBtn">RESET</button>
-                                <button className="APPLYBtn">APPLY</button>
+                                <button onClick={this.fetchColor} className="APPLYBtn">APPLY</button>
                                 </div>    
                         </div>
                     </div>
@@ -88,21 +160,40 @@ class ProductList extends Component {
               </div>
               <div className="TopSeller">
                 <div className="Seller">
-                  <span className="SortBy">SORT BY</span>
+                <p onClick={this.SortDropdown} className="SortBy">SORT BY</p>
+                {this.state.isSortOn ? (
+                    <div className="FilterDropdown">
+                        <div className="DropdownBox">
+                            <div className="CollectionFilter">
+                                <span>PRODUCT COLLENTION</span>
+                                <CheckCollect/>
+                            </div>
+                        </div>
+                    </div>
+                  ) : (null)
+                  }
                 </div>
               </div>
             </div>
           </div>
           <div className="ListContainer">
             <ul className="ListCabin">
-                <CabinProduct/> 
-
-                {this.state.data.map( product =>{
-                return (<EditionProduct name={product.name} price={product.price} img={product.img} secondImg={product.secondImg}
-                  color={product.colors}
-                />);})}
-
                 <CabinProduct/>
+                {this.state.data.map(product => {
+                  return (
+                    <EditionProduct
+                      collect={product.collection}
+                      name={product.name}
+                      fixName={product.series_color}
+                      price={product.price}
+                      img={product.series_color[this.convertImg(product)]}
+                      youngColor={this.state.fixColor}
+                      color={product.series_color.slice(0,4)}
+                    />
+                  )}
+                )}
+                
+                
             </ul>
           </div>
         </main>
