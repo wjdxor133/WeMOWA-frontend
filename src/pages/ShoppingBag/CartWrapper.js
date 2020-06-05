@@ -26,7 +26,7 @@ class CartWrapper extends Component {
     })
       .then((res) => res.json())
       .then((res) => this.setState({ data: res.data }));
-    //  .then((res) => console.log(res.data));
+    //.then((res) => console.log(res.data));
 
     // fetch("/data/cart.json")
     //   .then((res) => res.json())
