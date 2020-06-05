@@ -18,6 +18,16 @@ class EditionProduct extends Component {
       }
     }
 
+    // componentDidMount = (prevProps) => {
+    //   if(prevProps.location.pathname !== this.props.location.pathname)
+    //   fetch(`http://10.58.2.57:8000/product/?product_name=${this.props.pathname}`)
+    //   .then((response) => response.json())
+    //   .then((response) => this.setState({data: response.data}));
+
+
+    // }
+
+
     handleMouseOver = (idx) => {
       this.setState({
         isMouseOver: false,
@@ -47,14 +57,19 @@ class EditionProduct extends Component {
     }
 
     convertProduct = () => {
-      this.setState({
-        isToggleOn: !this.state.isToggleOn
-      })
-      
+      // fetch(`http://10.58.2.57:8000/product/1/${this.props.match.params.proNumber}`)
+      // .then((response) => response.json())
+      // .then((response) => this.setState({data: response.data}));
+     
+      // this.setState({
+        
+      // })
+     
     }
 
     render() {
         const {  name, price, collect, img, color} = this.props;
+       
         // console.log("img", img)
         // console.log("convertnumber", this.props.img);
         
@@ -63,7 +78,8 @@ class EditionProduct extends Component {
                     <div className="LimitedThumb">
                         <div className="LimitedBody">
                             <a href=" "className="ProductLink">
-                                <div className="ProductImage" onChange={this.convertProduct}>
+                            <div className="ProductImage" onClick={() => {this.props.history.push("/product?product_number="+this.props.proNumber)}}>
+                               
                                   {/* {
                                     this.props.img && this.props.img.map((im, index) => {
                                       return (

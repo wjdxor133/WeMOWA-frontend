@@ -16,7 +16,8 @@ class  CheckPrice extends Component {
                 {id: 3, value: "€600 - €800", isChecked: false},
                 {id: 4, value: "€800 - €1000", isChecked: false},
                 {id: 5, value: "€800 - €1000", isChecked: false}
-              ]
+              ],
+              nums: 0
         };
         this.handleRadio = this.handleRadio.bind(this);
     }
@@ -38,19 +39,33 @@ class  CheckPrice extends Component {
         price.forEach(price => {
            if (price.value === event.target.value)
            price.isChecked =  event.target.checked
+           
         })
-        this.setState({price: price})
+        this.setState({
+            price: price,
+            nums: event.target.value
+            
+        })
+      }
+
+      fixPrice = () => {
+
       }
 
     render() { 
-        
+        console.log(this.state.nums);
         return (  
             <ul className="PriceCheck">
+                
                 {   
                     this.state.price.map((prices) => {
-                        return (<CheckBox handleCheckChieldElement={this.handleCheckChieldElement}  {...prices} />)
+                        return (
+                        <CheckBox 
+                            onClick={() => {this.props.pricedHandler(this.state.nums)}}
+                        handleCheckChieldElement={this.handleCheckChieldElement}  {...prices} />)
                     })
                 }
+                
             </ul>
 
         );

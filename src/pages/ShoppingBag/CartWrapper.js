@@ -141,7 +141,7 @@ class CartWrapper extends Component {
         <Header />
         <Nav />
         <div className="ctHeader">
-          <CartHeader totalNumber={this.state.data.length} />
+          {/* <CartHeader totalNumber={this.state.data.length} /> */}
         </div>
         <main className="ShoppingBag">
           {this.state.data.length === 0 ? (

@@ -16,7 +16,7 @@ class Main extends Component {
   }
 
   render() {
-    console.log(this.state.data);
+    
     return (
       <div className="Main">
         <Header />
