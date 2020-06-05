@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import Header from "../../components/Header/Header";
+import Nav from "../../components/Nav/Nav";
+import Footer from "../../components/Footer/Footer";
+import { withRouter } from "react-router-dom";
 import "./Login.scss";
 
 const initialState = {
@@ -69,7 +72,7 @@ class Login extends Component {
     }
 
     //const token = localStorage.getItem("access_token");
-    fetch("http://10.58.3.60:8000/account/sign-in", {
+    fetch("http://10.58.2.57:8000/account/sign-in", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -98,14 +101,16 @@ class Login extends Component {
   render() {
     return (
       <div className="Login">
+        <Header />
+        <Nav />
         <div className="mainRow flexJustifyCenter">
           <div className="loginWrapper">
             <div className="loginBox">
-              <h3 className="loginHeader txtUpper">Sign in to your acocunt</h3>
-              <h5>
+              <h3 className="loginHeader upper">Sign in to your acocunt</h3>
+              <p>
                 If you already have a Rimowa account, please sign in. We'll use
                 your existing details for a speedier checkout.
-              </h5>
+              </p>
               <form
                 className="signInForm flexColumnCenter"
                 onSubmit={this.handleSubmit}
@@ -138,17 +143,13 @@ class Login extends Component {
                   Sign In
                 </button>
               </form>
-              <p className="txtUpper">
-                <Link to="/" className="forgotPW">
-                  Forgotten your password?
-                </Link>
-              </p>
+              <p className="forgotPW txtUpper">Forgotten your password?</p>
             </div>
           </div>
           <div className="signup">
             <div className="signupBox">
-              <h3 className="signupHeader txtUpper">Don't have an account?</h3>
-              <h5>Creating a RIMOWA account lets you:</h5>
+              <h3 className="signupHeader upper">Don't have an account?</h3>
+              <p>Creating a RIMOWA account lets you:</p>
               <ul className="pitchLine">
                 <li>ADD ITEMS TO YOUR WISHLIST</li>
                 <li>GET PERSONALISED RECOMMENDATIONS</li>
@@ -157,14 +158,15 @@ class Login extends Component {
                 <li>REGISTER MY RIMOWA</li>
               </ul>
               <form action="" className="signUpBtn">
-                <button>Create Account</button>
+                <button className="createAccBtn">Create Account</button>
               </form>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
 }
 
-export default Login;
+export default withRouter(Login);

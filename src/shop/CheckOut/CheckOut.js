@@ -5,6 +5,7 @@ import CheckOutDlivery from "./CheckOutMenu/CheckOutDelivery";
 import CheckOutAddr from "./CheckOutMenu/CheckOutAddr";
 import CheckoutPayment from "./CheckOutMenu/CheckoutPayment";
 import DaumPostcode from "react-daum-postcode";
+import OrderSumm from "../../pages/ShoppingBag/OrderSumm";
 import "./CheckOut.scss";
 
 class CheckOut extends Component {
@@ -125,7 +126,9 @@ class CheckOut extends Component {
               </div>
             </div>
           </section>
-          <section className="checkOut-mainRight">hello</section>
+          <section className="checkOut-mainRight">
+            <OrderSumm />
+          </section>
         </div>
         <Footer />
       </div>

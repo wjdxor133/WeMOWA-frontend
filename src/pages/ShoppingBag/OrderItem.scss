@@ -15,13 +15,21 @@
   border-bottom: 1px solid $faintGray;
   padding-top: 1.5em;
   padding-bottom: 1.5em;
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .orderImg {
   width: 100%;
   max-width: 128px;
   height: 128px;
-  background: floralwhite;
+  background: #f7f5f4;
+
+  img {
+    width: 100%;
+  }
 }
 
 .orderDetails {
