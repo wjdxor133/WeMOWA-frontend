@@ -58,21 +58,37 @@ class UniqueTag extends Component {
 
   saveCart = () => {
     const { textValue, selectedColor } = this.state;
-    // const tag = selectedColor;
-    // const tag_text = textValue;
+    const token = localStorage.getItem("token");
 
-    // fetch("API 주소", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     tag: tag,
-    //     tag_text: tag_text,
-    //   }),
-    // });
+    if (textValue === "") {
+      alert("실패");
+      return;
+    }
 
-    localStorage.setItem("cart", [textValue, selectedColor]);
+    console.log(
+      "token",
+      token,
+      "textValue",
+      textValue,
+      "selectedColor",
+      selectedColor
+    );
+
+    fetch("http://10.58.2.57:8000/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify({
+        product_id: 11,
+        amount: 1,
+        tag: selectedColor,
+        tag_text: textValue,
+      }),
+    });
+
+    // localStorage.setItem("cart", [textValue, selectedColor]);
 
     // 장바구니 화면으로
     this.props.history.push("/cart");
@@ -94,7 +110,7 @@ class UniqueTag extends Component {
     } = this.state;
     return (
       <div className="UniqueTag">
-        <div className="utHeaderWrapper flexSpaceBetween">
+        <div className="utHeaderWrapper flexSpaceBetween flexAlignCenter">
           <div className="left txtUpper flexCenter">
             <i className="fas fa-arrow-left"></i>
             <span className="pdML3" onClick={this.goToMain}>
@@ -245,7 +261,6 @@ class UniqueTag extends Component {
             className={addText ? "addTextOption" : "addTextOption remove"}
             // style={{ display: addText ? "block" : "none" }}
           >
-            <h3 className="addTextItem">Please enter text!</h3>
             <div className="addTextList">
               <ul className="keywordList">
                 <div className="addTextJoin">
@@ -305,7 +320,9 @@ class UniqueTag extends Component {
                   <FontAwesomeIcon icon={faBackspace} />
                 </div>
                 <p className="textScore">
-                  {textValue.length}/{textValue.includes(".") ? 5 : 3}
+                  {textValue.includes(".")
+                    ? `${textValue.split("").length} / 5`
+                    : `${textValue.length} / 3`}
                 </p>
                 <p className="btnOk" onClick={this.backColorMenu}>
                   OK

@@ -182,37 +182,32 @@ class Signup extends Component {
     event.preventDefault();
     const isValid = this.validate();
     if (isValid) {
-      //console.log(this.state);
-      this.setState(initialState);
+      fetch("http://10.58.2.57:8000/account/sign-up", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          first_name: this.state.first_name,
+          last_name: this.state.last_name,
+          email: this.state.email,
+          password: this.state.password,
+          prefix: this.state.prefix,
+          country: this.state.country,
+        }),
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          console.log(response);
+          if (response.message === "SUCCESS") {
+            alert("Signup Success!");
+            this.props.history.push("/");
+          } else if (response.message !== "SUCCESS") {
+            alert("Already registered. Please enter a new address");
+            this.props.history.push("/signup");
+          }
+        });
     }
-
-    const token = localStorage.getItem("access_token");
-
-    fetch("http://10.58.3.60:8000/account/sign-up", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        first_name: this.state.first_name,
-        last_name: this.state.last_name,
-        email: this.state.email,
-        password: this.state.password,
-        prefix: this.state.prefix,
-        country: this.state.country,
-      }),
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        console.log(response);
-        if (response.message === "SUCCESS") {
-          alert("Signup Success!");
-          this.props.history.push("/");
-        } else if (response.message !== "SUCCESS") {
-          alert("Already registered. Please enter a new address");
-          this.props.history.push("/signup");
-        }
-      });
   };
 
   render() {
