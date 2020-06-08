@@ -49,10 +49,10 @@ class UniqueTag extends Component {
     const { textValue, selectedColor } = this.state;
     const token = localStorage.getItem("token");
 
-    if (textValue === "") {
-      alert("실패");
-      return;
-    }
+    // if (textValue === "") {
+    //   alert("실패");
+    //   return;
+    // }
 
     console.log(
       "token",
@@ -97,11 +97,9 @@ class UniqueTag extends Component {
     return (
       <div className="UniqueTag">
         <div className="utHeaderWrapper flexSpaceBetween flexAlignCenter">
-          <div className="left txtUpper flexCenter">
+          <div className="left txtUpper flexCenter" onClick={this.goToMain}>
             <i className="fas fa-arrow-left"></i>
-            <span className="pdML3" onClick={this.goToMain}>
-              Back to shop
-            </span>
+            <span className="pdML3">Back to shop</span>
           </div>
           <div className="center" onClick={this.goToMain}>
             RIMOWA
