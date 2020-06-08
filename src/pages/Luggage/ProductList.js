@@ -37,6 +37,7 @@ class ProductList extends Component {
   filterDropdownChange = (e) => {
     this.setState({ selectValue: e.target.value });
   };
+  
   handleDropdown = () => {
     fetch("/data/JHdata.json")
       .then((response) => response.json())
@@ -46,9 +47,7 @@ class ProductList extends Component {
           isToggleOn: !this.state.isToggleOn,
         })
       );
-    // this.setState(state => ({
-    //   isToggleOn: !state.isToggleOn
-    // }))
+  
   };
   SortDropdown = () => {
     this.setState((state) => ({
@@ -65,13 +64,7 @@ class ProductList extends Component {
       }
     );
   };
-  // selectedHandler = (color) => {
-  //   this.setState({
-  //     fixColor: color
-  //     //fixcolor는 자식 드롭다운 이미지를 눌렀을때 받아오는 colorName을 넣은 state이다.
-  //     //누른 색상에 대한 이름
-  //   })
-  // }
+  
   selectedHandler = (color) => {
     this.setState({
       fixColor: color,
@@ -82,34 +75,27 @@ class ProductList extends Component {
   pricedHandler = (price) => {
     this.setState({
       fixPrice: price,
-      //fixcolor는 자식 드롭다운 이미지를 눌렀을때 받아오는 colorName을 넣은 state이다.
-      //누른 색상에 대한 이름
+     
     });
   };
   fetchColor = () => {
     fetch("http://10.58.4.117:8000/product/1?color=" + this.state.fixColor)
       .then((response) => response.json())
       .then((response) => this.setState({ data: response.data }));
+      this.setState({
+        isToggleOn: false
+      })
   };
-  // fetchPrice = () => {
-  //   fetch("http://10.58.4.117:8000/product/1?price="+this.state.fixPrice)
-  //   .then((response) => response.json())
-  //   .then((response) => this.setState({data: response.data}));
-  // }
+
   convertImg = (obj) => {
-    // if(this.state.data.length > 0){
-    //   for(let i=0; i < this.state.data.series_color.length; i++){
-    //     if(this.state.data.series_color[i].name.includes(this.state.fixColor)){
-    //       return i;
-    //     }
-    //   }
-    // }
+    
     for (let i = 0; i < obj.series_color.length; i++) {
       if (obj.series_color[i].name.includes(this.state.fixColor)) {
         return i;
       }
     }
     return 0;
+
   };
   render() {
     console.log("datasss", this.state.data);
