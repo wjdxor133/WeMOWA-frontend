@@ -156,7 +156,7 @@ class CheckOutAddr extends Component {
               </span>
               <div className="countryBox">
                 <p>Country</p>
-                France
+                Korea
               </div>
               <input
                 className={phoneChecked ? "inputChecked" : null}

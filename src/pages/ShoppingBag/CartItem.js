@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./CartItem.scss";
-
 class CartItem extends Component {
   state = {
     subTotal: undefined,
@@ -22,11 +21,22 @@ class CartItem extends Component {
           <div className="cartItemOptions cartMB">
             <div className="color flexAlignCenter">
               <div className="img"></div>
-              <div className="cartUpper cartML3">
+              <div className="cartUpper">
                 {this.props.product.luggage_color}
               </div>
             </div>
             <div className="availability cartUpper">In Stock</div>
+            <div
+              className="uniqueText"
+              style={{
+                display: this.props.product.tag_text ? "block" : "none",
+              }}
+            >
+              <i class="fas fa-palette"> {this.props.product.tag}</i>
+              <br />
+
+              <i class="fas fa-tags"> {this.props.product.tag_text}</i>
+            </div>
             <div className="shipping flexAlignCenter">
               <i className="fas fa-gift"></i>
               <div className="cartUpper cartML3">Standard Packaging</div>
@@ -63,5 +73,4 @@ class CartItem extends Component {
     );
   }
 }
-
 export default CartItem;
