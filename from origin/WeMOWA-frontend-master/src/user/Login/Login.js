@@ -4,6 +4,7 @@ import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
 import { withRouter } from "react-router-dom";
 import "./Login.scss";
+import styled from "styled-components";
 
 const initialState = {
   email: "",
