@@ -53,7 +53,6 @@ class Login extends Component {
   };
 
   handlePW = () => {
-    //show-hide password
     const { pwtype } = this.state;
     if (pwtype === "password") {
       this.setState({ pwtype: "text", visibility: "hide" });

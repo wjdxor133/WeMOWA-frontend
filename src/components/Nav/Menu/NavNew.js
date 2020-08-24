@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Nav from "../Nav";
+import { Link } from "react-router-dom";
 import "./NavNew.scss";
 
 class NavNew extends Component {
@@ -14,7 +14,7 @@ class NavNew extends Component {
               <p>RIMOWA x GLCO</p>
               <p>Essential Berry & Glacier</p>
               <p>Dior and RIMOWA</p>
-              <a>All new products</a>
+              <Link to="">All new products</Link>
             </div>
           </li>
           <li className="Limied-edition1">
@@ -25,7 +25,7 @@ class NavNew extends Component {
                 alt="LIMITED EDITION"
               />
             </div>
-            <a>RIMOWA x Garrett Leight</a>
+            <Link to="">RIMOWA x Garrett Leight</Link>
           </li>
           <li className="Limied-edition2">
             <span>LIMITED EDITION</span>
@@ -35,7 +35,7 @@ class NavNew extends Component {
                 alt="GlacierBerry.img"
               />
             </div>
-            <a>RIMOWA x Garrett Leight</a>
+            <Link to="">RIMOWA x Garrett Leight</Link>
           </li>
           <li className="Limied-edition3">
             <span>LIMITED EDITION</span>
@@ -45,7 +45,7 @@ class NavNew extends Component {
                 alt="Dior_2.jpg"
               />
             </div>
-            <a>RIMOWA x Garrett Leight</a>
+            <Link to="">RIMOWA x Garrett Leight</Link>
           </li>
         </ul>
       </div>
