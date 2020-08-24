@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./NavAccessories.scss";
 
 class NavAccessories extends Component {
@@ -9,7 +10,7 @@ class NavAccessories extends Component {
           <li className="iphone-cases">
             <span>IPHONE CASES</span>
             <div>
-              <a className="iphone-case1" href="#">
+              <Link className="iphone-case1" to="#">
                 <div>
                   <img
                     src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw96d98f4a/images/16/megamenu/aluminium-iphone-case.png"
@@ -17,8 +18,8 @@ class NavAccessories extends Component {
                   />
                 </div>
                 <p>Aluminium iPhone Case</p>
-              </a>
-              <a className="iphone-case2" href="#">
+              </Link>
+              <Link className="iphone-case2" to="#">
                 <div>
                   <img
                     src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw2de52d66/images/16/megamenu/iphone_case_black.png"
@@ -26,8 +27,8 @@ class NavAccessories extends Component {
                   />
                 </div>
                 <p>Leather iPhone Case</p>
-              </a>
-              <a className="iphone-case3" href="#">
+              </Link>
+              <Link className="iphone-case3" to="#">
                 <div>
                   <img
                     src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw543dfe60/images/16/megamenu/Iridescent_megamenu.png"
@@ -35,8 +36,8 @@ class NavAccessories extends Component {
                   />
                 </div>
                 <p>Iridescent iPhone Case</p>
-              </a>
-              <a className="iphone-case4" href="#">
+              </Link>
+              <Link className="iphone-case4" to="#">
                 <div>
                   <img
                     src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw791bd878/images/16/megamenu/sticker_iphone_case.png"
@@ -44,14 +45,16 @@ class NavAccessories extends Component {
                   />
                 </div>
                 <p>Sticker iPhone Case</p>
-              </a>
+              </Link>
             </div>
-            <a className="allCases">All iPhone cases</a>
+            <Link className="allCases" to="">
+              All iPhone cases
+            </Link>
           </li>
           <li className="stickers">
             <span>STICKERS</span>
             <div className="stickers-items">
-              <a className="sticker-1" href="#">
+              <Link className="sticker-1" to="#">
                 <div>
                   <img
                     src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw07e48ed1/images/32/megamenu/single_sticker.png"
@@ -59,8 +62,8 @@ class NavAccessories extends Component {
                   />
                 </div>
                 <p>Stickers</p>
-              </a>
-              <a className="sticker-2" href="#">
+              </Link>
+              <Link className="sticker-2" to="#">
                 <div>
                   <img
                     src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw6b5046e8/images/32/megamenu/hongkong.png"
@@ -68,8 +71,8 @@ class NavAccessories extends Component {
                   />
                 </div>
                 <p>City Stickers</p>
-              </a>
-              <a className="sticker-3" href="#">
+              </Link>
+              <Link className="sticker-3" to="#">
                 <div>
                   <img
                     src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw79f8cd43/images/32/megamenu/sticker_set.png"
@@ -77,14 +80,14 @@ class NavAccessories extends Component {
                   />
                 </div>
                 <p>Sticker Set</p>
-              </a>
+              </Link>
               <a className="allStickers">All stickers</a>
             </div>
           </li>
           <li className="extras">
             <span>EXTARS</span>
             <div className="extras-items">
-              <a className="extra-1" href="#">
+              <Link className="extra-1" to="#">
                 <div>
                   <img
                     src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dwb66b0ba9/images/32/megamenu/wheels_megamenu.png"
@@ -92,8 +95,8 @@ class NavAccessories extends Component {
                   />
                 </div>
                 <p>Wheels</p>
-              </a>
-              <a className="extra-2" href="#">
+              </Link>
+              <Link className="extra-2" to="#">
                 <div>
                   <img
                     src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw75966bcc/images/32/megamenu/tags_megamenu.png"
@@ -101,8 +104,8 @@ class NavAccessories extends Component {
                   />
                 </div>
                 <p>Luggage Tags</p>
-              </a>
-              <a className="extra-3" href="#">
+              </Link>
+              <Link className="extra-3" to="#">
                 <div>
                   <img
                     src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dwc18cbbc4/images/32/megamenu/belts.jpg"
@@ -110,8 +113,8 @@ class NavAccessories extends Component {
                   />
                 </div>
                 <p>Luggage Belts</p>
-              </a>
-              <a className="extra-4" href="#">
+              </Link>
+              <Link className="extra-4" to="#">
                 <div>
                   <img
                     src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw1b575bcc/images/32/megamenu/charms_A_blue.png"
@@ -119,8 +122,10 @@ class NavAccessories extends Component {
                   />
                 </div>
                 <p>Luggage Charms</p>
-              </a>
-              <a className="allExtras">All extras</a>
+              </Link>
+              <Link className="allExtras" to="">
+                All extras
+              </Link>
             </div>
           </li>
           <li className="Limied-edition">
@@ -131,7 +136,7 @@ class NavAccessories extends Component {
                 alt="LIMITED EDITION"
               />
             </div>
-            <a>RIMOWA x Garrett Leight</a>
+            <Link to="#">RIMOWA x Garrett Leight</Link>
           </li>
         </ul>
       </div>

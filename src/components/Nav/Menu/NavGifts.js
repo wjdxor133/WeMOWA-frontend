@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./NavGifts.scss";
 
 class NavGifts extends Component {
@@ -11,7 +12,7 @@ class NavGifts extends Component {
             <div>
               <p>Travel Accessories</p>
               <p>Dior and RIMOWA</p>
-              <a>All gifts</a>
+              <Link to="">All gifts</Link>
             </div>
           </li>
           <li className="gift-list2">
@@ -22,7 +23,7 @@ class NavGifts extends Component {
                 alt="3-B.png"
               />
             </div>
-            <a>Professional luggage to work with</a>
+            <Link to="">Professional luggage to work with</Link>
           </li>
           <li className="gift-list3">
             <span>TRAVELLER FAVOURITES</span>
@@ -32,7 +33,7 @@ class NavGifts extends Component {
                 alt="MustHave.jpg"
               />
             </div>
-            <a>Our most popualr products</a>
+            <Link to="">Our most popualr products</Link>
           </li>
           <li className="gift-list4">
             <span>RIMOWA UNIQUE</span>
@@ -42,7 +43,7 @@ class NavGifts extends Component {
                 alt="RimowaUnique.jpg"
               />
             </div>
-            <a>Make your own RIMOWA Classic</a>
+            <Link to="">Make your own RIMOWA Classic</Link>
           </li>
         </ul>
       </div>

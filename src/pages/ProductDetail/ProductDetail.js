@@ -8,6 +8,7 @@ import SizesDD from "./SizesDD";
 import OrigTrunkPF from "../../images/Orig_Trunk_PF.jpg";
 import OrigTrunkPS from "../../images/Orig_Trunk_PS.jpg";
 
+//import styles and assets
 import "./ProductDetail.scss";
 
 class ProductDetail extends Component {
@@ -31,15 +32,14 @@ class ProductDetail extends Component {
     const token = localStorage.getItem("token");
     console.log(token);
 
-    console.log("sd",this.props.location)
-    
-    fetch("http://10.58.4.117:8000/product"+this.props.location.search)
+    console.log("sd", this.props.location);
+
+    fetch("http://10.58.4.117:8000/product" + this.props.location.search)
       .then((res) => res.json())
       // .then((res) => console.log("ris",res));
       .then((res) => this.setState({ product: res.data }));
-       
+
     console.log("FDSfsdf");
-      
 
     //fetch("/data/pd_data.json")
     //  .then((res) => res.json())
@@ -114,7 +114,7 @@ class ProductDetail extends Component {
   };
 
   render() {
-    const { product_id } = this.state.product;
+    // const { product_id } = this.state.product;
     const { collection } = this.state.product;
     const { name } = this.state.product;
     const { price } = this.state.product;
@@ -153,7 +153,7 @@ class ProductDetail extends Component {
                 </button>
               )}
             >
-              {images && images.map((c) => <img src={c.img_url} />)}
+              {images && images.map((c) => <img src={c.img_url} alt="" />)}
             </Carousel>
           </div>
           <div className="productDetail center">
