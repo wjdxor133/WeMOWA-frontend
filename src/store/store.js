@@ -1,14 +1,19 @@
 import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
-import rootReducer from "./rootReducer";
+import reducer from "./cart";
 
-const initialState = {};
+const initialStore = {
+  items: [],
+  total: 0,
+  qty: 0,
+};
+
 const middleware = [thunk];
 
 const store = createStore(
-  rootReducer,
-  initialState,
+  reducer,
+  initialStore,
   composeWithDevTools(applyMiddleware(...middleware))
 );
 

@@ -20,7 +20,6 @@ import { connect } from "react-redux";
 import { addItem } from "../../store/cart";
 
 const ProductDetailH = (props) => {
-  console.log(props);
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -33,7 +32,6 @@ const ProductDetailH = (props) => {
 
   const goToCart = (data) => {
     // localStorage.setItem("product", data);
-    console.log(data);
     props.addItem(data);
     props.history.push("./shoppingcart");
   };

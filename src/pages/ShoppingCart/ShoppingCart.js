@@ -6,28 +6,22 @@ import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
 import CartHeader from "./CartHeader";
 import CartMain from "./CartMain";
+import CartEmpty from "./CartEmpty";
 
 //import styles and assets
 import styled from "styled-components";
 
 //import redux
 import { connect } from "react-redux";
-import { getItem } from "../../store/cart";
 
-const ShoppingCart = (props) => {
-  useEffect(() => {
-    getItem();
-  }, []);
-  console.log(props.item);
-
+const ShoppingCart = ({ items }) => {
   return (
     <Wrapper>
       <Header />
       <Nav />
       <Container>
         <CartHeader />
-        <CartMain />
-        <div>{props.item.data && props.item.data.collection}</div>
+        {items.length === 0 ? <CartEmpty /> : <CartMain />}
       </Container>
       <Footer />
     </Wrapper>
@@ -43,11 +37,13 @@ const Container = styled.div`
   max-width: 1360px;
   font-family: "Work Sans", sans-serif;
   margin: 0 auto;
-  /* background-color: gainsboro; */
+  padding-bottom: 4em;
 `;
 
-const mapStateToProps = (state) => ({
-  item: state.cartState,
-});
+const mapStateToProps = (state) => {
+  return {
+    items: state.items,
+  };
+};
 
-export default connect(mapStateToProps, { getItem })(ShoppingCart);
+export default connect(mapStateToProps)(ShoppingCart);

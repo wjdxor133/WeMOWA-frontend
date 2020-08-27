@@ -3,12 +3,53 @@ import React from "react";
 //import styles and assets
 import styled from "styled-components";
 
-const CartItem = () => {
+//import redux
+import { connect } from "react-redux";
+import { removeItem, increase, decrease } from "../../store/cart";
+
+const CartItem = (props) => {
+  const handleRemove = (data) => {
+    props.removeItem(data);
+  };
+
+  const handleDecrease = (id) => {
+    if (props.data.qty > 1) {
+      props.decrease(id);
+    }
+  };
+
+  const handleIncrease = (id) => {
+    props.increase(id);
+  };
+
+  const totalPrice = () => {
+    const total = props.data.price * props.data.qty;
+    return total;
+  };
+
   return (
     <Container>
-      <Image>img</Image>
+      <Image>
+        <img src={props.data.images[0].img_url} alt="" />
+      </Image>
       <Detail>
-        <Collection></Collection>
+        <h6>{props.data.collection}</h6>
+        <h3>{props.data.name}</h3>
+        <h6>{props.data.stock_status}</h6>
+        <Price>
+          <Counter>
+            <div onClick={() => handleDecrease(props.data.id)}>-</div>
+            <div>{props.data.qty}</div>
+            <div onClick={() => handleIncrease(props.data.id)}>+</div>
+          </Counter>
+          <div>
+            <RemoveBtn onClick={() => handleRemove(props.data)}>
+              Remove
+            </RemoveBtn>
+            {/* <button>Remove</button> */}
+          </div>
+          <div>{totalPrice()}€</div>
+        </Price>
       </Detail>
     </Container>
   );
@@ -21,15 +62,80 @@ const Container = styled.div`
 
 const Image = styled.div`
   width: 20%;
-  background-color: aliceblue;
+
+  img {
+    width: 100%;
+  }
 `;
 
 const Detail = styled.div`
   width: 80%;
   padding: 1.25em;
-  background-color: gold;
+
+  h6 {
+    font-weight: normal;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    margin: 0.5em 0;
+  }
 `;
 
-const Collection = styled.div``;
+const Price = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em 0 0.5em 0;
+`;
 
-export default CartItem;
+const Counter = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  div {
+    min-width: 50px;
+    text-align: center;
+  }
+  div:first-child {
+    border: 1px solid #d1d1d1;
+    cursor: pointer;
+    &:hover {
+      border: 1px solid black;
+    }
+  }
+
+  div:nth-child(2) {
+    border-top: 1px solid #d1d1d1;
+    border-bottom: 1px solid #d1d1d1;
+  }
+
+  div:last-child {
+    border: 1px solid #d1d1d1;
+    cursor: pointer;
+    &:hover {
+      border: 1px solid black;
+    }
+  }
+`;
+
+const RemoveBtn = styled.button`
+  border: none;
+  background: none;
+  color: black;
+  cursor: pointer;
+
+  &:hover {
+    color: gray;
+  }
+`;
+
+const mapStateToProps = (state) => ({
+  item: state.items,
+});
+
+export default connect(mapStateToProps, { removeItem, increase, decrease })(
+  CartItem
+);
