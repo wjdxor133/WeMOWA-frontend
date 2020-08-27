@@ -1,12 +1,13 @@
 // Action types
-const ADD_ITEM = "addItem";
-const GET_ITEM = "getItem";
-const REMOVE_ITEM = "removeItem";
+const ADD_ITEM = "ADD_ITEM";
+const REMOVE_ITEM = "REMOVE_ITEM";
+const INCREASE = "INCREASE";
+const DECREASE = "DECREASE";
+export const GET_TOTAL = "GET_TOTAL";
 
 // Action creators
 export const addItem = (data) => {
   return (dispatch) => {
-    // console.log(data);
     dispatch({
       type: ADD_ITEM,
       payload: {
@@ -16,25 +17,99 @@ export const addItem = (data) => {
   };
 };
 
-export const getItem = () => {
+export const removeItem = (data) => {
   return (dispatch) => {
-    console.log("getting data");
     dispatch({
-      type: GET_ITEM,
+      type: REMOVE_ITEM,
+      payload: {
+        data,
+      },
+    });
+  };
+};
+
+export const increase = (id) => {
+  return (dispatch) => {
+    dispatch({
+      type: INCREASE,
+      payload: {
+        id,
+      },
+    });
+  };
+};
+
+export const decrease = (id) => {
+  return (dispatch) => {
+    dispatch({
+      type: DECREASE,
+      payload: {
+        id,
+      },
+    });
+  };
+};
+
+export const getTotal = () => {
+  return (dispatch) => {
+    dispatch({
+      type: GET_TOTAL,
     });
   };
 };
 
 // Reducer
-const initialState = {};
-
-export default function cart(state = initialState, action) {
-  switch (action.type) {
-    case ADD_ITEM:
-      return { ...state, data: action.payload.data };
-    case GET_ITEM:
-      return [...state];
-    default:
-      return state;
+const reducer = (state, action) => {
+  if (action.type === ADD_ITEM) {
+    let { qty } = state;
+    const item = { ...action.payload.data, qty: 1 };
+    return { ...state, items: [item], qty: qty + 1 };
   }
-}
+  if (action.type === REMOVE_ITEM) {
+    const { qty } = state;
+    return {
+      ...state,
+      items: state.items.filter((item) => item.id !== action.payload.data.id),
+      qty: qty - action.payload.data.qty,
+    };
+  }
+  if (action.type === INCREASE) {
+    let newItems = state.items.map((item) => {
+      if (item.id === action.payload.id) {
+        item = { ...item, qty: item.qty + 1 };
+      }
+      return item;
+    });
+    const { qty } = state;
+    return { ...state, items: newItems, qty: qty + 1 };
+  }
+  if (action.type === DECREASE) {
+    let newItems = state.items.map((item) => {
+      if (item.id === action.payload.id) {
+        item = { ...item, qty: item.qty - 1 };
+      }
+      return item;
+    });
+    const { qty } = state;
+    return { ...state, items: newItems, qty: qty - 1 };
+  }
+  if (action.type === GET_TOTAL) {
+    // console.log("getting total");
+    let { total } = state.items.reduce(
+      (cartTotal, item) => {
+        // console.log(item);
+        const { price, qty } = item;
+        const itemTotal = price * qty;
+        cartTotal.total += itemTotal;
+        return cartTotal;
+      },
+      {
+        total: 0,
+      }
+    );
+    return { ...state, total };
+  }
+  return state;
+};
+
+export default reducer;

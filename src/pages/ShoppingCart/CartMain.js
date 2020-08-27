@@ -1,18 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 //import components
 import CartItem from "./CartItem";
+import CartTotal from "./CartTotal";
 
 //import styles and assets
 import styled from "styled-components";
 
-const CartMain = () => {
+//import redux
+import { connect } from "react-redux";
+
+const CartMain = ({ items }) => {
   return (
     <Container>
       <List>
-        <CartItem />
+        {items.map((item) => (
+          <CartItem key={item.id} data={item} />
+        ))}
       </List>
-      <Total>Total</Total>
+      <Total>
+        <CartTotal />
+      </Total>
     </Container>
   );
 };
@@ -24,17 +32,22 @@ const Container = styled.div`
   max-width: 1360px;
   font-family: "Work Sans", sans-serif;
   margin: 0 auto;
-  background-color: gainsboro;
 `;
 
 const List = styled.div`
   flex: 1;
-  max-width: 65%;
-  background-color: lightcoral;
+  width: 60%;
+  margin-right: 2.5%;
 `;
 const Total = styled.div`
-  max-width: 35%;
-  background-color: lightgoldenrodyellow;
+  width: 30%;
+  margin-left: 2.5%;
 `;
 
-export default CartMain;
+const mapStateToProps = (state) => {
+  return {
+    items: state.items,
+  };
+};
+
+export default connect(mapStateToProps)(CartMain);

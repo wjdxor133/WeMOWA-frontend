@@ -12,7 +12,7 @@ const Buttons = ({ label, onClick }) => {
 };
 
 const Container = styled.div`
-  max-width: 320px;
+  max-width: 500px;
   margin: 1.25em auto;
 
   button {
