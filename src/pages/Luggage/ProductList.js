@@ -25,7 +25,7 @@ class ProductList extends Component {
     };
   }
   componentDidMount = () => {
-    fetch("http://10.58.4.117:8000/product/1")
+    fetch("http://3.34.135.207:8000/product/1")
       .then((response) => response.json())
       .then((response) => this.setState({ data: response.data }));
   };
@@ -77,7 +77,7 @@ class ProductList extends Component {
     });
   };
   fetchColor = () => {
-    fetch("http://10.58.4.117:8000/product/1?color=" + this.state.fixColor)
+    fetch("http://3.34.135.207:8000/product/1?color=" + this.state.fixColor)
       .then((response) => response.json())
       .then((response) => this.setState({ data: response.data }));
     this.setState({

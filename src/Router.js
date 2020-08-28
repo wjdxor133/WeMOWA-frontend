@@ -18,6 +18,7 @@ import PageNotFound from "./pages/Etc/PageNotFound";
 
 import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
 import ListH from "./pages/Luggage/ProductListH";
+import Loginh from "./user/Login/Loginh";
 
 class Routes extends Component {
   render() {
@@ -27,8 +28,8 @@ class Routes extends Component {
           <Route exact path="/" component={Unique}></Route>
           <Route exact path="/login" component={Login}></Route>
           <Route exact path="/signup" component={Signup}></Route>
-          <Route exact path="/product" component={ProductDetail}></Route>
-          <Route exact path="/producth" component={ProductDetailH}></Route>
+          <Route exact path="/product" component={ProductDetailH}></Route>
+          <Route exact path="/producth" component={ProductDetail}></Route>
           <Route exact path="/cart" component={CartWrapper}></Route>
           <Route exact path="/ordersumm" component={OrderSumm}></Route>
           <Route exact path="/test" component={SizesDD}></Route>
@@ -40,6 +41,7 @@ class Routes extends Component {
 
           <Route exact path="/shoppingcart" component={ShoppingCart}></Route>
           <Route exact path="/listh" component={ListH}></Route>
+          <Route exact path="/loginh" component={Loginh}></Route>
           <Route
             exact
             path="/ordersuccess"

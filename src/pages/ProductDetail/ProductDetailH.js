@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Carousel from "nuka-carousel";
 import { withRouter } from "react-router-dom";
+import axios from "axios";
 
 //import components
 import Header from "../../components/Header/Header";
@@ -10,6 +10,7 @@ import Buttons from "../../components/Buttons";
 import Specs from "./Specs";
 import Elements from "./Elements";
 import Footer from "../../components/Footer/Footer";
+import Carousel from "nuka-carousel";
 
 //import styles and assets
 import styled from "styled-components";
@@ -22,13 +23,29 @@ import { addItem } from "../../store/cart";
 const ProductDetailH = (props) => {
   const [data, setData] = useState({});
 
+  // const getData = async () => {
+  //   const { data } = await axios.get("/data/test.json");
+  //   setData(data.data);
+  // };
+
+  const getData = async () => {
+    const { data } = await axios.get(
+      "http://3.34.135.207:8000/product" + props.location.search
+    );
+    setData(data.data);
+  };
+
   useEffect(() => {
-    fetch("/data/test.json")
-      .then((res) => res.json())
-      .then((res) => {
-        setData(res.data);
-      });
+    getData();
   }, []);
+
+  // useEffect(() => {
+  //   fetch("/data/test.json")
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       setData(res.data);
+  //     });
+  // }, []);
 
   const goToCart = (data) => {
     // localStorage.setItem("product", data);

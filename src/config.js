@@ -17,3 +17,5 @@ export const tagColorMenu = {
   clementine:
     "https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dwfd009b32/images/customization/tagviewrectangle/Clementine.png",
 };
+
+export const apiEndpoint = "http://10.58.2.57:8000";
