@@ -96,11 +96,7 @@ class CreditCard extends Component {
       //   }
       // });
 
-      toast.success(
-        "확인!",
-        { position: "bottom-center" },
-        { autoClose: 1500 }
-      );
+      toast.success("확인", { position: "bottom-center" }, { autoClose: 1500 });
       setTimeout(this.goTosuc, 4000);
     }
   };
