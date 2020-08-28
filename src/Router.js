@@ -38,7 +38,6 @@ class Routes extends Component {
           <Route exact path="/locator" component={StoreLocator} />
           <Route exact path="/CheckOut" component={CheckOut}></Route>
           <Route exact path="/Uniquetag" component={UniqueTag}></Route>
-
           <Route exact path="/shoppingcart" component={ShoppingCart}></Route>
           <Route exact path="/listh" component={ListH}></Route>
           <Route exact path="/loginh" component={Loginh}></Route>

@@ -4,6 +4,7 @@ const REMOVE_ITEM = "REMOVE_ITEM";
 const INCREASE = "INCREASE";
 const DECREASE = "DECREASE";
 export const GET_TOTAL = "GET_TOTAL";
+const ADD_TAG = "ADD_TAG";
 
 // Action creators
 export const addItem = (data) => {
@@ -58,6 +59,17 @@ export const getTotal = () => {
   };
 };
 
+export const addTag = (data) => {
+  return (dispatch) => {
+    dispatch({
+      type: ADD_TAG,
+      payload: {
+        data,
+      },
+    });
+  };
+};
+
 // Reducer
 const reducer = (state, action) => {
   if (action.type === ADD_ITEM) {
@@ -108,6 +120,11 @@ const reducer = (state, action) => {
       }
     );
     return { ...state, total };
+  }
+  if (action.type === ADD_TAG) {
+    let { qty } = state;
+    const item = { ...action.payload.data, qty: 1 };
+    return { ...state, items: [item], qty: qty + 1 };
   }
   return state;
 };
