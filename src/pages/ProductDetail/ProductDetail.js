@@ -34,7 +34,7 @@ class ProductDetail extends Component {
 
     console.log("sd", this.props.location);
 
-    fetch("http://10.58.4.117:8000/product" + this.props.location.search)
+    fetch("http://3.34.135.207:8000/product" + this.props.location.search)
       .then((res) => res.json())
       // .then((res) => console.log("ris",res));
       .then((res) => this.setState({ product: res.data }));
