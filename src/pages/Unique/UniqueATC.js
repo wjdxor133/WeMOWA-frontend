@@ -16,7 +16,6 @@ class UniqueATC extends Component {
 
   goToShoppingcart = () => {
     const data = this.state;
-    console.log("확인", data);
     this.props.addTag(data);
     this.props.history.push("/shoppingcart");
   };
