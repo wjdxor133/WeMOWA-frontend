@@ -4,7 +4,7 @@ import Footer from "../../components/Footer/Footer";
 import CheckOutDlivery from "./CheckOutMenu/CheckOutDelivery";
 import CheckOutAddr from "./CheckOutMenu/CheckOutAddr";
 import CheckoutPayment from "./CheckOutMenu/CheckoutPayment";
-import DaumPostcode from "react-daum-postcode";
+import PostCode from "../../components/PostCode/PostCode";
 import OrderSumm from "../../pages/ShoppingBag/OrderSumm";
 import "./CheckOut.scss";
 
@@ -13,10 +13,10 @@ class CheckOut extends Component {
     DliveryCehcked: true,
     AddrChecked: false,
     PaymentChecked: false,
+    isChecked: 1,
     postChecked: false,
     postNumber: undefined,
     postAdress: undefined,
-    isChecked: 1,
   };
 
   showMenu = (num) => {
@@ -35,54 +35,32 @@ class CheckOut extends Component {
     });
   };
 
-  // 우편번호 기능
-  handleComplete = (data) => {
-    let fullAddress = data.address;
-    let extraAddress = "";
-
-    if (data.addressType === "R") {
-      if (data.bname !== "") {
-        extraAddress += data.bname;
-        // console.log(extraAddress);
-      }
-      if (data.buildingName !== "") {
-        extraAddress +=
-          extraAddress !== "" ? `, ${data.buildingName}` : data.buildingName;
-      }
-      fullAddress += extraAddress !== "" ? ` (${extraAddress})` : "";
-    }
-
-    this.setState({ postNumber: data.zonecode, postAdress: fullAddress });
-    this.postChecked();
+  handlePostChecked = (check) => {
+    this.setState({
+      postChecked: check,
+    });
   };
 
-  postChecked = () => {
-    this.setState({ postChecked: !this.state.postChecked });
+  settingPostValue = (pN, pA) => {
+    this.setState({
+      postNumber: pN,
+      postAdress: pA,
+    });
   };
 
   render() {
     const { isChecked, postChecked, postNumber, postAdress } = this.state;
-
-    const postStyle = {
-      width: "40%",
-      height: "30%",
-      top: "10%",
-      left: "30%",
-      position: "absolute",
-    };
-
+    console.log("postChecked", postChecked);
     return (
       <div className="CheckOut" style={{ position: "relative" }}>
+        {postChecked ? (
+          <PostCode
+            handlePostChecked={() => this.handlePostChecked(false)}
+            settingPostValue={this.settingPostValue}
+          />
+        ) : null}
         <Header />
         <div className="checkOut-main">
-          {postChecked ? (
-            <DaumPostcode
-              onComplete={this.handleComplete}
-              style={postStyle}
-              autoClose={true}
-              autoResize={true}
-            />
-          ) : null}
           <section className="checkOut-mainLeft">
             <div className="CheckOutMenu-item">
               <div
@@ -107,7 +85,7 @@ class CheckOut extends Component {
               <div className={isChecked === 2 ? "block" : "none"}>
                 <CheckOutAddr
                   stepThreeChecked={this.stepThreeChecked}
-                  postChecked={this.postChecked}
+                  postChecked={() => this.handlePostChecked(true)}
                   postNumber={postNumber}
                   postAdress={postAdress}
                 />
