@@ -5,8 +5,9 @@
 - 인원 : 프론트 3명, 백엔드 2명
 - 프로젝트 기간 : 2020.05.25 ~ 2020.06.05 (약 10일)
 
-## Demo
-- 업데이트 예정 입니다.
+## Demo (click!)
+[![Video Label](https://upload.wikimedia.org/wikipedia/commons/6/6e/RIMOWA_Logo.svg)](https://youtu.be/YoZs_drvS9g
+)
 
 ## 목표
 - class형 컴포넌트로 프로젝트 진행해보기
