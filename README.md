@@ -25,7 +25,7 @@
 - Product  선택 필터링 기능 구현
 - Product list 카테고리별 보기 및 제품 상세 페이지 구현
 - Redux를 활용해 Product 장바구니 보기, 추가, 삭제 기능 구현
-- 결제 페이지에서 결제가 되면 react-toastify 라이브러리를 통해 toast창이 뜨고 완료 페이지로 이동하기 구현
+- 결제 페이지에서 결제가 되면 react-toastify 라이브러리를 통해 toast창이 뜨고 결제 완료 페이지로 이동하기 구현
 
 ## 회고록
 - 임정택
