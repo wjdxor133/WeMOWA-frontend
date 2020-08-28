@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./NavLuggage.scss";
 
 class NavLuggage extends Component {
@@ -10,7 +11,7 @@ class NavLuggage extends Component {
             <span>COLLECTION</span>
             <div className="listItem1">
               <div className="COLLECTION-left-list">
-                <a className="COLLECTION-item1" href="#">
+                <Link className="COLLECTION-item1" to="#">
                   <div className="thumbnail">
                     <img
                       src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dwcdbcebe5/images/category_megamenu/1_ORIGINAL.png"
@@ -21,8 +22,8 @@ class NavLuggage extends Component {
                     <p className="smTitle">ORIGINAL</p>
                     <p className="smCaption">A travel icon</p>
                   </div>
-                </a>
-                <a className="COLLECTION-item2" href="#">
+                </Link>
+                <Link className="COLLECTION-item2" to="#">
                   <div className="thumbnail">
                     <img
                       src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw9cef6835/images/category_megamenu/6_CLASSIC.png"
@@ -33,8 +34,8 @@ class NavLuggage extends Component {
                     <p className="smTitle">CLASSIC</p>
                     <p className="smCaption">Heritage inspired</p>
                   </div>
-                </a>
-                <a className="COLLECTION-item3" href="#">
+                </Link>
+                <Link className="COLLECTION-item3" to="#">
                   <div className="thumbnail">
                     <img
                       src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw261846fd/images/category_megamenu/Hybrid_White_megamenu.png"
@@ -45,10 +46,10 @@ class NavLuggage extends Component {
                     <p className="smTitle">HYBRID</p>
                     <p className="smCaption">Best of both worlds</p>
                   </div>
-                </a>
+                </Link>
               </div>
               <div className="COLLECTION-right-list">
-                <a className="COLLECTION-item4" href="#">
+                <Link className="COLLECTION-item4" to="#">
                   <div className="thumbnail">
                     <img
                       src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw261846fd/images/category_megamenu/Hybrid_White_megamenu.png"
@@ -59,8 +60,8 @@ class NavLuggage extends Component {
                     <p className="smTitle">ESSENTIAL</p>
                     <p className="smCaption">Fiexible by design</p>
                   </div>
-                </a>
-                <a className="COLLECTION-item5" href="#">
+                </Link>
+                <Link className="COLLECTION-item5" to="#">
                   <div className="thumbnail">
                     <img
                       src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw261846fd/images/category_megamenu/Hybrid_White_megamenu.png"
@@ -71,8 +72,8 @@ class NavLuggage extends Component {
                     <p className="smTitle">ESSENTIAL LITE</p>
                     <p className="smCaption">Our lightest suitcase</p>
                   </div>
-                </a>
-                <a className="COLLECTION-item6" href="#">
+                </Link>
+                <Link className="COLLECTION-item6" to="#">
                   <div className="thumbnail">
                     <img
                       src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw261846fd/images/category_megamenu/Hybrid_White_megamenu.png"
@@ -83,18 +84,18 @@ class NavLuggage extends Component {
                     <p className="smTitle">ESSENTIAL SLEEVE</p>
                     <p className="smCaption">Business trip ready</p>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
-            <a className="seeAllCollection" href="#">
+            <Link className="seeAllCollection" to="#">
               See all collection
-            </a>
+            </Link>
           </li>
           <li className="li2">
             <span>COLOUR</span>
             <div className="color">
               <div className="color-left">
-                <a href="#">
+                <Link to="#">
                   <div className="color-row">
                     <img
                       src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw76e8640c/images/16/megamenu/black_cat_menu.png"
@@ -102,8 +103,8 @@ class NavLuggage extends Component {
                     ></img>
                     <p>Black</p>
                   </div>
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <div className="color-row">
                     <img
                       src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw51e2248e/images/16/megamenu/coral_megamenu.png"
@@ -111,8 +112,8 @@ class NavLuggage extends Component {
                     ></img>
                     <p>Coral</p>
                   </div>
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <div className="color-row">
                     <img
                       src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw5e3ef23d/images/16/megamenu/red_cat_menu.png"
@@ -120,8 +121,8 @@ class NavLuggage extends Component {
                     ></img>
                     <p>Red</p>
                   </div>
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <div className="color-row">
                     <img
                       src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw781f56c6/images/16/megamenu/slate_megamenu.png"
@@ -129,8 +130,8 @@ class NavLuggage extends Component {
                     ></img>
                     <p>Slate</p>
                   </div>
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <div className="color-row">
                     <img
                       src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw4429c0e8/images/16/megamenu/white_cat_menu2.png"
@@ -138,8 +139,8 @@ class NavLuggage extends Component {
                     ></img>
                     <p>White</p>
                   </div>
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <div className="color-row">
                     <img
                       src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dwc6e164a1/images/16/megamenu/glacier_megamenu.png"
@@ -147,10 +148,10 @@ class NavLuggage extends Component {
                     ></img>
                     <p>Glacier</p>
                   </div>
-                </a>
+                </Link>
               </div>
               <div className="color-right">
-                <a href="#">
+                <Link to="#">
                   <div className="color-row">
                     <img
                       src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw91eddacb/images/16/megamenu/blue_cat_menu2.png"
@@ -158,8 +159,8 @@ class NavLuggage extends Component {
                     ></img>
                     <p>Blue</p>
                   </div>
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <div className="color-row">
                     <img
                       src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw09a30f7e/images/16/megamenu/green_cat_menu.png"
@@ -167,8 +168,8 @@ class NavLuggage extends Component {
                     ></img>
                     <p>Green</p>
                   </div>
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <div className="color-row">
                     <img
                       src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw51e2248e/images/16/megamenu/saffron_megamenu.png"
@@ -176,17 +177,17 @@ class NavLuggage extends Component {
                     ></img>
                     <p>Saffron</p>
                   </div>
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <div className="color-row">
                     <img
                       src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw4925b759/images/16/megamenu/silver_cat_menu.png"
-                      ali="Silver"
+                      alt="Silver"
                     ></img>
                     <p>Silver</p>
                   </div>
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <div className="color-row">
                     <img
                       src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw73775252/images/16/megamenu/berry_megamenu.png"
@@ -194,8 +195,8 @@ class NavLuggage extends Component {
                     ></img>
                     <p>Berry</p>
                   </div>
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <div className="color-row">
                     <img
                       src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dwb64f27a9/images/16/megamenu/titanium1_cat_menu.png"
@@ -203,34 +204,34 @@ class NavLuggage extends Component {
                     ></img>
                     <p>Titanium</p>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
           </li>
           <li className="li3">
             <span>SIZE</span>
             <div className="size-top">
-              <a className="size-cabin" href="#">
+              <Link className="size-cabin" to="#">
                 <img
                   src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dwed0b1d76/images/category_megamenu/Orig_Cabin_PF-FINAL.png"
                   alt="Cabin"
                 ></img>
                 <p>Cabin</p>
-              </a>
-              <a className="size-checkIn" href="#">
+              </Link>
+              <Link className="size-checkIn" to="#">
                 <img
                   src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dw0df46682/images/category_megamenu/Orig_CheckinM_PF-FINAL.png"
                   alt="Check-In"
                 ></img>
                 <p>Check-In</p>
-              </a>
-              <a className="size-trunk" href="#">
+              </Link>
+              <Link className="size-trunk" to="#">
                 <img
                   src="https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-storefront-final/default/dwd3368939/Orig_Trunk_PF-FINAL (002).png"
                   alt="Trunk"
                 ></img>
                 <p>Trunk</p>
-              </a>
+              </Link>
             </div>
             <div className="material-bottom">
               <p>MATERIAL</p>
