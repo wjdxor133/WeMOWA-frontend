@@ -95,7 +95,7 @@ class CheckOutAddr extends Component {
             <h4>Enter your delivery address:</h4>
             <div className="gender">
               <div>
-                <input type="radio" name="gender" value="Mr" checked="true" />
+                <input type="radio" name="gender" value="Mr" />
                 <label>Mr</label>
               </div>
               <div>
@@ -117,7 +117,7 @@ class CheckOutAddr extends Component {
                   placeholder="Zip code*"
                   name="zipCode"
                   onChange={this.valueChecked}
-                  value={postNumber}
+                  value={postNumber || ""}
                 />
 
                 <div className="serchBtn" onClick={postChecked}>

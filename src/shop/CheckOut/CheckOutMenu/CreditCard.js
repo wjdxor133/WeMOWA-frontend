@@ -152,7 +152,7 @@ class CreditCard extends Component {
                 placeholder="Number*"
                 onChange={this.cardValue}
                 value={cardNumber}
-                maxlength="18"
+                maxLength="18"
               />
               <span
                 className={cardNumberCheck ? "redText block" : "redText none"}
