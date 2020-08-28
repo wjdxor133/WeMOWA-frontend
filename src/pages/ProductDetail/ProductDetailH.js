@@ -13,7 +13,7 @@ import Footer from "../../components/Footer/Footer";
 import Carousel from "nuka-carousel";
 
 //import styles and assets
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import "../../styles/common.scss";
 
 //import redux

@@ -76,28 +76,36 @@ class CreditCard extends Component {
         cardCvv: "",
       });
 
-      // const token = localStorage.getItem("token");
-      // fetch("http://10.58.2.57:8000/order/payment", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     Authorization: token,
-      //   },
-      //   body: JSON.stringify({
-      //     cardCvv: cardCvv,
-      //   }),
-      // }).then((res) => {
-      //   console.log(res);
-      //   if (res) {
-      //     toast("확인!", { position: "bottom-center" }, { autoClose: 1500 });
-      //     setTimeout(this.props.history.push("/ordersuccess"), 3500);
-      //   } else {
-      //     toast.error("실패", { position: "bottom-center" });
-      //   }
-      // });
+      const token = localStorage.getItem("token");
+      fetch("http://3.34.135.207:8000/order/payment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+        body: JSON.stringify({
+          cardCvv: cardCvv,
+        }),
+      }).then((res) => {
+        console.log(res);
+        if (res) {
+          toast(
+            "결제 중 입니다. 잠시만 기달려주세요.",
+            { position: "bottom-center" },
+            { autoClose: 1500 }
+          );
+          setTimeout(this.goTosuc, 3500);
+        } else {
+          toast.error("실패", { position: "bottom-center" });
+        }
+      });
 
-      toast.success("확인", { position: "bottom-center" }, { autoClose: 1500 });
-      setTimeout(this.goTosuc, 4000);
+      //   toast(
+      //     "결제 중 입니다. 잠시만 기달려주세요.",
+      //     { position: "bottom-center" },
+      //     { autoClose: 1500 }
+      //   );
+      //   setTimeout(this.goTosuc, 4000);
     }
   };
 

@@ -47,7 +47,6 @@ class Routes extends Component {
             component={OrderConfirmation}
           ></Route>
           <Route component={PageNotFound}></Route>
-          <Route exact path="/product" component={ProductDetailH}></Route>
         </Switch>
       </Router>
     );

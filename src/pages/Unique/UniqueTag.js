@@ -45,42 +45,29 @@ class UniqueTag extends Component {
       this.setState({ textValue: textValue.join(""), joinChecked: false });
     }
   };
-  saveCart = () => {
-    const { textValue, selectedColor } = this.state;
-    const token = localStorage.getItem("token");
+  // saveCart = () => {
+  //   const { textValue, selectedColor } = this.state;
+  //   const token = localStorage.getItem("token");
 
-    // if (textValue === "") {
-    //   alert("실패");
-    //   return;
-    // }
+  //   fetch("http://3.34.135.207:8000/order", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: token,
+  //     },
+  //     body: JSON.stringify({
+  //       product_id: 11,
+  //       amount: 1,
+  //       tag: selectedColor,
+  //       tag_text: textValue,
+  //     }),
+  //   });
 
-    console.log(
-      "token",
-      token,
-      "textValue",
-      textValue,
-      "selectedColor",
-      selectedColor
-    );
-    fetch("http://10.58.2.57:8000/order", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token,
-      },
-      body: JSON.stringify({
-        product_id: 11,
-        amount: 1,
-        tag: selectedColor,
-        tag_text: textValue,
-      }),
-    });
+  //   // localStorage.setItem("cart", [textValue, selectedColor]);
 
-    // localStorage.setItem("cart", [textValue, selectedColor]);
-
-    // 장바구니 화면으로
-    // this.props.history.push("/cart");
-  };
+  //   // 장바구니 화면으로
+  //   // this.props.history.push("/cart");
+  // };
   goToMain = () => {
     this.props.history.push("/");
   };
@@ -317,7 +304,7 @@ class UniqueTag extends Component {
         </div>
         {/* end utWrapper */}
         <div className="atcComponent">
-          <UniqueATC saveCart={this.saveCart} />
+          <UniqueATC selectedColor={selectedColor} textValue={textValue} />
         </div>
       </div>
     );

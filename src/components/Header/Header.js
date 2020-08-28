@@ -9,7 +9,7 @@ class Header extends Component {
   state = {};
 
   goToCart = () => {
-    this.props.history.push("/cart");
+    this.props.history.push("/shoppingcart");
   };
 
   goToSignin = () => {
